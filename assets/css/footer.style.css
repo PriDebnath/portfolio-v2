@@ -1,5 +1,14 @@
 :root {
     --fall-duration: 18s;
+    --footer-bg: black;
+    --footer-text-color: snow;
+}
+
+
+:root.light-theme {
+    --footer-bg: snow;
+    --footer-text-color: black;
+
 }
 
 footer {
@@ -7,12 +16,14 @@ footer {
     padding: 1rem 0;
     align-items: center;
     justify-content: center;
-    color: snow;
+    color: var(--footer-text-color);
     font-family: "Gabriela", serif;
     position: relative;
     z-index: 1;
     flex-direction: column;
 }
+
+
 
 .footer-container {
     display: flex;
@@ -20,7 +31,7 @@ footer {
     border: 2px solid skyblue;
     border: 1px solid var(--project-border-color);
     border-radius: 0.5rem;
-    background: black;
+    background: var(--footer-bg);
     padding: 1rem 2rem;
     width: 100%;
     position: relative;
@@ -40,7 +51,7 @@ footer {
     margin: 1rem 0;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
-    background: black;
+    background: var(--footer-bg);
     width: 100%;
     border: 1px solid var(--project-border-color);
     gap: 0.5rem;
@@ -68,8 +79,6 @@ footer .text-box {
 @media (min-width:700px) {
     footer .text-box {
         font-size: 2rem;
-
-
     }
 }
 
@@ -123,5 +132,5 @@ i {
 }
 
 .social-icon-box {
-    color: snow;
+    color: var(--footer-text-color);
 }

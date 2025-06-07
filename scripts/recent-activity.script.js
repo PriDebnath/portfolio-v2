@@ -37,6 +37,10 @@ const readings = [
     }
     ,
     {
+        name: "The Art Of Being Alone",
+        by: "Renuka Gavrani"
+    },
+    {
         name: "Can Love Happen Twice?",
         by: "Ravinder Singh"
     },

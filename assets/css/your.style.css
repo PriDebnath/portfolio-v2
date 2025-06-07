@@ -10,6 +10,14 @@
   --your-color: snow;
 }
 
+:root.light-theme {
+  --your-aura-color-1: #ffe240;
+  --your-aura-color-2: #FFD700;
+  --your-aura-color-3: #FFC300;
+  --your-aura-color-4: #FF8C00;
+}
+
+
 /* my space start */
 .your-aura {
   position: absolute;
@@ -21,7 +29,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .you-go {
@@ -58,6 +65,7 @@
   /*     
    height: var(--your-height);
 */
+  cursor: pointer;
   width: var(--your-height);
   border-radius: var(--pritam);
   aspect-ratio: 1;

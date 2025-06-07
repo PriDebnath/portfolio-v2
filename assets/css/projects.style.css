@@ -8,6 +8,13 @@
     --project-footer-animation-time: 1s;
 }
 
+:root.light-theme {
+    --project-border-color: #dcdcdc;
+    --project-text-color: #171719;
+    --project-bg-color: #f5f5f5;
+}
+
+
 
 .project-section {
     /* display: grid;

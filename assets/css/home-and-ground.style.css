@@ -16,7 +16,7 @@
 #main {
   position: relative;
   z-index: 3;
-  background: var(--body-color);
+  background: var(--main-bg-color);
 
 }
 

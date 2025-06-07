@@ -9,6 +9,11 @@
      --ex-border-style: dashed;
  }
 
+ :root.light-theme {
+     --ex-border-color: black;
+     --ex-card-color: #ffe240;
+ }
+
  .join-me-and-ex {
      height: 20dvh;
      background-image: linear-gradient(var(--your-aura-color-4), var(--ex-card-color));
@@ -17,7 +22,7 @@
  .join-ex-and-skill {
      height: 20dvh;
      backdrop-filter: blur(5px);
-     background-image: linear-gradient(var(--ex-card-color), rgba(0, 0, 0, 0.7));
+     background-image: linear-gradient(var(--ex-card-color), var(--black-with-low-alpha));
  }
 
  .ex-section {
@@ -25,7 +30,7 @@
  }
 
  .ex-card {
-     color: snow;
+     /* color: var(--ex-card-color); */
      font-size: 0.8rem;
      border-radius: var(--ex-border-radius);
      padding: var(--ex-border-padding);
@@ -138,12 +143,11 @@
 
  .company-container {
      position: relative;
-     background: black;
+     background: var(--ex-card-color);
      padding: var(--ex-border-padding);
      border:
          calc(var(--ex-border-width) * 0.7) var(--ex-border-style) var(--ex-border-color);
      border-radius: calc(var(--ex-border-padding) - var(--ex-border-radius));
-     background: black;
      z-index: 2;
      transform: scale(0.5);
  }
@@ -161,7 +165,7 @@
 
  .company-container a {
      text-decoration: none;
-     color: snow;
+     color: var(--body-text-color);
      font-size: 1rem;
  }
 

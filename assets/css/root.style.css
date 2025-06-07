@@ -9,8 +9,15 @@
   --star-height: 2vh;
   --start-z-index: 2;
   --ground-z-index: 6;
-  --body-color: #132B3D;
+  --main-bg-color: #132B3D;
+  --body-color: black;
   --body-text-color: snow;
+}
+
+:root.light-theme {
+  --body-color: #ffe240;
+  --main-bg-color: #ffe240;
+  --body-text-color: #132B3D;
 }
 
 body {

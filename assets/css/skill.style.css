@@ -8,6 +8,12 @@
     --add-skill-time: 1000;
 }
 
+:root.light-theme {
+    --skill-border-color: #dcdcdc;
+    --skill-text-color: #171719;
+    --skill-bg-color: #f5f5f5;
+}
+
 #skill-section {
     position: relative;
 

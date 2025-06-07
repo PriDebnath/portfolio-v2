@@ -1,3 +1,7 @@
+:root {
+  --black-with-low-alpha: rgba(0, 0, 0, 0.2);
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -31,7 +35,7 @@
 }
 
 .bg-black-blur {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--black-with-low-alpha);
   backdrop-filter: blur(5px);
   position: relative;
   z-index: 2;
@@ -53,6 +57,7 @@
 
 .text-primary {
   color: snow;
+  color: var(--body-text-color)
 }
 
 .text-secondary {
@@ -73,7 +78,8 @@
 
 .stroke-primary,
 .stroke-primary>* {
-  stroke: snow;
+  /* stroke: snow; */
+  color: var(--body-text-color)
 }
 
 .stroke-secondary,

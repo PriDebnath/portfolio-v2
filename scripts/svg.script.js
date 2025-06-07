@@ -351,7 +351,7 @@ export const netlifySvg =
 `
 
 export const directTopRightSvg = `
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path id="Vector" d="M1.04995 9.99C0.749948 9.99 0.499948 9.9 0.319948 9.73C0.129948 9.53 0.0399475 9.27 0.0399475 8.94C0.0399475 8.64 0.129948 8.39 0.319948 8.21L6.36995 2.16H4.41995C4.11995 2.16 3.86995 2.06 3.66995 1.86C3.36995 1.56 3.36995 1.41 3.36995 1.11C3.36995 0.820003 3.46995 0.570003 3.67995 0.370003C3.88995 0.170003 4.12995 0.0700041 4.42995 0.0700041H8.90995C9.20995 0.0700041 9.45995 0.170003 9.65995 0.370003C9.95995 0.670003 9.95995 0.820003 9.95995 1.11V5.59C9.95995 5.88 9.85995 6.13 9.65995 6.33C9.45995 6.53 9.20995 6.63 8.90995 6.63C8.61995 6.63 8.36995 6.53 8.17995 6.33C7.98995 6.13 7.88995 5.88 7.88995 5.59V3.66L1.82995 9.74C1.60303 9.90394 1.32988 9.99149 1.04995 9.99Z" 
     fill=""/>
     </svg>
@@ -359,7 +359,7 @@ export const directTopRightSvg = `
 
 export const codeSvg = `
 
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <g id="humbleicons:code">
         <g id="Group">
         <path id="Vector" d="M4.66667 5.33333L2 7.99999L4.66667 10.6667" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
