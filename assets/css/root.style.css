@@ -10,13 +10,14 @@
   --start-z-index: 2;
   --ground-z-index: 6;
   --body-color: #132B3D;
+  --body-text-color: snow;
 }
 
 body {
   margin: 0;
   padding: 0;
   background: var(--body-color);
-  color: snow;
+  color: var(--body-text-color);
   font-family: "Delius", serif;
 }
 

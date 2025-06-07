@@ -7,6 +7,7 @@
   --your-aura-color-3: #33708C;
   --your-aura-color-4: #244F71;
   --cuteness-color: #F0F2E5;
+  --your-color: snow;
 }
 
 /* my space start */
@@ -20,14 +21,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: you-come calc(var(--animation-time)*2) forwards;
-  transform: translateY(100vh);
 
 }
 
-@keyframes you-come {
+.you-go {
+  animation: you-go-animation var(--animation-time) forwards;
+}
+
+.you-come {
+  animation: you-come-animation var(--animation-time) forwards;
+}
+
+
+@keyframes you-go-animation {
+  0% {
+    transform: translate(0);
+  }
+
   100% {
-    transform: translate(0)
+    transform: translateY(100vh)
+  }
+
+}
+
+@keyframes you-come-animation {
+  0% {
+    transform: translateY(100vh)
+  }
+
+  100% {
+    transform: translate(0);
   }
 }
 
@@ -38,7 +61,7 @@
   width: var(--your-height);
   border-radius: var(--pritam);
   aspect-ratio: 1;
-  background: snow;
+  background: var(--your-color);
   overflow: hidden;
   z-index: 3;
   position: relative;

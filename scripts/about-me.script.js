@@ -24,21 +24,3 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(aboutMeSection);
 
-//////
-
-// let aboutMeSectionn = document.getElementById('footer-container-copy-right')
-
-// const observerr = new IntersectionObserver(entries => {
-//     entries.forEach(entry => {
-//         if (entry.isIntersecting) {
-//             aboutMeSectionn.
-//                 observer.unobserve(entry.target); // Stop observing once animated
-//         }
-//     });
-// }, { threshold: 0.2, rootMargin: "50px 0px" }); // Slight margin for smoother triggering
-
-
-
-
-
-// observerr.observe(aboutMeSectionn);
