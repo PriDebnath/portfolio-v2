@@ -24,12 +24,15 @@ you.addEventListener('click', () => {
 
     yourAura.classList.remove("you-come");
     yourAura.classList.add("you-go");
+    you.classList.remove("show-aura");
 
     setTimeout(() => {
         body.classList.toggle('light-theme');
         //
         yourAura.classList.add("you-come");
         yourAura.classList.remove("you-go");
+        you.classList.add("show-aura");
+
     }, parseInt(duration) * 1000);
 
 

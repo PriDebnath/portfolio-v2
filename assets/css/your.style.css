@@ -75,10 +75,13 @@
   position: relative;
   box-sizing: content-box;
   /* border: calc(var(--your-aura-height)) solid var(--body-color); */
-  animation: show-border calc(var(--animation-time)*3) var(--animation-time) forwards;
 }
 
-@keyframes show-border {
+.show-aura {
+  animation: show-aura calc(var(--animation-time)*3) var(--animation-time) forwards;
+}
+
+@keyframes show-aura {
   50% {
     border: var(--your-aura-height) solid var(--your-aura-color-1);
   }
