@@ -6,7 +6,7 @@ function createFallingStars() {
   i.style.height = `${Math.random() * 5 + 2}rem`;
   i.style.width = `0.2rem`;
   i.style.left = `${Math.random() * 150}vw`;
-  i.style.background = `linear-gradient(transparent, snow)`;
+  i.style.background = `linear-gradient(transparent, var(--fall-color))`;
   i.style.animationDuration = `${Math.random() * parseFloat(duration) + 6}s`;
   i.style.animationDelay = `${Math.random() * 10}s`;
   i.style.opacity = `${Math.random()}`;

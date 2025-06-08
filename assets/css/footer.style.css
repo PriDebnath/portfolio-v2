@@ -1,5 +1,6 @@
 :root {
     --fall-duration: 18s;
+    --fall-color: snow;
     --footer-bg: black;
     --footer-text-color: snow;
 }
@@ -8,6 +9,7 @@
 :root.light-theme {
     --footer-bg: snow;
     --footer-text-color: black;
+    --fall-color: #FF8C00;
 
 }
 
