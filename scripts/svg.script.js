@@ -682,6 +682,35 @@ export const mailSvg5 = `
 export const mailSvg6 = `
 `
 
+export const fiverrSvg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Central "F" -->
+  <path d="M9 8h4M9 8v8M9 12h3" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2" 
+        stroke-dasharray="36" 
+        stroke-dashoffset="36">
+    <animate attributeName="stroke-dashoffset" begin="0.7s" dur="0.6s" values="36;0" fill="freeze"/>
+  </path>
+
+  <!-- Rounded square border -->
+  <rect x="3" y="3" width="18" height="18" rx="5" ry="5" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-dasharray="72" 
+        stroke-dashoffset="72">
+    <animate attributeName="stroke-dashoffset" dur="0.6s" values="72;0" fill="freeze"/>
+  </rect>
+</svg>
+`;
+
+
 
 const renderSvg = (spanTags, svg) => {
   spanTags.forEach((span) => {
@@ -714,6 +743,7 @@ let spanSvgLinkedin = document.querySelectorAll('.span-svg-linkedin')
 let spanSvgGithub = document.querySelectorAll('.span-svg-github')
 let spanSvgpainterest = document.querySelectorAll('.span-svg-painterest')
 let spanSvgBadge = document.querySelectorAll('.span-svg-badge')
+let spanSvgFiverr = document.querySelectorAll('.span-svg-fiverr')
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -742,6 +772,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSvg(spanSvgLinkedin, linkedinSvg)
     renderSvg(spanSvgGithub, githubSvg)
     renderSvg(spanSvgpainterest, pinterestSvg)
+    renderSvg(spanSvgFiverr, fiverrSvg)
   }, 10)
 
 })

@@ -18,6 +18,14 @@
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
 .align-items-baseline {
   align-items: baseline;
 }
