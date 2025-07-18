@@ -1,5 +1,5 @@
 ## Live 🔴
-#### https://pridebnath.github.io/portfolio-v2/
+#### https://pridebnath.github.io/portfolio-v2#home
 
- <a href="https://pridebnath.github.io/portfolio-v2/"><img src="assets/images/portfolio-v2-mobile-demo.jpg" />
+ <a href="https://pridebnath.github.io/portfolio-v2#home"><img src="assets/images/portfolio-v2-mobile-demo.jpg" />
 </a>
