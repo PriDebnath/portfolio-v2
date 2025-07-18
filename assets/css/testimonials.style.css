@@ -1,0 +1,101 @@
+:root {
+  --t-card-border-color: #252527;
+  --slide-client-duration: 1s;
+}
+
+:root.light-theme {
+  --t-card-border-color: #dcdcdc;
+}
+
+.testimonial-card {
+
+  padding: 1rem;
+  max-width: 20rem;
+  overflow: hidden;
+}
+
+.testimonial-card-feedback {
+  border: 1px solid var(--t-card-border-color);
+  background-color: var(--t-card-border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slide-client-feedback calc(var(--slide-client-duration) * 2) calc(var(--slide-client-duration) * 2) forwards;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+
+}
+
+@keyframes slide-client-feedback {
+  100% {
+    transform: rotate(0deg);
+
+  }
+}
+
+.testimonial-card-and-client-connector-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.testimonial-card-and-client-connector {
+  height: 2rem;
+  width: 25%;
+  background-color: var(--t-card-border-color);
+  clip-path: polygon(21% 34%, 21% 16%, 15% 0, 69% 0, 68% 10%, 64% 20%, 60% 31%, 53% 43%, 42% 54%, 29% 61%, 12% 65%, 19% 49%);
+  /* clip-path: polygon(12% 56%, 13% 33%, 0 0, 100% 0, 99% 27%, 96% 48%, 89% 64%, 75% 79%, 54% 91%, 17% 97%, 0 100%, 7% 80%); */
+  animation: slide-client-feedback calc(var(--slide-client-duration) * 2) calc(var(--slide-client-duration) * 1) forwards;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+}
+
+
+
+.testimonial-card-client {
+  display: flex;
+  animation: slide-client-img-box var(--slide-client-duration) var(--slide-client-duration) forwards;
+  transform: translateX(-5vw)
+}
+
+@keyframes slide-client-img-box {
+  100% {
+    transform: translate(0)
+  }
+}
+
+
+.testimonial-card-client-img-box {
+  width: calc(var(--your-height) * 0.8);
+  height: calc(var(--your-height) * 0.8);
+  border-radius: var(--pritam);
+  background: var(--your-color);
+  background-color: var(--t-card-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  position: relative;
+  box-sizing: content-box;
+  border: 2px solid white;
+
+}
+
+.client-from {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 2px solid white;
+  border-radius: 2rem;
+  display: flex;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.testimonial-card-client-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+}
