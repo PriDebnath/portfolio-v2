@@ -66,7 +66,7 @@
     background: var(--cloud-color-2);
     border: 1px solid var(--cloud-color-1);
     right: 4%;
-    bottom: -10%;
+    bottom: -11%;
     z-index: 50;
     transform: rotate(133deg);
     backdrop-filter: blur(90px);
