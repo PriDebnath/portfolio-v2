@@ -82,6 +82,7 @@ img {
     width: 95%;
     max-width: 540px;
     aspect-ratio: 1.25/1;
+  padding: 30px;
 
   }
 }

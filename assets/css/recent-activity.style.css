@@ -99,8 +99,10 @@
  @media (max-width: 580px) {
   .drawing-container {
     grid-template-columns: 1fr;
+    scroll-snap-type: y mandatory;
   }
 }
+
 .writing-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -109,6 +111,14 @@
 
 .drawing-box {
     padding-bottom: 0.5rem;
+          scroll-snap-align: center;
+}
+
+ @media (max-width: 580px) {
+ .drawing-box {
+    padding:0 2rem 2rem 2rem;
+
+ }
 }
 
 .drawing-img {
