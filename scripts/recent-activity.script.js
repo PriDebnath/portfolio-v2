@@ -156,7 +156,8 @@ function closeModal() {
         card.classList.remove("rc-card-active")
     }
     // Clear URL parameter when closing
-    window.location.hash = '';
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+
 }
 closeBtn.addEventListener('click', closeModal)
 
@@ -277,5 +278,5 @@ cardWrote.addEventListener("click", (e) => {
 })
 
 cardRead.addEventListener("click", (e) => {
-    openModal( types.read, rcCardReadId)
+    openModal(types.read, rcCardReadId)
 })
