@@ -68,14 +68,50 @@ img {
   border-radius: 10px;
   border: 1px solid var(--project-border-color);
   border-radius: 0.5rem;
-  width: 90%;
-  max-width: 400px;
-  aspect-ratio: 1.5/1;
+  width: 95%;
+  aspect-ratio: 1/1;
   text-align: center;
   transform: scale(0.8);
   transition: transform 0.3s;
   position: relative;
 }
+
+
+ @media (min-width: 580px) {
+  .modal {
+    width: 95%;
+    max-width: 540px;
+    aspect-ratio: 1.25/1;
+
+  }
+}
+
+@media (min-width: 800px) {
+  .modal {
+    width: 80%;
+    max-width: 720px;
+    aspect-ratio: 1.5/1;
+
+  }
+}
+ 
+@media (min-width: 992px) {
+  .modal {
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 2/1;
+  }
+}
+
+@media (min-width: 1192px) {
+  .modal {
+    width: 90%;
+    max-width: 1100px;
+  aspect-ratio: 2.5/1;
+  }
+}
+
+
 
 .modal h2 {
   padding: 0 !important;

@@ -91,10 +91,16 @@
 
 .drawing-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
 }
 
+
+ @media (max-width: 580px) {
+  .drawing-container {
+    grid-template-columns: 1fr;
+  }
+}
 .writing-container {
     display: grid;
     grid-template-columns: 1fr;
