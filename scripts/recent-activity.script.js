@@ -1,11 +1,31 @@
 //
 let contentBox = document.getElementById('rc-content-box')
 let closeBtn = document.getElementById('close-btn')
+const types = {
+    drew: 'drew',
+    wrote: 'wrote',
+    read: 'read',
+};
+
+// Check URL parameters on page load
+window.addEventListener('load', () => {
+    const url = window.location.hash.slice(1)
+    const urlParams = new URLSearchParams(url)
+
+    const section = urlParams.get('section');
+
+    if (types[section]) {
+        document.getElementById('rc-card-' + section).scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => openModal(section, rcCardDrewId), 1000);
+    }
+});
+
 // wrote
 let fetchedBlog = false
 const rcCardWroteId = "rc-card-wrote"
 const cardWrote = document.getElementById(rcCardWroteId)
 let MEDIUM_BLOG_API = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@pritam-debnath'
+
 // drew
 const rcCardDrewId = "rc-card-drew"
 const cardDrew = document.getElementById(rcCardDrewId)
@@ -14,7 +34,6 @@ const drawings = [
     'assets/images/drawings/talking-to-the-dummy.png',
     'assets/images/drawings/getting-a-call-from-the-dummy.png',
     'assets/images/drawings/her-birthday-gift.png',
-    
     'assets/images/drawings/one-holds-the-flower.png',
     'assets/images/drawings/one-holds-the-feeling.png',
     'assets/images/drawings/bird.jpg',
@@ -106,21 +125,24 @@ const readings = [
 function openModal(type, cardId) {
     const prefix = "Pieces I recently "
 
+    // Update URL when opening drawings
+    window.location.hash = `section=${type}`;
+
     document.getElementById("modalTitle").innerText = prefix + type;
     document.getElementById("modalOverlay").classList.add("show");
     document.getElementById("modal").classList.add("show");
 
     let card = document.getElementById(cardId)
     card.classList.add("rc-card-active")
-    if (type == 'wrote') {
+    if (types.wrote == type) {
         // if (fetchedBlog == false) {
         fetchBlog()
         // } else {
         //     console.log("Already fetched blogs")
         // }
-    } else if (type == 'drew') {
+    } else if (types.drew == type) {
         displayDrawings()
-    } else if (type == 'read') {
+    } else if (types.read == type) {
         displayReadings()
     }
 
@@ -133,6 +155,8 @@ function closeModal() {
     for (const card of cards) {
         card.classList.remove("rc-card-active")
     }
+    // Clear URL parameter when closing
+    window.location.hash = '';
 }
 closeBtn.addEventListener('click', closeModal)
 
@@ -245,13 +269,13 @@ function displayDrawings() {
 
 // event listener
 cardDrew.addEventListener("click", (e) => {
-    openModal("drew", rcCardDrewId)
+    openModal(types.drew, rcCardDrewId)
 })
 
 cardWrote.addEventListener("click", (e) => {
-    openModal("wrote", rcCardWroteId)
+    openModal(types.wrote, rcCardWroteId)
 })
 
 cardRead.addEventListener("click", (e) => {
-    openModal("read", rcCardReadId)
+    openModal( types.read, rcCardReadId)
 })
