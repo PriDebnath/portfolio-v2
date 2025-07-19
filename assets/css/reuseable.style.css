@@ -111,6 +111,9 @@
 .py-10 { padding-top: calc(var(--space-base) * 10); padding-bottom: calc(var(--space-base) * 10); }
 
 
+.overflow-auto {
+  overflow: auto !important;
+}
 
 .overflow-hidden {
   overflow: hidden;
