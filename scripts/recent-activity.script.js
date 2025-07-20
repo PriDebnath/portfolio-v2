@@ -31,8 +31,8 @@ const rcCardDrewId = "rc-card-drew"
 const cardDrew = document.getElementById(rcCardDrewId)
 const drawings = [
     'assets/images/drawings/waiting-for-the-dummy.png',
-    'assets/images/drawings/talking-to-the-dummy.png',
     'assets/images/drawings/getting-a-call-from-the-dummy.png',
+    'assets/images/drawings/talking-to-the-dummy.png',
     'assets/images/drawings/her-birthday-gift.png',
     'assets/images/drawings/one-holds-the-flower.png',
     'assets/images/drawings/one-holds-the-feeling.png',

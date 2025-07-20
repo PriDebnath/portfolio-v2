@@ -96,11 +96,11 @@
 }
 
 
- @media (max-width: 580px) {
-  .drawing-container {
-    grid-template-columns: 1fr;
-    scroll-snap-type: y mandatory;
-  }
+@media (max-width: 580px) {
+    .drawing-container {
+        grid-template-columns: 1fr;
+        scroll-snap-type: y mandatory;
+    }
 }
 
 .writing-container {
@@ -111,23 +111,20 @@
 
 .drawing-box {
     padding-bottom: 0.5rem;
-          scroll-snap-align: center;
+    scroll-snap-align: center;
 }
 
- @media (max-width: 580px) {
- .drawing-box {
-    padding:0 2rem 2rem 2rem;
+@media (max-width: 580px) {
+    .drawing-box {
+        padding: 1rem 2rem 2rem 2rem;
 
- }
+    }
 }
 
 .drawing-img {
     width: 100%;
-    /* Adjust as needed */
     height: auto;
-    /* Maintains aspect ratio */
     object-fit: cover;
-    /* Options: contain, cover, fill, none */
     border-radius: 0.5rem;
 
 }

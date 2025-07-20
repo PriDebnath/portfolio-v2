@@ -122,3 +122,8 @@
     align-items: center;
     gap: 0.3rem;
 }
+
+.certification-link:hover {
+    border: 1px solid var(--body-text-color);
+
+}

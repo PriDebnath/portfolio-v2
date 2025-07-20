@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
   transition: all 0.2s;
+  scrollbar-width: thin;
+  scrollbar-color: var(--body-text-color) var(--main-bg-color);
 }
 
 
@@ -43,7 +45,7 @@ img {
 
 }
 
-
+/* modal start */
 
 .modal-overlay {
   position: fixed;
@@ -69,7 +71,7 @@ img {
   border: 1px solid var(--project-border-color);
   border-radius: 0.5rem;
   width: 95%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/1.25;
   text-align: center;
   transform: scale(0.8);
   transition: transform 0.3s;
@@ -77,12 +79,12 @@ img {
 }
 
 
- @media (min-width: 580px) {
+@media (min-width: 500px) {
   .modal {
     width: 95%;
     max-width: 540px;
-    aspect-ratio: 1.25/1;
-  padding: 30px;
+    aspect-ratio: 1/1;
+    padding: 30px;
 
   }
 }
@@ -95,7 +97,7 @@ img {
 
   }
 }
- 
+
 @media (min-width: 992px) {
   .modal {
     width: 80%;
@@ -108,7 +110,7 @@ img {
   .modal {
     width: 90%;
     max-width: 1100px;
-  aspect-ratio: 2.5/1;
+    aspect-ratio: 2.5/1;
   }
 }
 
@@ -127,6 +129,33 @@ img {
 .modal.show {
   transform: scale(1);
 }
+
+/* modal end */
+/* scrollbar start */
+/* WebKit-based Browsers */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--body-text-color);
+  border-radius: 6px;
+  border: 2px solid var(--main-bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--pritam);
+  /* Unusual color, fallback to text if desired */
+  background-color: var(--body-text-color);
+  /* safer */
+}
+
+/* scrollbar end */
 
 .close-btn {
   padding: 0.2rem 0.4rem;
