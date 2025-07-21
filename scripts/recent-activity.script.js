@@ -193,8 +193,20 @@ function fetchBlog() {
                 itemTitle
                 , 100);
             contentBox.appendChild(contentElement)
-        })
+        });
 
+        // Add see more link
+        const seeMore = document.createElement('a');
+        seeMore.href = 'https://medium.com/@pritam-debnath';
+        seeMore.target = '_blank';
+        seeMore.style.textAlign = 'center';
+        seeMore.style.marginTop = 'auto';
+        seeMore.style.padding = '1rem';
+        seeMore.style.color = 'var(--body-text-color)';
+        seeMore.textContent = 'See more articles...';
+        contentBox.appendChild(seeMore);
+
+        contentBox.appendChild(container);
     }).catch((err) => {
         console.log({ err })
     })
@@ -255,7 +267,7 @@ function displayDrawings() {
         const fileNameWithEx = fileNameChunk.pop()
         const indexOfDot = fileNameWithEx.indexOf(".")
         const fileNameWithHypen = fileNameWithEx.substring(0, indexOfDot)
-        const fileName = fileNameWithHypen.replaceAll("-", " ").replaceAll("framed","")
+        const fileName = fileNameWithHypen.replaceAll("-", " ").replaceAll("framed", "")
 
         fadeTypingAnimation(drawingP,
             fileName
