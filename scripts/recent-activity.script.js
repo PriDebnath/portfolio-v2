@@ -36,6 +36,9 @@ const drawings = [
     'assets/images/drawings/her-birthday-gift.png',
     'assets/images/drawings/one-holds-the-flower.png',
     'assets/images/drawings/one-holds-the-feeling.png',
+    'assets/images/drawings/Before-Dance-framed.png',
+    'assets/images/drawings/Before-Dawn-framed.png',
+    'assets/images/drawings/Before-Ritual-framed.png',
     'assets/images/drawings/bird.jpg',
     'assets/images/drawings/bunny.jpg',
     'assets/images/drawings/owl-duo.png',
@@ -252,7 +255,7 @@ function displayDrawings() {
         const fileNameWithEx = fileNameChunk.pop()
         const indexOfDot = fileNameWithEx.indexOf(".")
         const fileNameWithHypen = fileNameWithEx.substring(0, indexOfDot)
-        const fileName = fileNameWithHypen.replaceAll("-", " ")
+        const fileName = fileNameWithHypen.replaceAll("-", " ").replaceAll("framed","")
 
         fadeTypingAnimation(drawingP,
             fileName
