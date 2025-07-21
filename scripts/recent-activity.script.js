@@ -255,6 +255,60 @@ function displayReadings() {
 
 }
 
+// Fullscreen viewer function
+function createFullscreenViewer(imageUrl) {
+    const viewer = document.createElement('div');
+    viewer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        cursor: pointer;
+    `;
+
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    `;
+
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '×';
+    // closeBtn.classList.add('close-btn');
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 10001;
+    `;
+
+    closeBtn.addEventListener('click', () => {
+        document.body.removeChild(viewer);
+    });
+
+    viewer.addEventListener('click', (e) => {
+            document.body.removeChild(viewer);
+    });
+
+    viewer.appendChild(img);
+    viewer.appendChild(closeBtn);
+    document.body.appendChild(viewer);
+}
+
 function displayDrawings() {
     contentBox.innerHTML = ''
     contentBox.className = 'drawing-container'
@@ -267,6 +321,8 @@ function displayDrawings() {
         drawingImg.loading = "lazy"
         drawingImg.src = drawing
         drawingImg.classList.add('drawing-img')
+        drawingImg.style.cursor = 'pointer'
+        drawingImg.addEventListener('click', () => createFullscreenViewer(drawing))
         drawingBox.appendChild(drawingImg)
         //
         let drawingP = document.createElement('p')
