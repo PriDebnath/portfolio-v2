@@ -207,7 +207,7 @@ function fetchBlog() {
         seeMore.style.marginTop = 'auto';
         seeMore.style.padding = '1rem';
         seeMore.style.color = 'var(--body-text-color)';
-        seeMore.textContent = 'See more articles...';
+        seeMore.textContent = 'See more...';
         contentBox.appendChild(seeMore);
     })
 }
@@ -275,6 +275,19 @@ function displayDrawings() {
         contentBox.appendChild(drawingBox)
 
     })
+
+
+
+        // Add see more link
+        const seeMore = document.createElement('a');
+        seeMore.href = 'https://in.pinterest.com/PriDebnath/';
+        seeMore.target = '_blank';
+        seeMore.style.textAlign = 'center';
+        seeMore.style.marginTop = 'auto';
+        seeMore.style.padding = '1rem';
+        seeMore.style.color = 'var(--body-text-color)';
+        seeMore.textContent = 'See more...';
+        contentBox.appendChild(seeMore);
 
 }
 
