@@ -195,6 +195,10 @@ function fetchBlog() {
             contentBox.appendChild(contentElement)
         });
 
+    }).catch((err) => {
+        console.log({ err })
+    }).finally(()=>{
+
         // Add see more link
         const seeMore = document.createElement('a');
         seeMore.href = 'https://medium.com/@pritam-debnath';
@@ -205,10 +209,6 @@ function fetchBlog() {
         seeMore.style.color = 'var(--body-text-color)';
         seeMore.textContent = 'See more articles...';
         contentBox.appendChild(seeMore);
-
-        contentBox.appendChild(container);
-    }).catch((err) => {
-        console.log({ err })
     })
 }
 
@@ -249,8 +249,6 @@ function displayDrawings() {
     contentBox.innerHTML = ''
     contentBox.className = 'drawing-container'
     drawings.forEach((drawing, index) => {
-        // let drawingContainer = document.createElement('div')
-        // drawingContainer.classList.add('drawing-container')
         //
         let drawingBox = document.createElement('div')
         drawingBox.classList.add('drawing-box')
@@ -273,8 +271,6 @@ function displayDrawings() {
             fileName
             , 100);
         drawingBox.appendChild(drawingP)
-        //
-        // drawingContainer.appendChild(drawingBox)
         //
         contentBox.appendChild(drawingBox)
 
