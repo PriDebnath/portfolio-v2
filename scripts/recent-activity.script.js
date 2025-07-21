@@ -33,6 +33,9 @@ const drawings = [
     'assets/images/drawings/waiting-for-the-dummy.png',
     'assets/images/drawings/getting-a-call-from-the-dummy.png',
     'assets/images/drawings/talking-to-the-dummy.png',
+    'assets/images/drawings/chilled-nimi.png',
+    'assets/images/drawings/shy-nimi.png',
+    'assets/images/drawings/neutral-nimi.png',
     'assets/images/drawings/Before-Dance-framed.png',
     'assets/images/drawings/Before-Dawn-framed.png',
     'assets/images/drawings/Before-Ritual-framed.png',
@@ -42,13 +45,14 @@ const drawings = [
     'assets/images/drawings/in-winter.png',
     'assets/images/drawings/in-monsoon.png',
     'assets/images/drawings/in-summer.png',
-        'assets/images/drawings/her-birthday-gift.png',
+    'assets/images/drawings/her-birthday-gift.png',
     'assets/images/drawings/one-holds-the-flower.png',
     'assets/images/drawings/one-holds-the-feeling.png',
     'assets/images/drawings/bird.jpg',
     'assets/images/drawings/bunny.jpg',
+    'assets/images/drawings/!angry-bird.jpg',
     'assets/images/drawings/owl-duo.png',
-    'assets/images/drawings/moody-girl.png',
+    // 'assets/images/drawings/moody-girl.png',
 
 ]
 // read
@@ -203,7 +207,7 @@ function fetchBlog() {
 
     }).catch((err) => {
         console.log({ err })
-    }).finally(()=>{
+    }).finally(() => {
 
         // Add see more link
         const seeMore = document.createElement('a');
@@ -284,16 +288,16 @@ function displayDrawings() {
 
 
 
-        // Add see more link
-        const seeMore = document.createElement('a');
-        seeMore.href = 'https://in.pinterest.com/PriDebnath/';
-        seeMore.target = '_blank';
-        seeMore.style.textAlign = 'center';
-        seeMore.style.marginTop = 'auto';
-        seeMore.style.padding = '1rem';
-        seeMore.style.color = 'var(--body-text-color)';
-        seeMore.textContent = 'See more...';
-        contentBox.appendChild(seeMore);
+    // Add see more link
+    const seeMore = document.createElement('a');
+    seeMore.href = 'https://in.pinterest.com/PriDebnath/';
+    seeMore.target = '_blank';
+    seeMore.style.textAlign = 'center';
+    seeMore.style.marginTop = 'auto';
+    seeMore.style.padding = '1rem';
+    seeMore.style.color = 'var(--body-text-color)';
+    seeMore.textContent = 'See more...';
+    contentBox.appendChild(seeMore);
 
 }
 
