@@ -81,11 +81,14 @@ const increment = 0.15;
 const card = document.getElementById('footer-container');
 // Click increases border
 card.addEventListener('click', () => {
-  progress = Math.min(1, progress + increment);
-  updateBorder();
-  if (progress === 1) {
+  let theshold = 1
+  progress = Math.min(theshold, progress + increment);
+
+  if (progress >= theshold) {
     startConfetti();
   }
+  updateBorder();
+
 });
 // Auto decrease every second
 setInterval(() => {
@@ -101,3 +104,82 @@ function updateBorder() {
 }
 
 // dynamic footer border end
+
+const canvas = document.getElementById("confettiCanvas");
+const ctx = canvas.getContext("2d");
+let confetti = [];
+let W = window.innerWidth;
+let H = window.innerHeight;
+canvas.width = W;
+canvas.height = H;
+
+// Confetti piece class
+class Confetto {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 8 + 4;
+    this.color = randomColor();
+    this.rotation = Math.random() * 360;
+    this.rotationSpeed = (Math.random() - 0.5) * 10;
+    this.speedX = (Math.random() - 0.5) * 3; // less horizontal spread
+    this.speedY = Math.random() * -10    // slower upward burst
+
+    this.opacity = 1;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.rotation += this.rotationSpeed;
+    this.opacity -= 0.005; // slow fade
+    this.speedY += 0.10; // gravity pulls them back down
+
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.opacity;
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.rotation * Math.PI / 180);
+    ctx.fillStyle = this.color;
+    ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+    ctx.restore();
+  }
+}
+
+// Random color helper
+function randomColor() {
+  const colors = ['#FF4B5C', '#FFCC29', '#4CD3C2', '#1E90FF', '#FF8C00', '#8A2BE2'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+
+function startConfetti() {
+  for (let i = 0; i < 150; i++) {
+    const burstX = Math.random() * W; // anywhere horizontally
+    const burstY = H + 10; // just below the screen
+    confetti.push(new Confetto(burstX, burstY));
+  }
+  animateConfetti();
+}
+
+// Animation loop
+function animateConfetti() {
+  ctx.clearRect(0, 0, W, H);
+  confetti.forEach((c, i) => {
+    c.update();
+    c.draw();
+    if (c.opacity <= 0) confetti.splice(i, 1);
+  });
+  if (confetti.length > 0) {
+    requestAnimationFrame(animateConfetti);
+  }
+}
+
+// Optional: resize canvas if window changes
+window.addEventListener("resize", () => {
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = W;
+  canvas.height = H;
+});
+
