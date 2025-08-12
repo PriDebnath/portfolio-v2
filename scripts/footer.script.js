@@ -64,3 +64,35 @@ for (let p = 1; p < 100; p++) {
 // document.addEventListener("touchmove", dragMove);
 // document.addEventListener("mouseup", stopDrag);
 // document.addEventListener("touchend", stopDrag);
+
+    const paths = document.querySelectorAll('footer-border-path');
+    // Store lengths for each path
+    const pathData = Array.from(paths).map(path => {
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      return { path, length };
+    });
+    let progress = 0; // 0 to 1
+    const increment = 0.15;
+    const card = document.getElementById('footer-container');
+    // Click increases border
+    card.addEventListener('click', () => {
+      progress = Math.min(1, progress + increment);
+      updateBorder();
+      if (progress === 1) {
+        startConfetti();
+      }
+    });
+    // Auto decrease every second
+    setInterval(() => {
+      if (progress > 0) {
+        progress = Math.max(0, progress - 0.05); // decrease slowly
+        updateBorder();
+      }
+    }, 500);
+    function updateBorder() {
+      pathData.forEach(({ path, length }) => {
+        path.style.strokeDashoffset = length * (1 - progress);
+      });
+    }

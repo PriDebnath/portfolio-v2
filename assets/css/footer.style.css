@@ -135,3 +135,18 @@ i {
 .social-icon-box {
     color: var(--footer-text-color);
 }
+
+
+    .border-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .footer-border-path {
+      fill: none;
+      stroke: var(--footer-text-color);
+      stroke-width: 4;
+      transition: stroke-dashoffset 0.5s linear;
+    }
