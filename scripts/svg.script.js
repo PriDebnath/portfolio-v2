@@ -379,6 +379,44 @@ export const instagramSvg = `
 `
 
 export const leetcodeSvg = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded square border -->
+  <rect x="3" y="3" width="18" height="18" rx="4" ry="4"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="72" stroke-dashoffset="72">
+    <animate attributeName="stroke-dashoffset"
+             dur="0.6s" values="72;0" fill="freeze"/>
+  </rect>
+
+  <!-- LeetCode icon group -->
+  <g fill="none" stroke="currentColor" stroke-width="1.5"
+     stroke-linecap="round" stroke-linejoin="round"
+     transform="translate(4 4)">
+    
+    <!-- Middle horizontal line -->
+    <path d="M7.99999 8.66666H13"
+          stroke-dasharray="5" stroke-dashoffset="5">
+      <animate attributeName="stroke-dashoffset"
+               begin="0.65s" dur="0.3s" values="5;0" fill="freeze"/>
+    </path>
+
+    <!-- Top diagonal -->
+    <path d="M6.28265 4.84533L9.61532 1.51266"
+          stroke-dasharray="5" stroke-dashoffset="5">
+      <animate attributeName="stroke-dashoffset"
+               begin="0.95s" dur="0.3s" values="5;0" fill="freeze"/>
+    </path>
+
+    <!-- Main curved shape -->
+    <path d="M11.0887 11.096L9.48732 12.706C9.28969 12.9047 9.05472 13.0625 8.79592 13.1701C8.53712 13.2777 8.2596 13.3331 7.97932 13.3331C7.69904 13.3331 7.42152 13.2777 7.16272 13.1701C6.90392 13.0625 6.66895 12.9047 6.47132 12.706L3.95799 10.1813C3.55788 9.77876 3.33331 9.23424 3.33331 8.66666C3.33331 8.09909 3.55788 7.55457 3.95799 7.152L6.47132 4.62733C6.66895 4.42859 6.90392 4.27087 7.16272 4.16324C7.42152 4.05562 7.69904 4.00021 7.97932 4.00021C8.2596 4.00021 8.53712 4.05562 8.79592 4.16324C9.05472 4.27087 9.28969 4.42859 9.48732 4.62733L11.022 6.16933"
+          stroke-dasharray="36" stroke-dashoffset="36">
+      <animate attributeName="stroke-dashoffset"
+               begin="1.25s" dur="0.8s" values="36;0" fill="freeze"/>
+    </path>
+  </g>
+</svg>
 
  
 `
