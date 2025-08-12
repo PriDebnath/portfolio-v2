@@ -25,74 +25,79 @@ for (let p = 1; p < 100; p++) {
   }, 100)
 }
 
-//
 
-// // Improved heart Dragging
-// const heart = document.getElementById("heart");
+// dynamic footer border start
 
-// let isDragging = false;
-// let offsetX = 0;
-// let startX = 0;
+function updatePaths() {
+  const card = document.getElementById('footer-container');
+  const svg = document.querySelector('.border-svg');
+  const styles = getComputedStyle(card);
 
-// const startDrag = (event) => {
-//   isDragging = true;
-//   startX = event.clientX || event.touches[0].clientX;
-//   offsetX = startX - heart.offsetLeft;
-// };
+  // Get dimensions and radius
+  const width = card.clientWidth;
+  const height = card.clientHeight;
+  const r = parseFloat(styles.borderRadius);
 
-// const dragMove = (event) => {
-//   if (!isDragging) return;
+  // Set viewBox dynamically
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
 
-//   let clientX = event.clientX || event.touches[0].clientX;
-//   let newX = clientX - offsetX;
+  // Right path
+  const rightPath = `
+    M${width / 2},${height}
+    L${width - r},${height} Q${width},${height} ${width},${height - r}
+    L${width},${r} Q${width},0 ${width - r},0
+    L${width / 2},0
+  `;
 
-//   // Keep the heart within screen bounds
-//   newX = Math.max(0, Math.min(window.innerWidth - heart.offsetWidth, newX));
-//   heart.style.left = `${newX}px`;
-// };
+  // Left path
+  const leftPath = `
+    M${width / 2},${height}
+    L${r},${height} Q0,${height} 0,${height - r}
+    L0,${r} Q0,0 ${r},0
+    L${width / 2},0
+  `;
 
-// const stopDrag = () => {
-//   isDragging = false;
-// };
+  // Apply paths
+  document.querySelector('.footer-border-path.right').setAttribute('d', rightPath);
+  document.querySelector('.footer-border-path.left').setAttribute('d', leftPath);
+}
 
+// Run on load and resize
+updatePaths();
 
-// //
+window.addEventListener('resize', updatePaths);
 
-// heart.addEventListener("mousedown", startDrag);
-// heart.addEventListener("touchstart", startDrag);
-// document.addEventListener("mousemove", dragMove);
-// document.addEventListener("touchmove", dragMove);
-// document.addEventListener("mouseup", stopDrag);
-// document.addEventListener("touchend", stopDrag);
+const paths = document.querySelectorAll('.footer-border-path');
 
-    const paths = document.querySelectorAll('footer-border-path');
-    // Store lengths for each path
-    const pathData = Array.from(paths).map(path => {
-      const length = path.getTotalLength();
-      path.style.strokeDasharray = length;
-      path.style.strokeDashoffset = length;
-      return { path, length };
-    });
-    let progress = 0; // 0 to 1
-    const increment = 0.15;
-    const card = document.getElementById('footer-container');
-    // Click increases border
-    card.addEventListener('click', () => {
-      progress = Math.min(1, progress + increment);
-      updateBorder();
-      if (progress === 1) {
-        startConfetti();
-      }
-    });
-    // Auto decrease every second
-    setInterval(() => {
-      if (progress > 0) {
-        progress = Math.max(0, progress - 0.05); // decrease slowly
-        updateBorder();
-      }
-    }, 500);
-    function updateBorder() {
-      pathData.forEach(({ path, length }) => {
-        path.style.strokeDashoffset = length * (1 - progress);
-      });
-    }
+// Store lengths for each path
+const pathData = Array.from(paths).map(path => {
+  const length = path.getTotalLength();
+  path.style.strokeDasharray = length;
+  path.style.strokeDashoffset = length;
+  return { path, length };
+});
+let progress = 0; // 0 to 1
+const increment = 0.15;
+const card = document.getElementById('footer-container');
+// Click increases border
+card.addEventListener('click', () => {
+  progress = Math.min(1, progress + increment);
+  updateBorder();
+  if (progress === 1) {
+    startConfetti();
+  }
+});
+// Auto decrease every second
+setInterval(() => {
+  if (progress > 0) {
+    progress = Math.max(0, progress - 0.05); // decrease slowly
+    updateBorder();
+  }
+}, 500);
+function updateBorder() {
+  pathData.forEach(({ path, length }) => {
+    path.style.strokeDashoffset = length * (1 - progress);
+  });
+}
+
+// dynamic footer border end
