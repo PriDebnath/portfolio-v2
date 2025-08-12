@@ -2,7 +2,7 @@
   box-sizing: border-box;
   transition: all 0.2s;
   scrollbar-width: thin;
-  scrollbar-color: var(--body-text-color) var(--main-bg-color);
+  scrollbar-color: var(--body-text-color) rgba(0,0,0,0.1);
 }
 
 
@@ -133,27 +133,25 @@ img {
 /* modal end */
 /* scrollbar start */
 /* WebKit-based Browsers */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
-}
+} */
 
-::-webkit-scrollbar-track {
-  background: var(--main-bg-color);
-}
-
+/* ::-webkit-scrollbar-track {
+  background: var(--body-color);
+} */
+/* 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--body-text-color);
+  background-color: var(--body-color);
   border-radius: 6px;
   border: 2px solid var(--main-bg-color);
-}
+} */
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background-color: var(--pritam);
-  /* Unusual color, fallback to text if desired */
   background-color: var(--body-text-color);
-  /* safer */
-}
+} */
 
 /* scrollbar end */
 
