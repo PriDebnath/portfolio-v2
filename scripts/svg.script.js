@@ -378,6 +378,11 @@ export const instagramSvg = `
 
 `
 
+export const leetcodeSvg = `
+
+ 
+`
+
 
 export const linkedinSvg = `
 
@@ -788,6 +793,7 @@ let spanSvgNetlify = document.querySelectorAll('.span-svg-netlify')
 let spanSvgDirectTopRight = document.querySelectorAll('.span-svg-direct-top-right')
 let spanSvgCode = document.querySelectorAll('.span-svg-code')
 let spanSvgInstagram = document.querySelectorAll('.span-svg-instagram')
+let spanSvgLeetcode = document.querySelectorAll('.span-svg-leetcode')
 let spanSvgMail = document.querySelectorAll('.span-svg-mail')
 let spanSvgMedium = document.querySelectorAll('.span-svg-medium')
 let spanSvgLinkedin = document.querySelectorAll('.span-svg-linkedin')
@@ -820,6 +826,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSvg(spanSvgDirectTopRight, directTopRightSvg)
     renderSvg(spanSvgCode, codeSvg)
     renderSvg(spanSvgInstagram, instagramSvg)
+    renderSvg(spanSvgLeetcode, leetcodeSvg)
     renderSvg(spanSvgBadge, badgeSvg)
     renderSvg(spanSvgMail, mailSvg)
     renderSvg(spanSvgMedium, mediumSvg)
