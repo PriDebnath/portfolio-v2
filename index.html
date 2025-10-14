@@ -871,45 +871,14 @@ Modals
 
   <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./scripts/service-worker.script.js')
+  navigator.serviceWorker.register('./service-worker.script.js')
     .then(() => console.log('Service Worker registered for offline use'))
     .catch(err => console.log('Service Worker registration failed', err));
 }
 </script>
 
 </body>
-
-<!--  
-
-   <div class="cloud">
-     <div class="top-cloud"></div>
-     <div class="mid-cloud">
-       <div class="mid-cloud-content">
-        
-         <div>
-           <svg class="svg" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-             <path fill-rule="evenodd" clip-rule="evenodd" d="M140 140H0V139.501C30.9817 135.351 55 105.817 55 70C55 34.1828 30.9817 4.64861 0 0.498825V0H140V140Z" />
-           </svg>
-         </div>
-
-         <div class="svg-box"></div>
-
-         <div>
-           <svg class="svg" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 140H140L140 139.501C109.018 135.351 85 105.817 85 70C85 34.1828 109.018 4.64861 140 0.49882L140 0H0V140Z" />
-           </svg>
-         </div>
-
-       </div>
-     </div>
-
-
-     <div class="bottom-cloud">
-       <div class="bottom-cloud-child"></div>
-     </div>
-   </div>
-   
--->
+ 
 
 <script src="./scripts/reuseable.script.js"></script>
 
