@@ -2,54 +2,54 @@
 
 const CACHE_NAME = 'portfolio-cache-v1';
 
-// List all files you want to precache for offline use
+// List all files you want to precache for offline use (relative paths)
 const FILES_TO_CACHE = [
-  '/', // main page
-  '/index.html',
+  './', // main page
+  './index.html',
 
   // CSS files
-  '/assets/css/cursor.style.css',
-  '/assets/css/root.style.css',
-  '/assets/css/reuseable.style.css',
-  '/assets/css/cloud.style.css',
-  '/assets/css/your.style.css',
-  '/assets/css/star.style.css',
-  '/assets/css/home-and-ground.style.css',
-  '/assets/css/my.style.css',
-  '/assets/css/tree.style.css',
-  '/assets/css/ex.style.css',
-  '/assets/css/skill.style.css',
-  '/assets/css/projects.style.css',
-  '/assets/css/about-me.style.css',
-  '/assets/css/recent-activity.style.css',
-  '/assets/css/testimonials.style.css',
-  '/assets/css/footer.style.css',
+  './assets/css/cursor.style.css',
+  './assets/css/root.style.css',
+  './assets/css/reuseable.style.css',
+  './assets/css/cloud.style.css',
+  './assets/css/your.style.css',
+  './assets/css/star.style.css',
+  './assets/css/home-and-ground.style.css',
+  './assets/css/my.style.css',
+  './assets/css/tree.style.css',
+  './assets/css/ex.style.css',
+  './assets/css/skill.style.css',
+  './assets/css/projects.style.css',
+  './assets/css/about-me.style.css',
+  './assets/css/recent-activity.style.css',
+  './assets/css/testimonials.style.css',
+  './assets/css/footer.style.css',
 
   // JS files
-  '/scripts/reuseable.script.js',
-  '/scripts/fonts.script.js',
-  '/scripts/cursor.script.js',
-  '/scripts/my.script.js',
-  '/scripts/cloud.script.js',
-  '/scripts/star.script.js',
-  '/scripts/tree.script.js',
-  '/scripts/skill.script.js',
-  '/scripts/ex.script.js',
-  '/scripts/projects.script.js',
-  '/scripts/footer.script.js',
-  '/scripts/about-me.script.js',
-  '/scripts/your.script.js',
-  '/scripts/recent-activity.script.js',
-  '/scripts/svg.script.js',
+  './scripts/reuseable.script.js',
+  './scripts/fonts.script.js',
+  './scripts/cursor.script.js',
+  './scripts/my.script.js',
+  './scripts/cloud.script.js',
+  './scripts/star.script.js',
+  './scripts/tree.script.js',
+  './scripts/skill.script.js',
+  './scripts/ex.script.js',
+  './scripts/projects.script.js',
+  './scripts/footer.script.js',
+  './scripts/about-me.script.js',
+  './scripts/your.script.js',
+  './scripts/recent-activity.script.js',
+  './scripts/svg.script.js',
 
   // Images
-  '/assets/images/pritam-6.png',
-  '/assets/images/pri.jpg',
-  '/assets/images/company-go-plus-logo.jpeg',
-  '/assets/images/testimonial/sagar-n.webp',
+  './assets/images/pritam-6.png',
+  './assets/images/pri.jpg',
+  './assets/images/company-go-plus-logo.jpeg',
+  './assets/images/testimonial/sagar-n.webp',
 
   // Favicon
-  '/assets/fav-icon.ico'
+  './assets/fav-icon.ico'
 ];
 
 // Install event: cache all listed files
@@ -57,8 +57,6 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log('[SW] Pre-caching files');
-
-      // Use Promise.allSettled to avoid failing install if one file fails
       return Promise.allSettled(
         FILES_TO_CACHE.map(url => cache.add(url))
       ).then(results => {
@@ -107,12 +105,12 @@ self.addEventListener('fetch', event => {
               });
             });
           }
-          return networkResponse;
+          return networkResponse; // Return the original response
         })
         .catch(() => {
           // Fallback if offline
           if (event.request.destination === 'document') {
-            return caches.match('/index.html');
+            return caches.match('./index.html');
           }
         });
     })
