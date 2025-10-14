@@ -1,39 +1,52 @@
-// Cache name
-const CACHE_NAME = 'portfolio-cache-v2';
+const CACHE_NAME = 'portfolio-cache-v3';
+const ASSET_FOLDERS = ['/assets/css/', '/scripts/', '/assets/images/'];
+const FALLBACKS = {
+  js: '',
+  css: '',
+  img: '/assets/images/pri.jpg'
+};
 
-// Files to pre-cache
-const FILES_TO_CACHE = [
-  '/', '/index.html',
-  '/assets/fav-icon.ico',
+// Install: pre-cache main files
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(['/', '/index.html', '/assets/fav-icon.ico']))
+  );
+  self.skipWaiting();
+});
 
-  // CSS
-  '/assets/css/cursor.style.css',
-  '/assets/css/root.style.css',
-  '/assets/css/reuseable.style.css',
-  '/assets/css/cloud.style.css',
-  '/assets/css/your.style.css',
-  '/assets/css/star.style.css',
-  '/assets/css/home-and-ground.style.css',
-  '/assets/css/my.style.css',
-  '/assets/css/tree.style.css',
-  '/assets/css/ex.style.css',
-  '/assets/css/skill.style.css',
-  '/assets/css/projects.style.css',
-  '/assets/css/about-me.style.css',
-  '/assets/css/recent-activity.style.css',
-  '/assets/css/testimonials.style.css',
-  '/assets/css/footer.style.css',
+// Activate: clean old caches
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(keys => Promise.all(keys.map(key => key !== CACHE_NAME && caches.delete(key))))
+  );
+  self.clients.claim();
+});
 
-  // JS
-  '/scripts/reuseable.script.js',
-  '/scripts/fonts.script.js',
-  '/scripts/cursor.script.js',
-  '/scripts/my.script.js',
-  '/scripts/cloud.script.js',
-  '/scripts/star.script.js',
-  '/scripts/tree.script.js',
-  '/scripts/skill.script.js',
-  '/scripts/ex.script.js',
+// Fetch: dynamic cache with folder check
+self.addEventListener('fetch', e => {
+  const reqUrl = new URL(e.request.url);
+  const isAsset = ASSET_FOLDERS.some(folder => reqUrl.pathname.startsWith(folder)) ||
+                  reqUrl.pathname === '/' || reqUrl.pathname === '/index.html' ||
+                  reqUrl.pathname === '/assets/fav-icon.ico';
+
+  if (isAsset) {
+    e.respondWith(
+      caches.match(e.request).then(cached => {
+        if (cached) return cached;
+        return fetch(e.request).then(resp => {
+          caches.open(CACHE_NAME).then(cache => cache.put(e.request, resp.clone()));
+          return resp;
+        }).catch(() => {
+          // Graceful fallback
+          if (e.request.url.endsWith('.js')) return new Response(FALLBACKS.js, {headers: {'Content-Type':'application/javascript'}});
+          if (e.request.url.endsWith('.css')) return new Response(FALLBACKS.css, {headers: {'Content-Type':'text/css'}});
+          if (e.request.url.match(/\.(png|jpg|jpeg|webp|gif|svg)$/)) return caches.match(FALLBACKS.img);
+          return new Response('Offline content not available', {status: 503});
+        });
+      })
+    );
+  }
+});
   '/scripts/projects.script.js',
   '/scripts/footer.script.js',
   '/scripts/about-me.script.js',
