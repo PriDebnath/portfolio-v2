@@ -55,11 +55,20 @@ const FILES_TO_CACHE = [
 // Install event: cache all listed files
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('[SW] Pre-caching files');
-        return cache.addAll(FILES_TO_CACHE);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('[SW] Pre-caching files');
+
+      // Use Promise.allSettled to avoid failing install if one file fails
+      return Promise.allSettled(
+        FILES_TO_CACHE.map(url => cache.add(url))
+      ).then(results => {
+        results.forEach((result, index) => {
+          if (result.status === 'rejected') {
+            console.warn('[SW] Failed to cache:', FILES_TO_CACHE[index]);
+          }
+        });
+      });
+    })
   );
   self.skipWaiting(); // Activate worker immediately
 });
@@ -84,29 +93,28 @@ self.addEventListener('activate', event => {
 // Fetch event: serve cached files if available
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        // Return cached file if available
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        // Otherwise, fetch from network
-        return fetch(event.request)
-          .then(networkResponse => {
-            // Optionally cache new requests dynamically
-            return caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, networkResponse.clone());
-                return networkResponse;
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) return cachedResponse;
+
+      return fetch(event.request)
+        .then(networkResponse => {
+          // Only cache GET requests
+          if (event.request.method === 'GET') {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, responseClone).catch(err => {
+                console.warn('[SW] Failed to cache dynamically:', event.request.url, err);
               });
-          })
-          .catch(() => {
-            // Optional fallback: if offline and request fails, return offline page or image
-            if (event.request.destination === 'document') {
-              return caches.match('/index.html');
-            }
-          });
-      })
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          // Fallback if offline
+          if (event.request.destination === 'document') {
+            return caches.match('/index.html');
+          }
+        });
+    })
   );
 });
-                
