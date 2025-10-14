@@ -867,6 +867,16 @@ Modals
     <div id="rc-content-box"></div>
   </div>
 </div>
+
+
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./scripts/service-worker.script.js')
+    .then(() => console.log('Service Worker registered for offline use'))
+    .catch(err => console.log('Service Worker registration failed', err));
+}
+</script>
+
 </body>
 
 <!--  
