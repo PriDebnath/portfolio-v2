@@ -3,3 +3,37 @@
 
  <a href="https://pridebnath.github.io/portfolio-v2#home"><img src="assets/images/portfolio-v2-mobile-demo.jpg" />
 </a>
+
+---
+ 
+
+## Outcomes
+
+- **Works offline after first visit**: Pages are cached via the service worker.
+- **Instant repeat loads**: Cached assets make subsequent navigation feel immediate.
+- **Responsive on all screens**: Mobile-first layout adapts from phones to desktops.
+- **Smooth interactions**: Optimized animations aim for 60fps on modern devices.
+- **Fast time-to-interactive**: No heavy frameworks; minimal JavaScript.
+- **Easy to host**: Fully static; deployable to any static host/CDN.
+
+## Notable Features
+
+- **Parallax Landing**: Smooth layered motion (`parallax/`, `cloud.script.js`, `tree.script.js`).
+- **Custom Cursor & Stars**: Delightful micro-interactions (`cursor.script.js`, `star.script.js`).
+- **Reusable Components**: Shared utilities and tokens (`reuseable.style.css`, `reuseable.script.js`).
+- **Projects Gallery**: Real work samples with visuals and links (`assets/images/project-*`).
+- **Testimonials**: Social proof with curated feedback (`assets/images/testimonial/`).
+- **Recent Activity**: Signals consistency and growth (`recent-activity.script.js`).
+
+## Tech Stack
+
+- **HTML5**, **CSS3**, **JavaScript (ES6+)**
+- Service Worker for offline-ready experience
+- No UI frameworks: clean, dependency-light approach
+
+ 
+
+ 
+
+---
+ 
