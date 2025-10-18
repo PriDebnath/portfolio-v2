@@ -7,6 +7,7 @@
 
 /* Font size start */
 
+.text-xxs   { font-size: calc(var(--font-base) * 0.50); }
 .text-xs   { font-size: calc(var(--font-base) * 0.75); }
 .text-sm   { font-size: calc(var(--font-base) * 0.875); }
 .text-base { font-size: var(--font-base); }
