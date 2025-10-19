@@ -920,13 +920,16 @@ Modals
 </div>
 
 
-  <script>
+  
+<script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.script.js')
-    .then(() => console.log('Service Worker registered for offline use'))
+  const swVersion = new Date().getTime();
+  navigator.serviceWorker.register('./service-worker.script.js?v=' + swVersion)
+    .then(() => console.log('Service Worker registered with timestamp', swVersion))
     .catch(err => console.log('Service Worker registration failed', err));
 }
 </script>
+  
 
 </body>
  
