@@ -1,10 +1,11 @@
-// sw.js - Service Worker for Portfolio Offline Mode
+// Worker.js
 
-const CACHE_NAME = 'portfolio-cache-v1';
+// Use timestamp to version cache automatically
+const CACHE_NAME = 'portfolio-cache-' + new Date().getTime();
 
-// List all files you want to precache for offline use (relative paths)
+// List all files to precache
 const FILES_TO_CACHE = [
-  './', // main page
+  './',
   './index.html',
 
   // CSS files
@@ -52,67 +53,78 @@ const FILES_TO_CACHE = [
   './assets/fav-icon.ico'
 ];
 
-// Install event: cache all listed files
+// Install event: precache files
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log('[SW] Pre-caching files');
-      return Promise.allSettled(
-        FILES_TO_CACHE.map(url => cache.add(url))
-      ).then(results => {
-        results.forEach((result, index) => {
-          if (result.status === 'rejected') {
-            console.warn('[SW] Failed to cache:', FILES_TO_CACHE[index]);
-          }
+      return Promise.allSettled(FILES_TO_CACHE.map(url => cache.add(url)))
+        .then(results => {
+          results.forEach((result, index) => {
+            if (result.status === 'rejected') {
+              console.warn('[SW] Failed to cache:', FILES_TO_CACHE[index]);
+            }
+          });
         });
-      });
     })
   );
-  self.skipWaiting(); // Activate worker immediately
+  self.skipWaiting();
 });
 
-// Activate event: clean up old caches if needed
+// Activate event: remove old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
+    caches.keys().then(keys =>
+      Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
             console.log('[SW] Removing old cache:', key);
             return caches.delete(key);
           }
         })
-      );
-    })
+      )
+    )
   );
-  self.clients.claim(); // Take control of clients immediately
+  self.clients.claim();
 });
 
-// Fetch event: serve cached files if available
+// Fetch event: network-first for HTML, cache-first for other assets
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
-      if (cachedResponse) return cachedResponse;
+  const request = event.request;
 
-      return fetch(event.request)
+  if (request.destination === 'document') {
+    // Network-first for HTML
+    event.respondWith(
+      fetch(request)
         .then(networkResponse => {
-          // Only cache GET requests
-          if (event.request.method === 'GET') {
-            const responseClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, responseClone).catch(err => {
-                console.warn('[SW] Failed to cache dynamically:', event.request.url, err);
-              });
-            });
-          }
-          return networkResponse; // Return the original response
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, responseClone));
+          return networkResponse;
         })
-        .catch(() => {
-          // Fallback if offline
-          if (event.request.destination === 'document') {
-            return caches.match('./index.html');
-          }
-        });
-    })
-  );
+        .catch(() => caches.match(request))
+    );
+  } else {
+    // Cache-first for assets (CSS, JS, images, etc.)
+    event.respondWith(
+      caches.match(request).then(cachedResponse => {
+        if (cachedResponse) return cachedResponse;
+
+        return fetch(request)
+          .then(networkResponse => {
+            if (request.method === 'GET') {
+              const responseClone = networkResponse.clone();
+              caches.open(CACHE_NAME).then(cache => cache.put(request, responseClone));
+            }
+            return networkResponse;
+          })
+          .catch(() => {
+            // Optional: fallback if offline
+            if (request.destination === 'image') {
+              return caches.match('./assets/images/pritam-6.png'); // fallback image
+            }
+          });
+      })
+    );
+  }
 });
+            
