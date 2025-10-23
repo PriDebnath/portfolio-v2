@@ -11,7 +11,7 @@
 https://github.com/user-attachments/assets/a072f59b-f487-4375-840a-6ec3dd64c952
 
 
-⬇️[Demo Video Download](assets/video/portfolio-v2-mobile-demo.mp4)
+⬇️[Demo Video Download](assets/videos/portfolio-v2-mobile-demo.mp4)
 
 
 ## Link
