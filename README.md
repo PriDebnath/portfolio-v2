@@ -2,7 +2,7 @@
 
 ## 🖼️ Screenshot
 
-<a href="https://pridebnath.github.io/portfolio-v2#home"><img src="assets/images/portfolio-v2-mobile-demo.jpg" />
+<a href="https://pridebnath.github.io/portfolio-v2"><img src="assets/images/portfolio-v2-mobile-demo.jpg" />
 </a>
 
 
@@ -15,7 +15,7 @@ https://github.com/user-attachments/assets/a072f59b-f487-4375-840a-6ec3dd64c952
 
 
 ## Link
-https://pridebnath.github.io/portfolio-v2#home
+https://pridebnath.github.io/portfolio-v2
 
  
 ---
