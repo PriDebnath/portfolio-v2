@@ -24,7 +24,6 @@ https://pridebnath.github.io/portfolio-v2
 ## Outcomes
 
 - **Works offline after first visit**: Pages are cached via the service worker.
-- **Instant repeat loads**: Cached assets make subsequent navigation feel immediate.
 - **Responsive on all screens**: Mobile-first layout adapts from phones to desktops.
 - **Smooth interactions**: Optimized animations aim for 60fps on modern devices.
 - **Fast time-to-interactive**: No heavy frameworks; minimal JavaScript.
@@ -32,7 +31,6 @@ https://pridebnath.github.io/portfolio-v2
 
 ## Notable Features
 
-- **Parallax Landing**: Smooth layered motion (`parallax/`, `cloud.script.js`, `tree.script.js`).
 - **Custom Cursor & Stars**: Delightful micro-interactions (`cursor.script.js`, `star.script.js`).
 - **Reusable Components**: Shared utilities and tokens (`reuseable.style.css`, `reuseable.script.js`).
 - **Projects Gallery**: Real work samples with visuals and links (`assets/images/project-*`).
