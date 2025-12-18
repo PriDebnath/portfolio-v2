@@ -1,12 +1,12 @@
-# 🔴 Demo
+## 🔴 Demo
 
-## 🖼️ Screenshot
+##£ 🔴 🖼️ Screenshot
 
-<a href="https://pridebnath.github.io/portfolio-v2"><img src="assets/images/portfolio-v2-mobile-demo.jpg" />
+<a href="https://pridebnath.github.io/portfolio-v2"><img height="480" src="assets/images/portfolio-v2-mobile-demo.jpg" />
 </a>
 
 
-## 🎥 Video
+### 🔴 🎥 Video
 
 https://github.com/user-attachments/assets/a072f59b-f487-4375-840a-6ec3dd64c952
 
@@ -14,14 +14,14 @@ https://github.com/user-attachments/assets/a072f59b-f487-4375-840a-6ec3dd64c952
 ⬇️[Demo Video Download](assets/videos/portfolio-v2-mobile-demo.mp4)
 
 
-## ↗️ Link
+### 🔴 ↗️ Link
 https://pridebnath.github.io/portfolio-v2
 
  
 ---
  
 
-## Outcomes
+### Outcomes
 
 - **Works offline after first visit**: Pages are cached via the service worker.
 - **Responsive on all screens**: Mobile-first layout adapts from phones to desktops.
@@ -37,7 +37,7 @@ https://pridebnath.github.io/portfolio-v2
 - **Testimonials**: Social proof with curated feedback (`assets/images/testimonial/`).
 - **Recent Activity**: Signals consistency and growth (`recent-activity.script.js`).
 
-## Tech Stack
+### Tech Stack
 
 - **HTML5**, **CSS3**, **JavaScript (ES6+)**
 - Service Worker for offline-ready experience
