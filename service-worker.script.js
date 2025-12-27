@@ -1,4 +1,4 @@
-// Worker.js
+// Worker.js  
 
 // Use timestamp to version cache automatically
 const CACHE_NAME = 'portfolio-cache-' + new Date().getTime();
