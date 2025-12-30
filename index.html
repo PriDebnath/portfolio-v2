@@ -20,6 +20,7 @@
   <!-- SEO Meta Tags -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://pridebnath.github.io/portfolio-v2/" />
+  <link rel="sitemap" type="application/xml" href="https://pridebnath.github.io/portfolio-v2/sitemap.xml" />
 
   <!-- Open Graph (OG) meta tags are widely used to control the appearance of your content when shared on platforms like Facebook, LinkedIn, and Pinterest. -->
   <meta property="og:title"
@@ -93,6 +94,9 @@
         content="./assets/fav-icon.ico" />
   <meta name="msapplication-TileColor"
         content="#000000" />
+  
+  <!-- Theme Color for mobile browsers -->
+  <meta name="theme-color" content="#000000" />
 
   <!-- link to css file start-->
 
@@ -148,6 +152,7 @@
   <!-- link to css file end-->
 
 
+  <!-- Structured Data - Person Schema -->
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -173,6 +178,26 @@
           "@type": "PostalAddress",
           "addressLocality": "Kolkata",
           "addressCountry": "India"
+        }
+      }
+  </script>
+  
+  <!-- Structured Data - WebSite Schema -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Pritam Debnath - Software Developer Portfolio",
+        "url": "https://pridebnath.github.io/portfolio-v2/",
+        "description": "Pritam Debnath - Software Developer specializing in blending logic with creativity. Explore my projects, experience, and skills in frontend and backend development.",
+        "author": {
+          "@type": "Person",
+          "name": "Pritam Debnath"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://pridebnath.github.io/portfolio-v2/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
       }
   </script>
