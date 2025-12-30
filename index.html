@@ -47,6 +47,11 @@
         content="https://www.linkedin.com/in/pritam-debnath-762019239/"
         title="https://www.linkedin.com/in/pritam-debnath-762019239/">
 
+  <!-- DNS Prefetch for performance optimization -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+  
   <!-- Gabriela Font-->
   <link rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -66,11 +71,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
         rel="stylesheet"> -->
 
-  <!-- link to fav icon -->
+  <!-- Favicon and App Icons -->
+  <link rel="icon"
+        type="image/x-icon"
+        href="./assets/fav-icon.ico"
+        sizes="16x16" />
   <link rel="icon"
         type="image/png"
         href="./assets/fav-icon.ico"
-        sizes="16x16" />
+        sizes="32x32" />
+  <link rel="icon"
+        type="image/png"
+        href="./assets/fav-icon.ico"
+        sizes="192x192" />
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon"
+        href="./assets/fav-icon.ico"
+        sizes="180x180" />
+  <!-- MS Tile Image -->
+  <meta name="msapplication-TileImage"
+        content="./assets/fav-icon.ico" />
+  <meta name="msapplication-TileColor"
+        content="#000000" />
 
   <!-- link to css file start-->
 
@@ -161,12 +183,14 @@
 <div>
 
   <!-- Skip to main content link for accessibility -->
-  <a href="#main" class="skip-to-content">Skip to main content</a>
+  <a href="#main" class="skip-to-content" aria-label="Skip to main content">Skip to main content</a>
 
   <div class="cursor"></div>
 
   <main id="main"
-        class="overflow-hidden h-100vh">
+        class="overflow-hidden h-100vh"
+        role="main"
+        aria-label="Main content">
     <div id="header"
          class="your-aura  you-come"
          title="your-aura">
@@ -311,7 +335,8 @@
                      alt="Company logo" />
                 <h3 class="company-name"> <a href="https://www.linkedin.com/company/goplusio/about/"
                      target="_blank"
-                     rel="noopener noreferrer">
+                     rel="noopener noreferrer"
+                     aria-label="Visit GoPlus company LinkedIn page">
                     GoPlus
                   </a></h3>
               </div>
@@ -349,7 +374,8 @@
 
                   <a class="skill-icon"
                      href="https://angular.dev/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Angular">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-angular"> </span>
@@ -358,7 +384,8 @@
 
                   <a class="skill-icon"
                      href="https://rxjs.dev/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about RxJS">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-rxjs"> </span>
@@ -367,7 +394,8 @@
 
                   <a class="skill-icon"
                      href="https://getbootstrap.com/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Bootstrap">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-bootstrap"> </span>
@@ -376,7 +404,8 @@
 
                   <a class="skill-icon"
                      href="https://karma-runner.github.io/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Karma">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-karma"> </span>
@@ -384,7 +413,8 @@
 
                   <a class="skill-icon"
                      href="https://jasmine.github.io/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Jasmine">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-jasmine"> </span>
@@ -392,7 +422,8 @@
                   </a>
                   <a class="skill-icon"
                      href="https://www.cypress.io/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Cypress">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-cypress"> </span>
@@ -402,7 +433,8 @@
 
                   <a class="skill-icon"
                      href="https://docs.djangoproject.com/en/4.0"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Django">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-django"> </span>
@@ -615,14 +647,16 @@
               <a href="https://github.com/PriDebnath/fylehq-clone"
                  target="_blank"
                  rel="noopener noreferrer"
-                 class="project-redirect-link project-redirect-link-left text-primary">
+                 class="project-redirect-link project-redirect-link-left text-primary"
+                 aria-label="View FyleHQ Clone project source code on GitHub">
                 <span class="span-svg-code stroke-primary project-redirect-link-icon"></span>
                 <span>Code</span>
               </a>
               <a href="https://fylehq-clone-by-pritam.netlify.app"
                  target="_blank"
                  rel="noopener noreferrer"
-                 class="project-redirect-link project-redirect-link-right text-primary">
+                 class="project-redirect-link project-redirect-link-right text-primary"
+                 aria-label="View FyleHQ Clone live demo">
                 <span>Live</span>
                 <span class="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
               </a>
@@ -662,14 +696,16 @@
               <a href="https://github.com/PriDebnath/relu-consultancy-assignment"
                  target="_blank"
                  rel="noopener noreferrer"
-                 class="project-redirect-link project-redirect-link-left text-primary">
+                 class="project-redirect-link project-redirect-link-left text-primary"
+                 aria-label="View Relu Consultancy Assignment project source code on GitHub">
                 <span class="span-svg-code stroke-primary project-redirect-link-icon"></span>
                 <span>Code</span>
               </a>
               <a href="https://relu-consultancy-assignment-by-pri.netlify.app/"
                  target="_blank"
                  rel="noopener noreferrer"
-                 class="project-redirect-link project-redirect-link-right text-primary">
+                 class="project-redirect-link project-redirect-link-right text-primary"
+                 aria-label="View Relu Consultancy Assignment live demo">
                 <span>Live</span>
                 <span class="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
               </a>
@@ -709,14 +745,16 @@
               <a href="https://github.com/PriDebnath/tutedude-assignment"
                  target="_blank"
                  rel="noopener noreferrer"
-                 class="project-redirect-link project-redirect-link-left text-primary">
+                 class="project-redirect-link project-redirect-link-left text-primary"
+                 aria-label="View Tutedude Assignment project source code on GitHub">
                 <span class="span-svg-code stroke-primary project-redirect-link-icon"></span>
                 <span>Code</span>
               </a>
               <a href="https://tutedudeuibypri.netlify.app/"
                  target="_blank"
                  rel="noopener noreferrer"
-                 class="project-redirect-link project-redirect-link-right text-primary">
+                 class="project-redirect-link project-redirect-link-right text-primary"
+                 aria-label="View Tutedude Assignment live demo">
                 <span>Live</span>
                 <span class="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
               </a>
@@ -837,7 +875,8 @@
 
           <a class="certification-link"
              target="_blank"
-             href="https://coursera.org/share/5d838ed21ecbf91f093cb447bc8d290b">
+             href="https://coursera.org/share/5d838ed21ecbf91f093cb447bc8d290b"
+             aria-label="View Advance React by Meta certification">
             <span class="span-svg-badge"
                   style="display: flex;align-items: center;"></span>
             Advance React by Meta
@@ -848,7 +887,8 @@
 
           <a class="certification-link"
              target="_blank"
-             href="https://www.coursera.org/account/accomplishments/verify/QH2RG4W2565Z">
+             href="https://www.coursera.org/account/accomplishments/verify/QH2RG4W2565Z"
+             aria-label="View Programming with JavaScript by Meta certification">
             <span class="span-svg-badge"
                   style="display: flex;align-items: center;"></span>
             Programming with JavaScript by Meta
@@ -859,7 +899,8 @@
 
           <a class="certification-link"
              target="_blank"
-             href="https://www.udemy.com/certificate/UC-032ad846-58f3-44e5-b183-b51b7216e3f0/">
+             href="https://www.udemy.com/certificate/UC-032ad846-58f3-44e5-b183-b51b7216e3f0/"
+             aria-label="View The Complete JavaScript Course 2023 certification">
             <span class="span-svg-badge"
                   style="display: flex;align-items: center;"></span>
             <span>
@@ -882,7 +923,8 @@
 
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc">
+         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc"
+         aria-label="View testimonial from Rajinder M. on Upwork">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"I enjoyed working with Pritam and will likely have additional jobs for him in the future."
           </p>
@@ -923,7 +965,8 @@
       </a>
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc">
+         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc"
+         aria-label="View testimonial from Raghuivra R. on Upwork">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"
 
@@ -932,7 +975,7 @@
             He quickly grasped our requirements and translated them into an actionable plan.
             His combined expertise in front-end development and automation testing played
             a pivotal role in executing our test cases efficiently and effectively.
-            Based on this success, we’ve extended additional work to him to support our ongoing efforts."</p>
+            Based on this success, we've extended additional work to him to support our ongoing efforts."</p>
           <div class="text-secondary text-xxs"
                style="text-align: right;">Jun 16, 2025 - July 10, 2025</div>
         </div>
@@ -974,7 +1017,8 @@
 
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.fiverr.com/pridebnath#Reviews">
+         href="https://www.fiverr.com/pridebnath#Reviews"
+         aria-label="View testimonial from Raghuivra R. on Fiverr">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"
             This was our first exposure to the Cypress Framework - Pritham was very instrumental
@@ -1022,7 +1066,8 @@
 
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.fiverr.com/pridebnath#Reviews">
+         href="https://www.fiverr.com/pridebnath#Reviews"
+         aria-label="View testimonial from Sagar N. on Fiverr">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"
             Pritam is very sincere! He went above and beyond to solve the automation issue i was having.
@@ -1110,50 +1155,58 @@
          id="social-icon-container">
       <a href="https://leetcode.com/u/PriDebnath/"
          title="leetcode"
-         class="social-icon-box">
+         class="social-icon-box"
+         aria-label="Visit Pritam's LeetCode profile">
         <span class="span-svg-leetcode"></span>
       </a>
       <a href="https://www.instagram.com/pri._.debnath"
          title="instagram"
-         class="social-icon-box">
+         class="social-icon-box"
+         aria-label="Visit Pritam's Instagram profile">
         <span class="span-svg-instagram"></span>
       </a>
 
 
       <a href="https://www.fiverr.com/pridebnath?public_mode=true"
          class="social-icon-box"
-         title="fiverr">
+         title="fiverr"
+         aria-label="Visit Pritam's Fiverr profile">
         <span class="span-svg-fiverr"></span>
       </a>
 
       <a href="https://www.linkedin.com/in/pritam-debnath-762019239"
          class="social-icon-box"
-         title="linkedin">
+         title="linkedin"
+         aria-label="Visit Pritam's LinkedIn profile">
         <span class="span-svg-linkedin"></span>
       </a>
 
       <a href="https://medium.com/@pritam-debnath"
          class="social-icon-box"
-         title="medium">
+         title="medium"
+         aria-label="Visit Pritam's Medium profile">
         <span class="span-svg-medium"></span>
       </a>
 
       <a href="https://github.com/PriDebnath"
          class="social-icon-box"
-         title="github">
+         title="github"
+         aria-label="Visit Pritam's GitHub profile">
         <span class="span-svg-github"
               style="color: inherit;"></span>
       </a>
 
       <a href="https://in.pinterest.com/PriDebnath/"
          class="social-icon-box"
-         title="painterest">
+         title="painterest"
+         aria-label="Visit Pritam's Pinterest profile">
         <span class="span-svg-painterest"></span>
       </a>
 
       <a href="mailto:debnathpritam0802@gmail.com"
          class="social-icon-box"
-         title="mail">
+         title="mail"
+         aria-label="Send email to Pritam Debnath">
         <span class="span-svg-mail"></span>
       </a>
     </div>
@@ -1211,7 +1264,8 @@ Modals
   <div class="modal"
        id="modal">
     <button class="close-btn"
-            id="close-btn">X</button>
+            id="close-btn"
+            aria-label="Close modal">X</button>
 
 
     <h3 style="text-align: center;padding-top: 0;"
