@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://pridebnath.github.io/portfolio-v2/sitemap.xml
+
+# Disallow crawling of unnecessary files
+Disallow: /scripts/
+Disallow: /assets/css/
+Disallow: /*.js$
+Disallow: /*.css$
+

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-  <title>Pritam's Portfolio 2.0</title>
+  <title>Pritam Debnath - Software Developer Portfolio 2.0</title>
   <meta name="author"
         content="Pritam Debnath"
         title="Pritam Debnath">
@@ -16,6 +16,11 @@
         content="Pritam Debnath - Software Developer specializing in blending logic with creativity. Explore my projects, experience, and skills in frontend and backend development.">
   <meta name="keywords"
         content="Pritam Debnath, software developer, frontend developer, backend developer, Angular, JavaScript, Typescript, portfolio, ">
+
+  <!-- SEO Meta Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://pridebnath.github.io/portfolio-v2/" />
+  <link rel="sitemap" type="application/xml" href="https://pridebnath.github.io/portfolio-v2/sitemap.xml" />
 
   <!-- Open Graph (OG) meta tags are widely used to control the appearance of your content when shared on platforms like Facebook, LinkedIn, and Pinterest. -->
   <meta property="og:title"
@@ -43,6 +48,11 @@
         content="https://www.linkedin.com/in/pritam-debnath-762019239/"
         title="https://www.linkedin.com/in/pritam-debnath-762019239/">
 
+  <!-- DNS Prefetch for performance optimization -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+  
   <!-- Gabriela Font-->
   <link rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -50,7 +60,8 @@
         href="https://fonts.gstatic.com"
         crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        type="text/css">
 
   <!-- Delius font -->
   <!-- <link rel="preconnect"
@@ -61,11 +72,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
         rel="stylesheet"> -->
 
-  <!-- link to fav icon -->
+  <!-- Favicon and App Icons -->
+  <link rel="icon"
+        type="image/x-icon"
+        href="./assets/fav-icon.ico"
+        sizes="16x16" />
   <link rel="icon"
         type="image/png"
         href="./assets/fav-icon.ico"
-        sizes="16x16" />
+        sizes="32x32" />
+  <link rel="icon"
+        type="image/png"
+        href="./assets/fav-icon.ico"
+        sizes="192x192" />
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon"
+        href="./assets/fav-icon.ico"
+        sizes="180x180" />
+  <!-- MS Tile Image -->
+  <meta name="msapplication-TileImage"
+        content="./assets/fav-icon.ico" />
+  <meta name="msapplication-TileColor"
+        content="#000000" />
+  
+  <!-- Theme Color for mobile browsers -->
+  <meta name="theme-color" content="#000000" />
 
   <!-- link to css file start-->
 
@@ -121,6 +152,7 @@
   <!-- link to css file end-->
 
 
+  <!-- Structured Data - Person Schema -->
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -149,16 +181,41 @@
         }
       }
   </script>
+  
+  <!-- Structured Data - WebSite Schema -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Pritam Debnath - Software Developer Portfolio",
+        "url": "https://pridebnath.github.io/portfolio-v2/",
+        "description": "Pritam Debnath - Software Developer specializing in blending logic with creativity. Explore my projects, experience, and skills in frontend and backend development.",
+        "author": {
+          "@type": "Person",
+          "name": "Pritam Debnath"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://pridebnath.github.io/portfolio-v2/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+  </script>
 
 
 </head>
 
 <div>
 
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main" class="skip-to-content" aria-label="Skip to main content">Skip to main content</a>
+
   <div class="cursor"></div>
 
   <main id="main"
-        class="overflow-hidden h-100vh">
+        class="overflow-hidden h-100vh"
+        role="main"
+        aria-label="Main content">
     <div id="header"
          class="your-aura  you-come"
          title="your-aura">
@@ -222,7 +279,7 @@
 
           <div class="me">
             <div class="message-box">
-              <div class="message"
+              <h1 class="message"
                    id="message">
                 <div class="flex align-items-baseline">
                   <span class="hand">👋 </span>
@@ -232,13 +289,15 @@
                 who loves blending
                 <br />
                 <span class="white-space-nowrap"> logic with creativity ✨</span>
-              </div>
+              </h1>
             </div>
 
             <div class="img-box">
               <img src="./assets/images/pritam-6.png"
                    title="Pritam Debnath"
-                   alt="Pritam Debnath" />
+                   alt="Pritam Debnath"
+                   fetchpriority="high"
+                   decoding="async" />
             </div>
           </div>
 
@@ -292,13 +351,17 @@
           <div class="ex-card">
             <div class="join-card-company-container">
             </div>
-            <div class="company-container animate-company-container">
+            <div class="company-container">
               <div class="company-box">
                 <img class="company-img"
-                     src="assets/images/company-go-plus-logo.jpeg" />
+                     src="assets/images/company-go-plus-logo.jpeg"
+                     loading="lazy"
+                     decoding="async"
+                     alt="Company logo" />
                 <h3 class="company-name"> <a href="https://www.linkedin.com/company/goplusio/about/"
                      target="_blank"
-                     rel="noopener noreferrer">
+                     rel="noopener noreferrer"
+                     aria-label="Visit GoPlus company LinkedIn page">
                     GoPlus
                   </a></h3>
               </div>
@@ -336,7 +399,8 @@
 
                   <a class="skill-icon"
                      href="https://angular.dev/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Angular">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-angular"> </span>
@@ -345,7 +409,8 @@
 
                   <a class="skill-icon"
                      href="https://rxjs.dev/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about RxJS">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-rxjs"> </span>
@@ -354,7 +419,8 @@
 
                   <a class="skill-icon"
                      href="https://getbootstrap.com/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Bootstrap">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-bootstrap"> </span>
@@ -363,7 +429,8 @@
 
                   <a class="skill-icon"
                      href="https://karma-runner.github.io/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Karma">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-karma"> </span>
@@ -371,7 +438,8 @@
 
                   <a class="skill-icon"
                      href="https://jasmine.github.io/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Jasmine">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-jasmine"> </span>
@@ -379,7 +447,8 @@
                   </a>
                   <a class="skill-icon"
                      href="https://www.cypress.io/"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Cypress">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-cypress"> </span>
@@ -389,10 +458,155 @@
 
                   <a class="skill-icon"
                      href="https://docs.djangoproject.com/en/4.0"
-                     target="_blank">
+                     target="_blank"
+                     aria-label="Learn more about Django">
 
                     <span style="display: flex; align-items: center; aspect-ratio:1;"
                           class="span-svg-django"> </span>
+
+                  </a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-card">
+            <div class="join-card-company-container">
+            </div>
+            <div class="company-container">
+              <div class="company-box">
+                <img class="company-img"
+                     src="assets/images/company-omicron-logo.jpg"
+                     loading="lazy"
+                     decoding="async"
+                     alt="Omicron Technologies logo" />
+                <h3 class="company-name">
+                  Omicron Technologies
+                </h3>
+              </div>
+              <div class="company-role-box">
+                <div class="company-role">
+                  <div class="svg-container">
+                    <span class="span-svg-circle"></span>
+                  </div>
+                  <div class="role-box">
+                    <h4 class="role-name">Frontend Developer</h4>
+                    <p class="role-type">Internship</p>
+                    <p class="role-length">Nov 2022 - Jan 2023 • 3 mos</p>
+                  </div>
+                </div>
+              </div>
+              <div class="company-accured-skill-box flex-wrap">
+                <p class="white-space-nowrap">Acquired tech skills</p>
+
+                <div class="flex align-items-center flex-wrap">
+
+                  <a class="skill-icon"
+                     href="https://react.dev/"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-react"> </span>
+
+                  </a>
+
+                  <a class="skill-icon"
+                     href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-js"> </span>
+
+                  </a>
+
+                  <a class="skill-icon"
+                     href="https://www.typescriptlang.org/docs/"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-ts"> </span>
+
+                  </a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-card">
+            <div class="join-card-company-container">
+            </div>
+            <div class="company-container">
+              <div class="company-box">
+                <img class="company-img"
+                     src="assets/images/company-hsv-digital-logo.jpeg"
+                     loading="lazy"
+                     decoding="async"
+                     alt="GroRapid Labs logo" />
+                <h3 class="company-name">
+                  GroRapid Labs
+                </h3>
+              </div>
+              <div class="company-role-box">
+                <div class="company-role">
+                  <div class="svg-container">
+                    <span class="span-svg-circle"></span>
+                  </div>
+                  <div class="role-box">
+                    <h4 class="role-name">Frontend Developer</h4>
+                    <p class="role-type">Internship</p>
+                    <p class="role-length">Jul 2022 - Oct 2022 • 4 mos</p>
+                  </div>
+                </div>
+              </div>
+              <div class="company-accured-skill-box flex-wrap">
+                <p class="white-space-nowrap">Acquired tech skills</p>
+
+                <div class="flex align-items-center flex-wrap">
+
+                  <a class="skill-icon"
+                     href="https://react.dev/"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-react"> </span>
+
+                  </a>
+
+                  <a class="skill-icon"
+                     href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-js"> </span>
+
+                  </a>
+
+                  <a class="skill-icon"
+                     href="https://www.typescriptlang.org/docs/"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-ts"> </span>
+
+                  </a>
+
+                  <a class="skill-icon"
+                     href="https://redux.js.org/"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-redux"> </span>
+
+                  </a>
+
+                  <a class="skill-icon"
+                     href="https://www.tailwind.com/"
+                     target="_blank">
+
+                    <span style="display: flex; align-items: center; aspect-ratio:1;"
+                          class="span-svg-tailwind"> </span>
 
                   </a>
 
@@ -422,7 +636,156 @@
 
       <section id="project-section"
                class="project-section ">
+        <div class="project-card">
+          <div class="project-card-img-box">
+            <img src="assets/images/project-fylehq-homepage-clone.png"
+                 title="project fylehq homepage clone"
+                 alt="project fylehq homepage clone"
+                 class="project-card-img"
+                 loading="lazy"
+                 decoding="async" />
+          </div>
+          <div class="project-card-body">
+            <h3 class="text-primary project-name"
+                title="FyleHQ - Clone">FyleHQ - Clone</h3>
+            <p class="text-secondary project-desc"
+               title="This project is a front-end replication of the popular expense management platform Fyle HQ, designed to provide a sleek and responsive user experience. The clone was built using Ant Design (ng-zorro), a powerful Angular UI library, to ensure modern and consistent styling throughout the application.">
+              This project is a front-end replication of the popular expense management platform Fyle HQ, designed to provide a sleek and responsive user experience. The clone was built using Ant Design (ng-zorro), a powerful Angular UI library, to ensure modern and consistent styling throughout the application.
+            </p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-skills">
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-angular"> </span>
+              </div>
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-ant-design"> </span>
+              </div>
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-netlify"> </span>
+              </div>
+            </div>
+            <div class="project-card-action">
+              <a href="https://github.com/PriDebnath/fylehq-clone"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-redirect-link project-redirect-link-left text-primary"
+                 aria-label="View FyleHQ Clone project source code on GitHub">
+                <span class="span-svg-code stroke-primary project-redirect-link-icon"></span>
+                <span>Code</span>
+              </a>
+              <a href="https://fylehq-clone-by-pritam.netlify.app"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-redirect-link project-redirect-link-right text-primary"
+                 aria-label="View FyleHQ Clone live demo">
+                <span>Live</span>
+                <span class="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
 
+        <div class="project-card">
+          <div class="project-card-img-box">
+            <img src="assets/images/project-relu-consultancy-assignment.png"
+                 title="project-relu-consultancy-assignment"
+                 alt="project-relu-consultancy-assignment"
+                 class="project-card-img"
+                 loading="lazy"
+                 decoding="async" />
+          </div>
+          <div class="project-card-body">
+            <h3 class="text-primary project-name"
+                title="Relu Consultancy - Assignment">Relu Consultancy - Assignment</h3>
+            <p class="text-secondary project-desc"
+               title="This project is about front-end development assignment I got from relu consultancy">
+              This project is about front-end development assignment I got from relu consultancy
+            </p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-skills">
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-angular"> </span>
+              </div>
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-netlify"> </span>
+              </div>
+            </div>
+            <div class="project-card-action">
+              <a href="https://github.com/PriDebnath/relu-consultancy-assignment"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-redirect-link project-redirect-link-left text-primary"
+                 aria-label="View Relu Consultancy Assignment project source code on GitHub">
+                <span class="span-svg-code stroke-primary project-redirect-link-icon"></span>
+                <span>Code</span>
+              </a>
+              <a href="https://relu-consultancy-assignment-by-pri.netlify.app/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-redirect-link project-redirect-link-right text-primary"
+                 aria-label="View Relu Consultancy Assignment live demo">
+                <span>Live</span>
+                <span class="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-img-box">
+            <img src="assets/images/project-tutedude.png"
+                 title="project tutedude assignment"
+                 alt="project relu tutedude assignment"
+                 class="project-card-img"
+                 loading="lazy"
+                 decoding="async" />
+          </div>
+          <div class="project-card-body">
+            <h3 class="text-primary project-name"
+                title="Tutedude - Assignment">Tutedude - Assignment</h3>
+            <p class="text-secondary project-desc"
+               title="This project is about front-end development assignment I got from tutedude">
+              This project is about front-end development assignment I got from tutedude
+            </p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-skills">
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-react"> </span>
+              </div>
+              <div class="skill-icon">
+                <span style="display: flex; align-items: center; aspect-ratio:1;"
+                      class="span-svg-netlify"> </span>
+              </div>
+            </div>
+            <div class="project-card-action">
+              <a href="https://github.com/PriDebnath/tutedude-assignment"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-redirect-link project-redirect-link-left text-primary"
+                 aria-label="View Tutedude Assignment project source code on GitHub">
+                <span class="span-svg-code stroke-primary project-redirect-link-icon"></span>
+                <span>Code</span>
+              </a>
+              <a href="https://tutedudeuibypri.netlify.app/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-redirect-link project-redirect-link-right text-primary"
+                 aria-label="View Tutedude Assignment live demo">
+                <span>Live</span>
+                <span class="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
       <p style="text-align: center;color: snow;">
         <a href="https://github.com/PriDebnath?tab=repositories"
@@ -537,7 +900,8 @@
 
           <a class="certification-link"
              target="_blank"
-             href="https://coursera.org/share/5d838ed21ecbf91f093cb447bc8d290b">
+             href="https://coursera.org/share/5d838ed21ecbf91f093cb447bc8d290b"
+             aria-label="View Advance React by Meta certification">
             <span class="span-svg-badge"
                   style="display: flex;align-items: center;"></span>
             Advance React by Meta
@@ -548,7 +912,8 @@
 
           <a class="certification-link"
              target="_blank"
-             href="https://www.coursera.org/account/accomplishments/verify/QH2RG4W2565Z">
+             href="https://www.coursera.org/account/accomplishments/verify/QH2RG4W2565Z"
+             aria-label="View Programming with JavaScript by Meta certification">
             <span class="span-svg-badge"
                   style="display: flex;align-items: center;"></span>
             Programming with JavaScript by Meta
@@ -559,7 +924,8 @@
 
           <a class="certification-link"
              target="_blank"
-             href="https://www.udemy.com/certificate/UC-032ad846-58f3-44e5-b183-b51b7216e3f0/">
+             href="https://www.udemy.com/certificate/UC-032ad846-58f3-44e5-b183-b51b7216e3f0/"
+             aria-label="View The Complete JavaScript Course 2023 certification">
             <span class="span-svg-badge"
                   style="display: flex;align-items: center;"></span>
             <span>
@@ -582,7 +948,8 @@
 
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc">
+         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc"
+         aria-label="View testimonial from Rajinder M. on Upwork">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"I enjoyed working with Pritam and will likely have additional jobs for him in the future."
           </p>
@@ -623,7 +990,8 @@
       </a>
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc">
+         href="https://www.upwork.com/freelancers/~01400b0b989988e8cc"
+         aria-label="View testimonial from Raghuivra R. on Upwork">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"
 
@@ -632,7 +1000,7 @@
             He quickly grasped our requirements and translated them into an actionable plan.
             His combined expertise in front-end development and automation testing played
             a pivotal role in executing our test cases efficiently and effectively.
-            Based on this success, we’ve extended additional work to him to support our ongoing efforts."</p>
+            Based on this success, we've extended additional work to him to support our ongoing efforts."</p>
           <div class="text-secondary text-xxs"
                style="text-align: right;">Jun 16, 2025 - July 10, 2025</div>
         </div>
@@ -674,7 +1042,8 @@
 
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.fiverr.com/pridebnath#Reviews">
+         href="https://www.fiverr.com/pridebnath#Reviews"
+         aria-label="View testimonial from Raghuivra R. on Fiverr">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"
             This was our first exposure to the Cypress Framework - Pritham was very instrumental
@@ -722,7 +1091,8 @@
 
       <a class="testimonial-card"
          target="_blank"
-         href="https://www.fiverr.com/pridebnath#Reviews">
+         href="https://www.fiverr.com/pridebnath#Reviews"
+         aria-label="View testimonial from Sagar N. on Fiverr">
         <div class="testimonial-card-feedback">
           <p class="text-xs">"
             Pritam is very sincere! He went above and beyond to solve the automation issue i was having.
@@ -775,7 +1145,7 @@
        id="About-me ">
     <div class="min-width-400px-width-50per">
       <h2 class="section-h2">About me </h2>
-      <section id="about-me-section">pri
+      <section id="about-me-section">I'm Pritam Debnath a Front-End Developer with over 2 years of fulltime work experience, specializing in web application development. I'm passionate about crafting engaging user experiences and leveraging cutting-edge technologies to bring ideas to life.
       </section>
     </div>
 
@@ -810,50 +1180,58 @@
          id="social-icon-container">
       <a href="https://leetcode.com/u/PriDebnath/"
          title="leetcode"
-         class="social-icon-box">
+         class="social-icon-box"
+         aria-label="Visit Pritam's LeetCode profile">
         <span class="span-svg-leetcode"></span>
       </a>
       <a href="https://www.instagram.com/pri._.debnath"
          title="instagram"
-         class="social-icon-box">
+         class="social-icon-box"
+         aria-label="Visit Pritam's Instagram profile">
         <span class="span-svg-instagram"></span>
       </a>
 
 
       <a href="https://www.fiverr.com/pridebnath?public_mode=true"
          class="social-icon-box"
-         title="fiverr">
+         title="fiverr"
+         aria-label="Visit Pritam's Fiverr profile">
         <span class="span-svg-fiverr"></span>
       </a>
 
       <a href="https://www.linkedin.com/in/pritam-debnath-762019239"
          class="social-icon-box"
-         title="linkedin">
+         title="linkedin"
+         aria-label="Visit Pritam's LinkedIn profile">
         <span class="span-svg-linkedin"></span>
       </a>
 
       <a href="https://medium.com/@pritam-debnath"
          class="social-icon-box"
-         title="medium">
+         title="medium"
+         aria-label="Visit Pritam's Medium profile">
         <span class="span-svg-medium"></span>
       </a>
 
       <a href="https://github.com/PriDebnath"
          class="social-icon-box"
-         title="github">
+         title="github"
+         aria-label="Visit Pritam's GitHub profile">
         <span class="span-svg-github"
               style="color: inherit;"></span>
       </a>
 
       <a href="https://in.pinterest.com/PriDebnath/"
          class="social-icon-box"
-         title="painterest">
+         title="painterest"
+         aria-label="Visit Pritam's Pinterest profile">
         <span class="span-svg-painterest"></span>
       </a>
 
       <a href="mailto:debnathpritam0802@gmail.com"
          class="social-icon-box"
-         title="mail">
+         title="mail"
+         aria-label="Send email to Pritam Debnath">
         <span class="span-svg-mail"></span>
       </a>
     </div>
@@ -876,6 +1254,8 @@
           <img src="./assets/images/pri.jpg"
                class="pri"
                alt="Pritam Debnath"
+               loading="lazy"
+               decoding="async"
                title="Pritam Debnath" />
         </div>
         <div class="text-box">
@@ -909,7 +1289,8 @@ Modals
   <div class="modal"
        id="modal">
     <button class="close-btn"
-            id="close-btn">X</button>
+            id="close-btn"
+            aria-label="Close modal">X</button>
 
 
     <h3 style="text-align: center;padding-top: 0;"
