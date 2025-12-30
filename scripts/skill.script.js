@@ -430,8 +430,8 @@ let addSkill = ({
   skill.addEventListener('mouseover', handleMove);
   skill.addEventListener('mouseout', handleOut);
 
-  skill.addEventListener('touchmove', handleMove);
-  skill.addEventListener('touchend', handleOut);
+  skill.addEventListener('touchmove', handleMove, { passive: true });
+  skill.addEventListener('touchend', handleOut, { passive: true });
 
 
 

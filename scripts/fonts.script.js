@@ -1,17 +1,14 @@
   function loadFonts() {
-    const fontLinks = [
-      "https://fonts.googleapis.com",
-      "https://fonts.gstatic.com",
-      "https://fonts.googleapis.com/css2?family=Delius&display=swap"
-    ];
+    // Check if Delius font is already loaded
+    const existingDelius = document.querySelector('link[href*="Delius"]');
+    if (existingDelius) return;
 
-    fontLinks.forEach((href) => {
-      let link = document.createElement("link");
-      link.rel = href.includes("fonts.googleapis.com") ? "stylesheet" : "preconnect";
-      link.href = href;
-      if (href.includes("fonts.gstatic.com")) link.crossOrigin = "anonymous"; // Only needed for gstatic
-      document.head.appendChild(link);
-    });
+    // Preconnect links are already in HTML, so we only need to add the stylesheet
+    // Add stylesheet for Delius font
+    let stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "https://fonts.googleapis.com/css2?family=Delius&display=swap";
+    document.head.appendChild(stylesheet);
   }
 
   document.addEventListener("DOMContentLoaded", function () {

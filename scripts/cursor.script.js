@@ -17,4 +17,4 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('touchmove', (e) => {
   const touch = e.touches[0]; // Get first touch point
   moveCursor(touch.clientX, touch.clientY);
-});
+}, { passive: true });
