@@ -63,6 +63,8 @@ projects.forEach(project => {
     img.title = project.imgTitle;
     img.alt = project.imgAlt;
     img.classList.add("project-card-img");
+    img.loading = "lazy";
+    img.decoding = "async";
     imgBox.appendChild(img);
 
     // Body container

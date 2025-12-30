@@ -63,7 +63,10 @@ companies.forEach(company => {
     //
     const img = document.createElement("img");
     img.className = "company-img";
-    img.src = company.img_src
+    img.src = company.img_src;
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.alt = `${company.name} logo`;
     companyBox.appendChild(img)
     //
     const companyName = document.createElement("h3");

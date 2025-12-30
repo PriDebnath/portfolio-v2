@@ -274,6 +274,7 @@ function createFullscreenViewer(imageUrl) {
 
     const img = document.createElement('img');
     img.src = imageUrl;
+    img.decoding = "async";
     img.style.cssText = `
         max-width: 90%;
         max-height: 90%;
