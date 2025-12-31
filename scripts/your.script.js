@@ -20,20 +20,22 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
     }
 });
 
-you.addEventListener('click', () => {
+if (you && yourAura) {
+  you.addEventListener('click', () => {
 
-    yourAura.classList.remove("you-come");
-    yourAura.classList.add("you-go");
-    you.classList.remove("show-aura");
+      yourAura.classList.remove("you-come");
+      yourAura.classList.add("you-go");
+      you.classList.remove("show-aura");
 
-    setTimeout(() => {
-        body.classList.toggle('light-theme');
-        //
-        yourAura.classList.add("you-come");
-        yourAura.classList.remove("you-go");
-        you.classList.add("show-aura");
+      setTimeout(() => {
+          body.classList.toggle('light-theme');
+          //
+          yourAura.classList.add("you-come");
+          yourAura.classList.remove("you-go");
+          you.classList.add("show-aura");
 
-    }, parseInt(duration) * 1000);
+      }, parseInt(duration) * 1000);
 
 
-})
+  })
+}
