@@ -240,7 +240,7 @@ let socialDetails = [
 let observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            console.log("interecting")
+            // console.log("interecting")
             entry.target.classList.remove('d-none')
             entry.target.classList.add('d-block')
             observer.unobserve(entry.target);
@@ -266,9 +266,9 @@ let addIcon = ({
     svgSpan.innerHTML = icon
     linkelement.appendChild(svgSpan)
     element.appendChild(linkelement);
-    console.log({
-        element
-    })
+    // console.log({
+    //     element
+    // })
 };
 
 

@@ -57,12 +57,12 @@ const FILES_TO_CACHE = [
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log('[SW] Pre-caching files');
+      // console.log('[SW] Pre-caching files');
       return Promise.allSettled(FILES_TO_CACHE.map(url => cache.add(url)))
         .then(results => {
           results.forEach((result, index) => {
             if (result.status === 'rejected') {
-              console.warn('[SW] Failed to cache:', FILES_TO_CACHE[index]);
+              // console.warn('[SW] Failed to cache:', FILES_TO_CACHE[index]);
             }
           });
         });
@@ -78,14 +78,13 @@ self.addEventListener('activate', event => {
       Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
-            console.log('[SW] Removing old cache:', key);
+            // console.log('[SW] Removing old cache:', key);
             return caches.delete(key);
           }
         })
       )
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 // Fetch event: network-first for HTML, cache-first for other assets
