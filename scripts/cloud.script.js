@@ -28,9 +28,8 @@
     }
 
 
-    cloud.style.height = height + "px"
-    cloud.style.width = width + "px"
-    cloud.style.marginTop = marginTop + "px"
+    // cloud.style.height = height + "px" // done in css (cloud.style.css)
+    // cloud.style.width = width + "px" // done in css (cloud.style.css)
     cloud.style.top = top + "vh"
     cloud.style.left = left + "vw"
     cloud.style.transform = "translateX(" + translateX + "%"
