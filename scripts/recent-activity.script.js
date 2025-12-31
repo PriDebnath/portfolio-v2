@@ -192,7 +192,7 @@ function fetchBlog() {
     }).then((data) => {
         fetchedBlog = true
         //
-        console.log({ data })
+        // console.log({ data })
         let items = data.items
         items.forEach((item, index) => {
             let contentElement = document.createElement('a')
@@ -206,7 +206,7 @@ function fetchBlog() {
         });
 
     }).catch((err) => {
-        console.log({ err })
+        // console.log({ err })
     }).finally(() => {
 
         // Add see more link

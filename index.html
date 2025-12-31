@@ -205,6 +205,7 @@
 
 </head>
 
+<body>
 <!-- Body content starts -->
 <div>
 
@@ -1324,13 +1325,17 @@
 if ('serviceWorker' in navigator) {
   const swVersion = new Date().getTime();
   navigator.serviceWorker.register('./service-worker.script.js?v=' + swVersion)
-    .then(() => console.log('Service Worker registered with timestamp', swVersion))
-    .catch(err => console.log('Service Worker registration failed', err));
+    .then(() => {
+      // console.log('Service Worker registered with timestamp', swVersion)
+    }
+      )
+    .catch(err => {
+      // console.log('Service Worker registration failed', err)
+    }
+      )
 }
 </script>
 <!-- Service worker registration ends -->
-
-</body>
 
 <!-- JavaScript scripts start -->
 <script src="./scripts/reuseable.script.js"></script>
@@ -1389,5 +1394,7 @@ if ('serviceWorker' in navigator) {
 <script src="./scripts/svg.script.js"
         type="module"></script>
 <!-- JavaScript scripts end -->
+
+</body>
 
 </html>
