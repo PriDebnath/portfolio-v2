@@ -8,6 +8,7 @@
 .cloud,
 .cloud-2 {
   position: absolute;
+  z-index: 10;
   height: var(--cloud-height);
   width: var(--cloud-width);
   transform: translateX(-50%);
@@ -15,6 +16,11 @@
   justify-content: center;
   align-items: center;
   animation: slide-cloud 2s 1s forwards;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 
@@ -32,6 +38,15 @@
   .cloud-2 {
       height: calc(var(--cloud-height) * 1.4);
     width: calc(var(--cloud-width) * 1.4);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .cloud,
+  .cloud-2 {
+      height: calc(var(--cloud-height) * 1.6);
+    width: calc(var(--cloud-width) * 1.6);
   }
 }
 

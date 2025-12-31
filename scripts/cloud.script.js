@@ -99,6 +99,81 @@
     // Append to document body or another container
     let main = document.getElementById("main")
     main.appendChild(cloud);
+
+    // Add drag functionality for x-axis movement
+    let isDragging = false;
+    let startX = 0;
+    let currentTranslateX = translateX;
+    let initialMouseX = 0;
+
+    cloud.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      initialMouseX = e.clientX;
+      
+      // Get the actual current transform value from computed style BEFORE disabling animation
+      // This accounts for any animation that may have modified it
+      const computedStyle = window.getComputedStyle(cloud);
+      const transform = computedStyle.transform;
+      const cloudWidth = cloud.offsetWidth || parseFloat(computedStyle.width);
+      
+      // Parse the current translateX value
+      if (transform && transform !== 'none' && cloudWidth > 0) {
+        const matrix = new DOMMatrix(transform);
+        const translateXPixels = matrix.e;
+        
+        // Convert pixel translation to percentage (translateX(%) is relative to element's own width)
+        currentTranslateX = (translateXPixels / cloudWidth) * 100;
+      } else {
+        // Fallback: try to parse from inline style
+        const transformValue = cloud.style.transform;
+        if (transformValue && transformValue.includes('translateX')) {
+          const match = transformValue.match(/translateX\(([^)]+)\)/);
+          if (match) {
+            currentTranslateX = parseFloat(match[1]);
+          }
+        }
+      }
+      
+      // Now disable animation and preserve the current position
+      cloud.style.animation = 'none';
+      cloud.style.transform = `translateX(${currentTranslateX}%)`;
+      cloud.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - initialMouseX;
+      // Get cloud width - translateX(%) is relative to element's own width
+      const cloudWidth = cloud.offsetWidth || parseFloat(window.getComputedStyle(cloud).width);
+      
+      // Convert pixel movement to percentage of element width with increased sensitivity
+      const sensitivity = 3;
+      const deltaPercent = (deltaX / cloudWidth) * 100 * sensitivity;
+      const newTranslateX = currentTranslateX + deltaPercent;
+      
+      cloud.style.transform = `translateX(${newTranslateX}%)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        cloud.style.cursor = 'grab';
+        // Update currentTranslateX for next drag
+        const transformValue = cloud.style.transform;
+        if (transformValue && transformValue.includes('translateX')) {
+          const match = transformValue.match(/translateX\(([^)]+)\)/);
+          if (match) {
+            currentTranslateX = parseFloat(match[1]);
+          }
+        }
+      }
+    });
+
+    // Set initial cursor style
+    cloud.style.cursor = 'grab';
+    cloud.style.userSelect = 'none';
   }
 
   // Call the function to create and add the cloud
