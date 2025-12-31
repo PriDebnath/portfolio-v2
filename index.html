@@ -15,12 +15,26 @@
   <meta name="description"
         content="Pritam Debnath - Software Developer specializing in blending logic with creativity. Explore my projects, experience, and skills in frontend and backend development.">
   <meta name="keywords"
-        content="Pritam Debnath, software developer, frontend developer, backend developer, Angular, JavaScript, Typescript, portfolio, ">
+        content="Pritam Debnath, software developer, frontend developer, backend developer, Angular, JavaScript, Typescript, portfolio, React, Next.js, Node.js, Django, web development, Kolkata, India, full stack developer">
 
   <!-- SEO Meta Tags -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
   <link rel="canonical" href="https://pridebnath.github.io/portfolio-v2/" />
   <link rel="sitemap" type="application/xml" href="https://pridebnath.github.io/portfolio-v2/sitemap.xml" />
+  
+  <!-- Geo-location Meta Tags -->
+  <meta name="geo.region" content="IN-WB" />
+  <meta name="geo.placename" content="Kolkata" />
+  <meta name="geo.position" content="22.5726;88.3639" />
+  <meta name="ICBM" content="22.5726, 88.3639" />
+  
+  <!-- Additional Meta Tags -->
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <!-- Open Graph (OG) meta tags are widely used to control the appearance of your content when shared on platforms like Facebook, LinkedIn, and Pinterest. -->
   <meta property="og:title"
@@ -29,10 +43,20 @@
         content="Showcasing the projects, experience, and skills of Pritam Debnath, a software developer who blends logic with creativity.">
   <meta property="og:image"
         content="https://raw.githubusercontent.com/PriDebnath/portfolio-v2/refs/heads/main/assets/images/portfolio-v2-mobile-demo-1-by-1.jpg">
+  <meta property="og:image:width"
+        content="1200">
+  <meta property="og:image:height"
+        content="630">
+  <meta property="og:image:alt"
+        content="Pritam Debnath - Software Developer Portfolio">
   <meta property="og:url"
         content="https://pridebnath.github.io/portfolio-v2/">
   <meta property="og:type"
         content="website">
+  <meta property="og:site_name"
+        content="Pritam Debnath Portfolio">
+  <meta property="og:locale"
+        content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card"
@@ -43,6 +67,10 @@
         content="Discover the work and skills of Pritam Debnath, a software developer with a passion for blending logic and creativity.">
   <meta name="twitter:image"
         content="https://raw.githubusercontent.com/PriDebnath/portfolio-v2/refs/heads/main/assets/images/portfolio-v2-mobile-demo-1-by-1.jpg">
+  <meta name="twitter:image:alt"
+        content="Pritam Debnath - Software Developer Portfolio">
+  <meta name="twitter:creator"
+        content="@pri._.debnath">
 
   <meta name="author-linkedin"
         content="https://www.linkedin.com/in/pritam-debnath-762019239/"
@@ -52,6 +80,14 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://www.linkedin.com">
+  <link rel="dns-prefetch" href="https://github.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="./assets/css/root.style.css" as="style" />
+  <link rel="preload" href="./assets/css/reuseable.style.css" as="style" />
+  <link rel="preload" href="./assets/images/pritam-6.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="./scripts/reuseable.script.js" as="script" />
   
   <!-- Gabriela Font-->
   <link rel="preconnect"
@@ -97,6 +133,9 @@
   
   <!-- Theme Color for mobile browsers -->
   <meta name="theme-color" content="#000000" />
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="./manifest.json" />
 
   <!-- link to css file start-->
 
@@ -202,6 +241,146 @@
       }
   </script>
 
+  <!-- Structured Data - Organization Schema -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pritam Debnath - Portfolio",
+        "url": "https://pridebnath.github.io/portfolio-v2/",
+        "logo": "https://raw.githubusercontent.com/PriDebnath/portfolio-v2/refs/heads/main/assets/images/portfolio-v2-mobile-demo-1-by-1.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/pritam-debnath-762019239",
+          "https://github.com/PriDebnath",
+          "https://medium.com/@pritam-debnath"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "debnathpritam0802@gmail.com",
+          "contactType": "Professional"
+        }
+      }
+  </script>
+
+  <!-- Structured Data - BreadcrumbList Schema -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://pridebnath.github.io/portfolio-v2/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Experience",
+            "item": "https://pridebnath.github.io/portfolio-v2/#Experience"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Projects",
+            "item": "https://pridebnath.github.io/portfolio-v2/#Projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Skills",
+            "item": "https://pridebnath.github.io/portfolio-v2/#Skills"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "About Me",
+            "item": "https://pridebnath.github.io/portfolio-v2/#About-me"
+          }
+        ]
+      }
+  </script>
+
+  <!-- Structured Data - Projects Schema (ItemList) -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Notable Projects by Pritam Debnath",
+        "description": "Software development projects showcasing frontend and backend skills",
+        "itemListElement": [
+          {
+            "@type": "SoftwareApplication",
+            "position": 1,
+            "name": "FyleHQ - Clone",
+            "description": "Front-end replication of the popular expense management platform Fyle HQ, built using Ant Design (ng-zorro) and Angular",
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "url": "https://fylehq-clone-by-pritam.netlify.app",
+            "codeRepository": "https://github.com/PriDebnath/fylehq-clone",
+            "programmingLanguage": ["TypeScript", "Angular", "HTML", "CSS"],
+            "screenshot": "https://raw.githubusercontent.com/PriDebnath/portfolio-v2/refs/heads/main/assets/images/project-fylehq-homepage-clone.png"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "position": 2,
+            "name": "Relu Consultancy - Assignment",
+            "description": "Front-end development assignment project",
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "url": "https://relu-consultancy-assignment-by-pri.netlify.app/",
+            "codeRepository": "https://github.com/PriDebnath/relu-consultancy-assignment",
+            "programmingLanguage": ["TypeScript", "Angular", "HTML", "CSS"],
+            "screenshot": "https://raw.githubusercontent.com/PriDebnath/portfolio-v2/refs/heads/main/assets/images/project-relu-consultancy-assignment.png"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "position": 3,
+            "name": "Tutedude - Assignment",
+            "description": "Front-end development assignment project",
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "url": "https://tutedudeuibypri.netlify.app/",
+            "codeRepository": "https://github.com/PriDebnath/tutedude-assignment",
+            "programmingLanguage": ["JavaScript", "React", "HTML", "CSS"],
+            "screenshot": "https://raw.githubusercontent.com/PriDebnath/portfolio-v2/refs/heads/main/assets/images/project-tutedude.png"
+          }
+        ]
+      }
+  </script>
+
+  <!-- Structured Data - AggregateRating for Testimonials -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pritam Debnath",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "4",
+          "bestRating": "5",
+          "worstRating": "5"
+        }
+      }
+  </script>
+
 
 </head>
 
@@ -297,8 +476,8 @@
 
             <div class="img-box">
               <img src="./assets/images/pritam-6.png"
-                   title="Pritam Debnath"
-                   alt="Pritam Debnath"
+                   title="Pritam Debnath - Software Developer"
+                   alt="Pritam Debnath, Software Developer specializing in frontend and backend development, based in Kolkata, India"
                    fetchpriority="high"
                    decoding="async" />
             </div>
@@ -360,7 +539,7 @@
                      src="assets/images/company-go-plus-logo.jpeg"
                      loading="lazy"
                      decoding="async"
-                     alt="Company logo" />
+                     alt="GoPlus company logo - Software development company" />
                 <h3 class="company-name"> <a href="https://www.linkedin.com/company/goplusio/about/"
                      target="_blank"
                      rel="noopener noreferrer"
@@ -483,7 +662,7 @@
                      src="assets/images/company-omicron-logo.jpg"
                      loading="lazy"
                      decoding="async"
-                     alt="Omicron Technologies logo" />
+                     alt="Omicron Technologies company logo - Technology solutions provider" />
                 <h3 class="company-name">
                   Omicron Technologies
                 </h3>
@@ -546,7 +725,7 @@
                      src="assets/images/company-hsv-digital-logo.jpeg"
                      loading="lazy"
                      decoding="async"
-                     alt="GroRapid Labs logo" />
+                     alt="GroRapid Labs company logo - Digital solutions company" />
                 <h3 class="company-name">
                   GroRapid Labs
                 </h3>
@@ -644,8 +823,8 @@
         <div class="project-card">
           <div class="project-card-img-box">
             <img src="assets/images/project-fylehq-homepage-clone.png"
-                 title="project fylehq homepage clone"
-                 alt="project fylehq homepage clone"
+                 title="FyleHQ Expense Management Platform Clone - Angular Project"
+                 alt="Screenshot of FyleHQ expense management platform clone built with Angular and Ant Design, showing modern UI with expense tracking features"
                  class="project-card-img"
                  loading="lazy"
                  decoding="async" />
@@ -697,8 +876,8 @@
         <div class="project-card">
           <div class="project-card-img-box">
             <img src="assets/images/project-relu-consultancy-assignment.png"
-                 title="project-relu-consultancy-assignment"
-                 alt="project-relu-consultancy-assignment"
+                 title="Relu Consultancy Frontend Development Assignment"
+                 alt="Screenshot of Relu Consultancy frontend development assignment project built with Angular, showcasing responsive web design"
                  class="project-card-img"
                  loading="lazy"
                  decoding="async" />
@@ -746,8 +925,8 @@
         <div class="project-card">
           <div class="project-card-img-box">
             <img src="assets/images/project-tutedude.png"
-                 title="project tutedude assignment"
-                 alt="project relu tutedude assignment"
+                 title="Tutedude Frontend Development Assignment"
+                 alt="Screenshot of Tutedude frontend development assignment project built with React, demonstrating modern UI/UX design"
                  class="project-card-img"
                  loading="lazy"
                  decoding="async" />
@@ -1383,10 +1562,10 @@
         <div class="image-box">
           <img src="./assets/images/pri.jpg"
                class="pri"
-               alt="Pritam Debnath"
+               alt="Pritam Debnath - Software Developer Portfolio"
                loading="lazy"
                decoding="async"
-               title="Pritam Debnath" />
+               title="Pritam Debnath - Software Developer" />
         </div>
         <div class="text-box">
           <span class="white-space-nowrap">Made with</span> <span class="heart"
