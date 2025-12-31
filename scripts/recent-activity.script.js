@@ -186,11 +186,51 @@ document.getElementById("modalOverlay").onclick = function (event) {
 function fetchBlog() {
     contentBox.innerHTML = ''
     contentBox.className = 'writing-container'
+    
+    // Create and show loader
+    const loader = document.createElement('div');
+    loader.id = 'medium-loader';
+    loader.style.cssText = `
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+    `;
+    
+    const spinner = document.createElement('div');
+    spinner.style.cssText = `
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: var(--body-text-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    `;
+    
+    // Add spinner animation if not already in style
+    if (!document.getElementById('loader-style')) {
+        const style = document.createElement('style');
+        style.id = 'loader-style';
+        style.textContent = `
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    loader.appendChild(spinner);
+    contentBox.appendChild(loader);
+    
     //
     fetch(MEDIUM_BLOG_API).then((res) => {
         return res.json()
     }).then((data) => {
         fetchedBlog = true
+        // Remove loader and clear content box
+        contentBox.innerHTML = '';
+        
         //
         // console.log({ data })
         let items = data.items
@@ -206,6 +246,8 @@ function fetchBlog() {
         });
 
     }).catch((err) => {
+        // Remove loader and clear content on error
+        contentBox.innerHTML = '';
         // console.log({ err })
     }).finally(() => {
 

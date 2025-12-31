@@ -1,6 +1,7 @@
 :root {
   --t-card-border-color: #252527;
   --slide-client-duration: 1s;
+  --client-height: 6vh;
 }
 
 :root.light-theme {
@@ -78,8 +79,8 @@
 
 
 .testimonial-card-client-img-box {
-  width: calc(var(--your-height) * 0.8);
-  height: calc(var(--your-height) * 0.8);
+  width: var(--client-height) ;
+  height: var(--client-height) ;
   border-radius: var(--pritam);
   background: var(--your-color);
   background-color: var(--t-card-border-color);
