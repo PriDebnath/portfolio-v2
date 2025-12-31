@@ -106,9 +106,10 @@
     let currentTranslateX = translateX;
     let initialMouseX = 0;
 
-    cloud.addEventListener('mousedown', (e) => {
+    // Helper function to start dragging
+    const startDrag = (clientX) => {
       isDragging = true;
-      initialMouseX = e.clientX;
+      initialMouseX = clientX;
       
       // Get the actual current transform value from computed style BEFORE disabling animation
       // This accounts for any animation that may have modified it
@@ -138,13 +139,13 @@
       cloud.style.animation = 'none';
       cloud.style.transform = `translateX(${currentTranslateX}%)`;
       cloud.style.cursor = 'grabbing';
-      e.preventDefault();
-    });
+    };
 
-    document.addEventListener('mousemove', (e) => {
+    // Helper function to handle drag movement
+    const handleDrag = (clientX) => {
       if (!isDragging) return;
       
-      const deltaX = e.clientX - initialMouseX;
+      const deltaX = clientX - initialMouseX;
       // Get cloud width - translateX(%) is relative to element's own width
       const cloudWidth = cloud.offsetWidth || parseFloat(window.getComputedStyle(cloud).width);
       
@@ -154,9 +155,10 @@
       const newTranslateX = currentTranslateX + deltaPercent;
       
       cloud.style.transform = `translateX(${newTranslateX}%)`;
-    });
+    };
 
-    document.addEventListener('mouseup', () => {
+    // Helper function to end dragging
+    const endDrag = () => {
       if (isDragging) {
         isDragging = false;
         cloud.style.cursor = 'grab';
@@ -169,6 +171,39 @@
           }
         }
       }
+    };
+
+    // Mouse events
+    cloud.addEventListener('mousedown', (e) => {
+      startDrag(e.clientX);
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      handleDrag(e.clientX);
+    });
+
+    document.addEventListener('mouseup', () => {
+      endDrag();
+    });
+
+    // Touch events for mobile
+    cloud.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        startDrag(e.touches[0].clientX);
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches.length === 1) {
+        handleDrag(e.touches[0].clientX);
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+      endDrag();
     });
 
     // Set initial cursor style

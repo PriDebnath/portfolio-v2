@@ -1,7 +1,7 @@
 :root {
   --animation-time: 2s;
-  --your-height: 8vh;
-  --your-aura-height: 6vh;
+  --your-height: 10vh;
+  --your-aura-height: 10vh;
   --your-aura-color-1: #5CB5BB;
   --your-aura-color-2: #4AA3A9;
   --your-aura-color-3: #33708C;
@@ -24,7 +24,7 @@
 .your-aura {
   position: absolute;
   top: calc(var(--your-height) * -2);
-  right: calc(var(--your-aura-height)* -2);
+  right: calc(var(--your-aura-height)* -4);
   height: calc(var(--your-aura-height)*10);
   border-radius: var(--pritam);
   aspect-ratio: 1;
@@ -150,19 +150,29 @@
   left: calc(var(--your-height) / 2);
 }
 
-@media (min-width:700px) {
+
+@media (min-width:480px) {
   :root {
-    --your-aura-height: 10vh;
-    --your-height: 10vh;
+    --your-height: calc(8vh * 1.75); /* your height was 8vh */
+    --your-aura-height: calc(6vh * 2.5); /* your aura height was 6vh */
   }
 
-  /*
   .your-aura {
-    top: calc(var(--your-height) * -8);
-    right: calc(var(--your-height) * -6);
+    top: calc(var(--your-height) * -4);
+    right: calc(var(--your-height) * -3);
+  }
+}
 
-  } */
+@media (min-width:700px) {
+  :root {
+    --your-height: calc(8vh * 2); /* your height was 8vh */
+    --your-aura-height: calc(6vh * 3); /* your aura height was 6vh */
+  }
 
+  .your-aura {
+    top: calc(var(--your-height) * -4);
+    right: calc(var(--your-height) * -3);
+  }
 }
 
 /* my space end */
