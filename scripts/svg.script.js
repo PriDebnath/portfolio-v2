@@ -806,6 +806,112 @@ export const upworkClientSvg = `
 
  `
 
+export const nextSvg = `
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="vscode-icons:file-type-next">
+      <path id="Vector" d="M8 14.75C11.7279 14.75 14.75 11.7279 14.75 8C14.75 4.27208 11.7279 1.25 8 1.25C4.27208 1.25 1.25 4.27208 1.25 8C1.25 11.7279 4.27208 14.75 8 14.75Z" fill="black" stroke="white" stroke-width="0.5"/>
+      <path id="Vector_2" d="M12.63 13.25L6.38001 5.2H5.20001V10.8H6.14501V6.4L11.89 13.82C12.15 13.645 12.39 13.46 12.63 13.255V13.25Z" fill="url(#paint0_linear_14_15)"/>
+      <path id="Vector_3" d="M9.94501 5.2H10.875V10.8H9.95001L9.94501 5.2Z" fill="url(#paint1_linear_14_15)"/>
+    </g>
+    <defs>
+      <linearGradient id="paint0_linear_14_15" x1="5.21276" y1="13.8387" x2="7.35776" y2="17.4165" gradientUnits="userSpaceOnUse">
+        <stop stop-color="white"/>
+        <stop offset="1" stop-color="white" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="paint1_linear_14_15" x1="10.0253" y1="5.23125" x2="10.0253" y2="9.36725" gradientUnits="userSpaceOnUse">
+        <stop stop-color="white"/>
+        <stop offset="1" stop-color="white" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+  </svg>
+`
+
+export const htmlSvg = `
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="skill-icons:html" clip-path="url(#clip0_16_31)">
+      <g id="Group">
+        <path id="Vector" d="M12.25 0H3.75C1.67893 0 0 1.67893 0 3.75V12.25C0 14.3211 1.67893 16 3.75 16H12.25C14.3211 16 16 14.3211 16 12.25V3.75C16 1.67893 14.3211 0 12.25 0Z" fill="#E14E1D"/>
+        <path id="Vector_2" d="M3 2.375L3.53813 8.41206H10.4575L10.2253 11.0014L7.99744 11.6038L5.77375 11.0023L5.62506 9.33969H3.62125L3.90781 12.5448L7.997 13.6805L12.0914 12.5448L12.6403 6.41594H5.364L5.18131 4.37156H12.8212L13 2.375H3Z" fill="white"/>
+        <path id="Vector_3" d="M8 2.375H3L3.53813 8.41206H8V6.41594H5.364L5.18131 4.37156H8V2.375ZM8 11.6029L7.99744 11.6038L5.77375 11.0023L5.62506 9.33969H3.62125L3.90781 12.5448L7.997 13.6805L8.00006 13.6796L8 11.6029Z" fill="#EBEBEB"/>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_16_31">
+        <rect width="16" height="16" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+`
+
+export const cssSvg = `
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="skill-icons:css" clip-path="url(#clip0_16_38)">
+      <g id="Group">
+        <path id="Vector" d="M12.25 0H3.75C1.67893 0 0 1.67893 0 3.75V12.25C0 14.3211 1.67893 16 3.75 16H12.25C14.3211 16 16 14.3211 16 12.25V3.75C16 1.67893 14.3211 0 12.25 0Z" fill="#0277BD"/>
+        <path id="Vector_2" d="M3.35956 6.41569L3.53844 8.41206H8.006V6.41569H3.35956ZM8.00594 2.375H3L3.1815 4.37138H8.00594V2.375ZM8.00594 13.6776V11.6005L7.99719 11.6028L5.77381 11.0025L5.63169 9.41025H3.62762L3.90731 12.5449L7.99675 13.6801L8.00594 13.6776Z" fill="#EBEBEB"/>
+        <path id="Vector_3" d="M10.4574 8.41206L10.2256 11.0012L7.99905 11.6022V13.6791L12.0917 12.5449L12.1217 12.2076L12.5909 6.95181L12.6396 6.41569L13 2.375H7.99905V4.37138H10.8121L10.6305 6.41569H7.99905V8.41206H10.4574Z" fill="white"/>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_16_38">
+        <rect width="16" height="16" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+`
+
+export const nodeSvg = `
+  <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="logos:nodejs-icon-alt" clip-path="url(#clip0_16_58)">
+      <path id="Vector" d="M8.43269 0.112703C8.16119 -0.0378931 7.83881 -0.0378931 7.56731 0.112703L0.424188 4.17929C0.152688 4.32988 0 4.61437 0 4.91556V13.0654C0 13.3666 0.169688 13.6511 0.424188 13.8017L7.56731 17.8682C7.83881 18.0189 8.16119 18.0189 8.43269 17.8682L15.5758 13.8017C15.8473 13.6511 16 13.3666 16 13.0654V4.91556C16 4.61437 15.8303 4.32988 15.5758 4.17929L8.43269 0.112703Z" fill="url(#paint0_linear_16_58)"/>
+      <g id="Mask group">
+        <mask id="mask0_16_58" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="-1" width="16" height="19">
+          <g id="Group">
+            <path id="Vector_2" d="M8.43269 0.112703C8.16119 -0.0378931 7.83881 -0.0378931 7.56731 0.112703L0.424188 4.17929C0.152688 4.32988 0 4.61437 0 4.91556V13.0654C0 13.3666 0.169688 13.6511 0.424188 13.8017L7.56731 17.8682C7.83881 18.0189 8.16119 18.0189 8.43269 17.8682L15.5758 13.8017C15.8473 13.6511 16 13.3666 16 13.0654V4.91556C16 4.61437 15.8303 4.32988 15.5758 4.17929L8.43269 0.112703Z" fill="white"/>
+          </g>
+        </mask>
+        <g mask="url(#mask0_16_58)">
+          <path id="Vector_3" d="M15.5928 4.17947L8.41562 0.113009C8.34774 0.0795976 8.26293 0.046125 8.19506 0.0293579L0.152679 13.6179C0.220554 13.7015 0.305429 13.7685 0.390179 13.8187L7.5673 17.8852C7.77093 18.0024 8.00849 18.0358 8.22905 17.9689L15.7794 4.34683C15.7284 4.27989 15.6606 4.22971 15.5927 4.17953" fill="url(#paint1_linear_16_58)"/>
+        </g>
+      </g>
+      <g id="Mask group_2">
+        <mask id="mask1_16_58" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="-1" width="16" height="19">
+          <g id="Group_2">
+            <path id="Vector_4" d="M8.43269 0.112703C8.16119 -0.0378931 7.83881 -0.0378931 7.56731 0.112703L0.424188 4.17929C0.152688 4.32988 0 4.61437 0 4.91556V13.0654C0 13.3666 0.169688 13.6511 0.424188 13.8017L7.56731 17.8682C7.83881 18.0189 8.16119 18.0189 8.43269 17.8682L15.5758 13.8017C15.8473 13.6511 16 13.3666 16 13.0654V4.91556C16 4.61437 15.8303 4.32988 15.5758 4.17929L8.43269 0.112703Z" fill="white"/>
+          </g>
+        </mask>
+        <g mask="url(#mask1_16_58)">
+          <path id="Vector_5" d="M15.6098 13.8019C15.8134 13.6848 15.9661 13.484 16.0339 13.2664L8.1612 0.0125811C7.95757 -0.0208915 7.73701 -0.00418598 7.55038 0.112937L0.424133 4.16281L8.11032 17.9857C8.21207 17.9689 8.33088 17.9355 8.4327 17.8852L15.6098 13.8019Z" fill="url(#paint2_linear_16_58)"/>
+        </g>
+      </g>
+    </g>
+    <defs>
+      <linearGradient id="paint0_linear_16_58" x1="1091.01" y1="314.442" x2="323.314" y2="1537.44" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#41873F"/>
+        <stop offset="0.3288" stop-color="#418B3D"/>
+        <stop offset="0.6352" stop-color="#419637"/>
+        <stop offset="0.9319" stop-color="#3FA92D"/>
+        <stop offset="1" stop-color="#3FAE2A"/>
+      </linearGradient>
+      <linearGradient id="paint1_linear_16_58" x1="676.429" y1="991.618" x2="2624.86" y2="-81.6738" gradientUnits="userSpaceOnUse">
+        <stop offset="0.1376" stop-color="#41873F"/>
+        <stop offset="0.4032" stop-color="#54A044"/>
+        <stop offset="0.7136" stop-color="#66B848"/>
+        <stop offset="0.9081" stop-color="#6CC04A"/>
+      </linearGradient>
+      <linearGradient id="paint2_linear_16_58" x1="-68.0873" y1="899.361" x2="1584.8" y2="899.361" gradientUnits="userSpaceOnUse">
+        <stop offset="0.09192" stop-color="#6CC04A"/>
+        <stop offset="0.2864" stop-color="#66B848"/>
+        <stop offset="0.5968" stop-color="#54A044"/>
+        <stop offset="0.8624" stop-color="#41873F"/>
+      </linearGradient>
+      <clipPath id="clip0_16_58">
+        <rect width="16" height="18" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+`
+
 const renderSvg = (spanTags, svg) => {
   spanTags.forEach((span) => {
     span.innerHTML = svg
@@ -842,6 +948,10 @@ let spanSvgFiverr = document.querySelectorAll('.span-svg-fiverr')
 let spanSvgFiverrClient = document.querySelectorAll('.span-svg-fiverr-client')
 let spanSvgUpworkClient = document.querySelectorAll('.span-svg-upwork-client')
 let spanSvgVerifiedClient = document.querySelectorAll('.span-svg-verified-client')
+let spanSvgNext = document.querySelectorAll('.span-svg-next')
+let spanSvgHtml = document.querySelectorAll('.span-svg-html')
+let spanSvgCss = document.querySelectorAll('.span-svg-css')
+let spanSvgNode = document.querySelectorAll('.span-svg-node')
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -875,6 +985,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSvg(spanSvgFiverrClient, fiverrClientSvg)
     renderSvg(spanSvgUpworkClient, upworkClientSvg)
     renderSvg(spanSvgVerifiedClient, verifiedClientSvg)
+    renderSvg(spanSvgNext, nextSvg)
+    renderSvg(spanSvgHtml, htmlSvg)
+    renderSvg(spanSvgCss, cssSvg)
+    renderSvg(spanSvgNode, nodeSvg)
   }, 10)
 
 })

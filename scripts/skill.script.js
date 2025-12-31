@@ -9,6 +9,11 @@ let backendSkillsElement = document.getElementById('backend-skills');
 let testingSkillsElement = document.getElementById('testing-skills');
 let frontendSkills = [
   {
+    title: "Angular", color: "#DD0031",
+    link: "https://angular.dev/",
+    icon: null // Icon is handled by span-svg-angular class
+  },
+  {
     title: "Next.js", color: "snow",
     link: "https://nextjs.org/docs",
     icon: `
@@ -467,26 +472,58 @@ let addSkill = ({
   // }, removeAfter);
 };
 
+// Function to setup existing skill elements with animations and event handlers
+let setupSkill = (skillElement, color) => {
+  // Observe for animation
+  observer.observe(skillElement);
 
-
-let observeSkills = (skills, skillsElement) => {
-  if (skillsElement && skills) {
-    skills.forEach((skill, index) => {
-      let delay = 100 * (index + 1); // Adjust delay for animation
-      setTimeout(() => {
-        addSkill({
-          title: skill.title,
-          icon: skill.icon, color: skill.color,
-          link: skill.link,
-          breakSkill: skill.breakSkill,
-          skillsElement: skillsElement,
-          removeAfter: delay
-        });
-      }, delay);
-    });
+  // Handle hover events
+  let handleMove = () => {
+    skillElement.style.background = `linear-gradient(var(--skill-bg-color) 0 0) padding-box, 
+                                     linear-gradient(to right, ${color}, var(--skill-border-color)) border-box`;
   }
+  let handleOut = () => {
+    skillElement.style.background = `linear-gradient(var(--skill-bg-color) 0 0) padding-box, 
+                                     linear-gradient(to right, var(--skill-border-color), var(--skill-border-color)) border-box`;
+  }
+
+  skillElement.addEventListener('mouseover', handleMove);
+  skillElement.addEventListener('mouseout', handleOut);
+  skillElement.addEventListener('touchmove', handleMove, { passive: true });
+  skillElement.addEventListener('touchend', handleOut, { passive: true });
 };
 
-observeSkills(frontendSkills, frontendSkillsElement);
-observeSkills(backendSkills, backendSkillsElement);
-observeSkills(testingSkills, testingSkillsElement);
+// Function to find and setup existing skills from HTML
+let setupExistingSkills = (skills, skillsElement) => {
+  if (!skillsElement || !skills) return;
+
+  // Get all existing skill links in the container
+  const existingSkills = skillsElement.querySelectorAll('.skill');
+  
+  skills.forEach((skillData, index) => {
+    if (skillData.breakSkill) {
+      // Skip breakSkill items - they're already in HTML
+      return;
+    }
+
+    // Find the matching skill element by title or link
+    let skillElement = Array.from(existingSkills).find(el => {
+      const titleMatch = el.textContent.trim().includes(skillData.title);
+      const linkMatch = el.href === skillData.link || el.getAttribute('href') === skillData.link;
+      return titleMatch || linkMatch;
+    });
+
+    if (skillElement) {
+      // Add animation delay based on index
+      let delay = 100 * (index + 1);
+      setTimeout(() => {
+        setupSkill(skillElement, skillData.color);
+      }, delay);
+    }
+  });
+};
+
+// Setup all existing skills with animations
+setupExistingSkills(frontendSkills, frontendSkillsElement);
+setupExistingSkills(backendSkills, backendSkillsElement);
+setupExistingSkills(testingSkills, testingSkillsElement);
