@@ -1,19 +1,55 @@
 :root {
   --cloud-color-1: rgba(255, 255, 255, 0.7);
   --cloud-color-2: rgba(0, 0, 0, 0.2);
+  --cloud-height: 47px;
+  --cloud-width: 130px;
 }
 
 .cloud,
 .cloud-2 {
   position: absolute;
-  height: 70px;
-  width: 200px;
+  z-index: 10;
+  height: var(--cloud-height);
+  width: var(--cloud-width);
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
   animation: slide-cloud 2s 1s forwards;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
+
+
+@media (min-width: 540px) {
+  .cloud,
+  .cloud-2 {
+      height: calc(var(--cloud-height) * 1.2);
+    width: calc(var(--cloud-width) * 1.2);
+  }
+}
+
+
+@media (min-width: 768px) {
+  .cloud,
+  .cloud-2 {
+      height: calc(var(--cloud-height) * 1.4);
+    width: calc(var(--cloud-width) * 1.4);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .cloud,
+  .cloud-2 {
+      height: calc(var(--cloud-height) * 1.6);
+    width: calc(var(--cloud-width) * 1.6);
+  }
+}
+
 
 
 @keyframes slide-cloud {

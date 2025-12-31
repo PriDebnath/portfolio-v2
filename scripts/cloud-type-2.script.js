@@ -1,3 +1,6 @@
+// not used in the project
+
+
 function createCloudType2(param = {
     height: 60,
     width: 180,
