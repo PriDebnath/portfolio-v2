@@ -241,6 +241,160 @@ let allSkills = [
 // Store selected skills for filtering projects later
 let selectedSkills = new Set();
 
+// Projects list
+const projects = [
+  {
+    projectName: "portfolio-v2",
+    tags: ["HTML", "CSS", "JavaScript"],
+    createdAt: "2025-02-24"
+  },
+  {
+    projectName: "PriDebnath",
+    tags: ["Config", "GitHub"],
+    createdAt: "2024-01-10"
+  },
+  {
+    projectName: "chaskiq-maintained",
+    tags: ["TypeScript"],
+    createdAt: "2025-01-15"
+  },
+  {
+    projectName: "you",
+    tags: ["HTML", "CSS", "Three.js"],
+    createdAt: "2024-11-02"
+  },
+  {
+    projectName: "read-pdf-text",
+    tags: ["HTML", "JavaScript"],
+    createdAt: "2024-10-12"
+  },
+  {
+    projectName: "css-ui",
+    tags: ["HTML", "CSS"],
+    createdAt: "2024-09-20"
+  },
+  {
+    projectName: "string-manipulator",
+    tags: ["JavaScript"],
+    createdAt: "2024-08-05"
+  },
+  {
+    projectName: "Quotes-Keeper-2",
+    tags: ["Angular", "Django", "Python", "JavaScript", "HTML", "CSS", "SQL", "Cypress", "Jasmine"],
+    createdAt: "2024-07-18"
+  },
+  {
+    projectName: "audio-player",
+    tags: ["HTML", "JavaScript"],
+    createdAt: "2024-06-15"
+  },
+  {
+    projectName: "fylehq-clone",
+    tags: ["Angular", "TypeScript", "Ant Design", "CSS", "HTML"],
+    createdAt: "2024-05-21"
+  },
+  {
+    projectName: "image-gallery",
+    tags: ["React", "Tailwind CSS", "JavaScript", "API"],
+    createdAt: "2024-04-22"
+  },
+  {
+    projectName: "Todos-2.0",
+    tags: ["HTML", "JavaScript"],
+    createdAt: "2024-03-28"
+  },
+  {
+    projectName: "Theme-changer",
+    tags: ["JavaScript", "CSS"],
+    createdAt: "2024-02-18"
+  },
+  {
+    projectName: "prink-prototype-version-2",
+    tags: ["React", "TypeScript"],
+    createdAt: "2024-01-30"
+  },
+  {
+    projectName: "prink-prototype-version-1",
+    tags: ["JavaScript"],
+    createdAt: "2024-01-10"
+  },
+  {
+    projectName: "code-journal",
+    tags: ["JavaScript"],
+    createdAt: "2023-12-05"
+  },
+  {
+    projectName: "qa-bot",
+    tags: ["JavaScript", "LLM", "AI"],
+    createdAt: "2023-11-17"
+  },
+  {
+    projectName: "record-screen",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    createdAt: "2023-10-25"
+  },
+  {
+    projectName: "run-llm",
+    tags: ["HTML", "JavaScript", "AI"],
+    createdAt: "2023-09-09"
+  },
+  {
+    projectName: "posts-v2",
+    tags: ["Django", "Angular", "Cypress"],
+    createdAt: "2023-08-14"
+  },
+  {
+    projectName: "developer-portfolios",
+    tags: ["Python"],
+    createdAt: "2023-07-11"
+  },
+  {
+    projectName: "bayesian-technologies-assignment",
+    tags: ["TypeScript"],
+    createdAt: "2023-06-28"
+  },
+  {
+    projectName: "fyle-assignment",
+    tags: ["TypeScript"],
+    createdAt: "2023-05-30"
+  },
+  {
+    projectName: "relu-consultancy-assignment",
+    tags: ["HTML", "CSS", "TypeScript"],
+    createdAt: "2023-05-05"
+  },
+  {
+    projectName: "go-plus-inc-assignment",
+    tags: ["JavaScript"],
+    createdAt: "2023-04-20"
+  },
+  {
+    projectName: "breez-The-place-of-yoga",
+    tags: ["HTML", "CSS", "JavaScript"],
+    createdAt: "2023-03-10"
+  },
+  {
+    projectName: "cakie",
+    tags: ["HTML", "CSS", "JavaScript"],
+    createdAt: "2023-02-02"
+  },
+  {
+    projectName: "tutedude-assignment",
+    tags: ["HTML", "CSS"],
+    createdAt: "2023-01-18"
+  },
+  {
+    projectName: "Buydesk-Landing-Page",
+    tags: ["HTML", "CSS"],
+    createdAt: "2022-12-09"
+  },
+  {
+    projectName: "weather_app",
+    tags: ["HTML", "CSS", "JavaScript", "API"],
+    createdAt: "2022-11-23"
+  }
+];
+
 // Function to find skill data by title or link
 function findSkillData(skillElement) {
   const title = skillElement.textContent.trim();
@@ -261,10 +415,25 @@ function openSkillModal(skillElement, event) {
     event.stopPropagation();
   }
 
+  // Get skill data from the clicked element
+  const skillData = findSkillData(skillElement);
+  
+  // Clear all selected skills for fresh start
+  selectedSkills.clear();
+  
+  // Update URL hash with skill parameter if skill data found
+  if (skillData) {
+    // Add only the clicked skill to selected skills
+    selectedSkills.add(skillData.title);
+    window.location.hash = `skill=${encodeURIComponent(skillData.title)}`;
+  } else {
+    window.location.hash = 'skills';
+  }
+
   // Use generic openModal with title for skills filter
   openModal('Filter by Skills', () => {
-    // Display skills filter interface after modal opens
-    displaySkillsFilter();
+    // Display skills filter interface after modal opens with fresh start
+    displaySkillsFilter(true);
   });
 }
 
@@ -278,15 +447,15 @@ function createSkillBadge(skillData, isSelected = false) {
   }
   
   skillBadge.style.cssText = `
-    padding: 0.5rem 1rem;
-    margin: 0.25rem;
+    padding: 0.3rem 0.6rem;
+    margin: 0.15rem;
     border: 1px solid ${skillData.color};
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     background: ${isSelected ? skillData.color : 'transparent'};
     color: ${isSelected ? 'var(--body-color)' : skillData.color};
     cursor: pointer;
     transition: all 0.3s;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-family: inherit;
   `;
   
@@ -308,7 +477,8 @@ function createSkillBadge(skillData, isSelected = false) {
   });
   
   // Click handler to toggle selection
-  skillBadge.addEventListener('click', () => {
+  skillBadge.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     toggleSkillSelection(skillData.title);
   });
   
@@ -327,8 +497,151 @@ function toggleSkillSelection(skillTitle) {
   displaySkillsFilter();
 }
 
+// Function to filter projects based on selected skills
+function filterProjects() {
+  if (selectedSkills.size === 0) {
+    return projects; // Return all projects if no skills selected
+  }
+  
+  // Filter projects that have at least one of the selected skills in their tags
+  return projects.filter(project => {
+    return project.tags.some(tag => selectedSkills.has(tag));
+  });
+}
+
+// Function to create a project card element
+function createProjectCard(project) {
+  const projectCard = document.createElement('a');
+  projectCard.href = `https://github.com/PriDebnath/${project.projectName}`;
+  projectCard.target = '_blank';
+  projectCard.rel = 'noopener noreferrer';
+  projectCard.style.cssText = `
+    padding: 0.6rem;
+    margin: 0;
+    border: 1px solid var(--body-text-color);
+    border-radius: 0.3rem;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  `;
+  
+  projectCard.addEventListener('mouseover', () => {
+    projectCard.style.borderColor = 'var(--body-text-color)';
+    projectCard.style.transform = 'translateY(-1px)';
+    projectCard.style.background = 'rgba(0, 0, 0, 0.3)';
+  });
+  
+  projectCard.addEventListener('mouseout', () => {
+    projectCard.style.borderColor = 'var(--body-text-color)';
+    projectCard.style.transform = 'translateY(0)';
+    projectCard.style.background = 'rgba(0, 0, 0, 0.2)';
+  });
+  
+  // Left side: Project name and date
+  const leftSection = document.createElement('div');
+  leftSection.style.cssText = `
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+  `;
+  
+  // Project name
+  const projectName = document.createElement('h4');
+  projectName.textContent = project.projectName;
+  projectName.style.cssText = `
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    color: var(--body-text-color);
+    font-weight: 600;
+    text-align: left;
+  `;
+  leftSection.appendChild(projectName);
+  
+  // Project date
+  const projectDate = document.createElement('div');
+  projectDate.textContent = `Created: ${project.createdAt}`;
+  projectDate.style.cssText = `
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    color: var(--body-text-color);
+    opacity: 0.7;
+  `;
+  leftSection.appendChild(projectDate);
+  
+  projectCard.appendChild(leftSection);
+  
+  // Right side: Project tags
+  const tagsContainer = document.createElement('div');
+  tagsContainer.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  `;
+  
+  project.tags.forEach(tag => {
+    const tagBadge = document.createElement('span');
+    tagBadge.textContent = tag;
+    const isSelected = selectedSkills.has(tag);
+    const skillData = allSkills.find(s => s.title === tag);
+    const tagColor = skillData ? skillData.color : 'var(--body-text-color)';
+    
+    tagBadge.style.cssText = `
+      padding: 0.15rem 0.4rem;
+      border: 1px solid ${tagColor};
+      border-radius: 0.2rem;
+      background: ${isSelected ? tagColor : 'transparent'};
+      color: ${isSelected ? 'var(--body-color)' : tagColor};
+      font-size: 0.65rem;
+    `;
+    tagsContainer.appendChild(tagBadge);
+  });
+  
+  projectCard.appendChild(tagsContainer);
+  
+  return projectCard;
+}
+
+// Function to check URL for skill parameter and auto-select (only on initial load)
+function checkAndSelectSkillFromURL(forceFreshStart = false) {
+  const url = window.location.hash.slice(1);
+  const urlParams = new URLSearchParams(url);
+  const skillParam = urlParams.get('skill');
+  
+  if (skillParam) {
+    const decodedSkill = decodeURIComponent(skillParam);
+    // Check if skill exists in allSkills
+    const skillExists = allSkills.some(skill => skill.title === decodedSkill);
+    if (skillExists) {
+      // Only clear and set if forceFreshStart is true (when opening from skill badge click)
+      if (forceFreshStart) {
+        selectedSkills.clear();
+        selectedSkills.add(decodedSkill);
+      }
+      // If not forcing fresh start, don't modify selectedSkills - let user toggle freely
+    }
+  }
+}
+
 // Function to display skills filter interface in modal
-function displaySkillsFilter() {
+function displaySkillsFilter(forceFreshStart = false) {
+  // Check URL for skill parameter and auto-select (only if forceFreshStart is true)
+  // This ensures we only do fresh start when opening modal, not when toggling skills
+  if (forceFreshStart) {
+    checkAndSelectSkillFromURL(true);
+  }
+  
   if (!modalElements.contentBox) initModalElements();
   modalElements.contentBox.innerHTML = '';
   modalElements.contentBox.className = 'skill-modal-content';
@@ -336,18 +649,58 @@ function displaySkillsFilter() {
   modalElements.contentBox.style.cssText = `
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
+    gap: 1rem;
+    padding: 0.75rem;
     max-height: 70vh;
     overflow-y: auto;
   `;
 
-  // Selected Skills Section
+  // Available Skills Section (First)
+  const availableSection = document.createElement('div');
+  availableSection.style.cssText = `
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  `;
+  
+  const availableTitle = document.createElement('h4');
+  availableTitle.textContent = 'Available Skills';
+  availableTitle.style.cssText = `
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+    color: var(--body-text-color);
+    font-weight: 600;
+  `;
+  availableSection.appendChild(availableTitle);
+  
+  const availableContainer = document.createElement('div');
+  availableContainer.id = 'available-skills-container';
+  availableContainer.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 0.5rem;
+    border: 1px solid var(--body-text-color);
+    border-radius: 0.3rem;
+  `;
+  
+  allSkills.forEach(skill => {
+    if (!selectedSkills.has(skill.title)) {
+      const skillBadge = createSkillBadge(skill, false);
+      availableContainer.appendChild(skillBadge);
+    }
+  });
+  
+  availableSection.appendChild(availableContainer);
+  modalElements.contentBox.appendChild(availableSection);
+
+  // Selected Skills Section (Second)
   const selectedSection = document.createElement('div');
   selectedSection.style.cssText = `
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   `;
   
   const selectedTitle = document.createElement('h4');
@@ -355,8 +708,9 @@ function displaySkillsFilter() {
   selectedTitle.style.cssText = `
     margin: 0;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     color: var(--body-text-color);
+    font-weight: 600;
   `;
   selectedSection.appendChild(selectedTitle);
   
@@ -365,22 +719,23 @@ function displaySkillsFilter() {
   selectedContainer.style.cssText = `
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    min-height: 3rem;
-    padding: 1rem;
+    gap: 0.3rem;
+    min-height: 2rem;
+    padding: 0.5rem;
     border: 1px dashed var(--body-text-color);
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     align-items: center;
     ${selectedSkills.size === 0 ? 'justify-content: center;' : ''}
   `;
   
   if (selectedSkills.size === 0) {
     const emptyMessage = document.createElement('span');
-    emptyMessage.textContent = 'No skills selected. Click on available skills below to select them.';
+    emptyMessage.textContent = 'No skills selected. Click on available skills above to select them.';
     emptyMessage.style.cssText = `
       color: var(--body-text-color);
       opacity: 0.6;
       font-style: italic;
+      font-size: 0.75rem;
     `;
     selectedContainer.appendChild(emptyMessage);
   } else {
@@ -395,44 +750,63 @@ function displaySkillsFilter() {
   selectedSection.appendChild(selectedContainer);
   modalElements.contentBox.appendChild(selectedSection);
 
-  // Available Skills Section
-  const availableSection = document.createElement('div');
-  availableSection.style.cssText = `
+  // Filtered Projects Section (Third)
+  const filteredProjects = filterProjects();
+  
+  const projectsSection = document.createElement('div');
+  projectsSection.style.cssText = `
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   `;
   
-  const availableTitle = document.createElement('h4');
-  availableTitle.textContent = 'Available Skills';
-  availableTitle.style.cssText = `
+  const projectsTitle = document.createElement('h4');
+  projectsTitle.textContent = selectedSkills.size > 0 
+    ? `Filtered Projects (${filteredProjects.length})` 
+    : 'All Projects';
+  projectsTitle.style.cssText = `
     margin: 0;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     color: var(--body-text-color);
+    font-weight: 600;
   `;
-  availableSection.appendChild(availableTitle);
+  projectsSection.appendChild(projectsTitle);
   
-  const availableContainer = document.createElement('div');
-  availableContainer.id = 'available-skills-container';
-  availableContainer.style.cssText = `
+  const projectsContainer = document.createElement('div');
+  projectsContainer.id = 'filtered-projects-container';
+  projectsContainer.style.cssText = `
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 1rem;
+    flex-direction: column;
+    max-height: 35vh;
+    overflow-y: auto;
+    padding: 0.5rem;
     border: 1px solid var(--body-text-color);
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
+    gap: 0.4rem;
   `;
   
-  allSkills.forEach(skill => {
-    if (!selectedSkills.has(skill.title)) {
-      const skillBadge = createSkillBadge(skill, false);
-      availableContainer.appendChild(skillBadge);
-    }
-  });
+  if (filteredProjects.length === 0 && selectedSkills.size > 0) {
+    const noProjectsMessage = document.createElement('div');
+    noProjectsMessage.textContent = 'No projects found matching the selected skills.';
+    noProjectsMessage.style.cssText = `
+      color: var(--body-text-color);
+      opacity: 0.6;
+      font-style: italic;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.75rem;
+    `;
+    projectsContainer.appendChild(noProjectsMessage);
+  } else {
+    filteredProjects.forEach(project => {
+      const projectCard = createProjectCard(project);
+      projectsContainer.appendChild(projectCard);
+    });
+  }
   
-  availableSection.appendChild(availableContainer);
-  modalElements.contentBox.appendChild(availableSection);
+  projectsSection.appendChild(projectsContainer);
+  modalElements.contentBox.appendChild(projectsSection);
 }
 
 // Add click event listeners to all skill badges
@@ -457,3 +831,28 @@ if (document.readyState === 'loading') {
   // DOM is already ready
   addSkillModalListeners();
 }
+
+// Check URL parameters on page load (similar to recent activity)
+window.addEventListener('load', () => {
+  const url = window.location.hash.slice(1);
+  const urlParams = new URLSearchParams(url);
+  const skillParam = urlParams.get('skill');
+  
+  if (skillParam) {
+    const decodedSkill = decodeURIComponent(skillParam);
+    // Check if skill exists in allSkills
+    const skillExists = allSkills.some(skill => skill.title === decodedSkill);
+    if (skillExists) {
+      // Clear all selected skills for fresh start
+      selectedSkills.clear();
+      // Auto-select only the skill from URL
+      selectedSkills.add(decodedSkill);
+      // Open the modal after a short delay to ensure DOM is ready
+      setTimeout(() => {
+        openModal('Filter by Skills', () => {
+          displaySkillsFilter(true);
+        });
+      }, 100);
+    }
+  }
+});
