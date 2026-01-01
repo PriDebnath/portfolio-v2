@@ -158,7 +158,7 @@
   height: var(--home-1-window-size);
   aspect-ratio: 1;
   border-radius: 0.1rem;
-
+  cursor: pointer;
 }
 
 
@@ -204,9 +204,17 @@
   height: var(--home-1-window-size);
   border-radius: var(--pritam);
   animation: starglow 2s 1s infinite;
-
+  cursor: pointer;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 @media (min-width:700px) {
   :root {
     --home-1-height: 3vw;
