@@ -76,3 +76,107 @@ function fadeTypingAnimation(element, text, speed = 150) {
 
   typeWord();
 }
+
+// Modal functionality - common elements and functions
+let modalElements = {
+  contentBox: null,
+  modalOverlay: null,
+  modal: null,
+  modalTitle: null,
+  closeBtn: null
+};
+
+// Initialize modal elements
+function initModalElements() {
+  modalElements.contentBox = document.getElementById('rc-content-box');
+  modalElements.modalOverlay = document.getElementById('modalOverlay');
+  modalElements.modal = document.getElementById('modal');
+  modalElements.modalTitle = document.getElementById('modalTitle');
+  modalElements.closeBtn = document.getElementById('close-btn');
+}
+
+// Generic function to open modal
+function openModal(title, onOpenCallback = null) {
+  if (!modalElements.modalOverlay || !modalElements.modal || !modalElements.modalTitle) {
+    initModalElements();
+  }
+
+  if (title) {
+    modalElements.modalTitle.innerText = title;
+  }
+
+  modalElements.modalOverlay.classList.add('show');
+  modalElements.modal.classList.add('show');
+
+  // Call custom callback if provided
+  if (onOpenCallback && typeof onOpenCallback === 'function') {
+    onOpenCallback();
+  }
+}
+
+// Generic function to close modal
+function closeModal(onCloseCallback = null) {
+  if (!modalElements.modalOverlay || !modalElements.modal) {
+    initModalElements();
+  }
+
+  modalElements.modalOverlay.classList.remove('show');
+  modalElements.modal.classList.remove('show');
+
+  // Clear URL parameter when closing
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+
+  // Call custom callback if provided
+  if (onCloseCallback && typeof onCloseCallback === 'function') {
+    onCloseCallback();
+  }
+}
+
+// Store original close handler for potential removal
+let defaultCloseHandler = closeModal;
+
+// Setup modal event listeners (close button and click outside)
+function setupModalListeners() {
+  if (!modalElements.closeBtn || !modalElements.modalOverlay) {
+    initModalElements();
+  }
+
+  // Close button handler
+  if (modalElements.closeBtn) {
+    defaultCloseHandler = closeModal;
+    modalElements.closeBtn.addEventListener('click', defaultCloseHandler);
+  }
+
+  // Click outside to close
+  if (modalElements.modalOverlay) {
+    modalElements.modalOverlay.onclick = function(event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    };
+  }
+}
+
+// Function to replace close handler (for scripts that need custom cleanup)
+function replaceCloseHandler(customHandler) {
+  if (!modalElements.closeBtn) {
+    initModalElements();
+  }
+  
+  if (modalElements.closeBtn && defaultCloseHandler) {
+    modalElements.closeBtn.removeEventListener('click', defaultCloseHandler);
+    modalElements.closeBtn.addEventListener('click', customHandler);
+    defaultCloseHandler = customHandler;
+  }
+}
+
+// Initialize modal on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initModalElements();
+    setupModalListeners();
+  });
+} else {
+  initModalElements();
+  setupModalListeners();
+}

@@ -26,7 +26,7 @@
 
 .rc-card {
     width: 100%;
-    background: white;
+    /* background: white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@
     border-radius: 0.5rem;
     gap: calc(var(--project-space)* 1);
     min-height: 5rem;
-
+    color: var(--body-text-color);
 }
 
 .rc-card:hover {

@@ -1,6 +1,4 @@
 //
-let contentBox = document.getElementById('rc-content-box')
-let closeBtn = document.getElementById('close-btn')
 const types = {
     drew: 'drew',
     wrote: 'wrote',
@@ -15,8 +13,12 @@ window.addEventListener('load', () => {
     const section = urlParams.get('section');
 
     if (types[section]) {
-        document.getElementById('rc-card-' + section).scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => openModal(section, rcCardDrewId), 1000);
+        const cardId = 'rc-card-' + section;
+        const cardElement = document.getElementById(cardId);
+        if (cardElement) {
+            cardElement.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => openRecentActivityModal(section, cardId), 1000);
+        }
     }
 });
 
@@ -135,57 +137,89 @@ const readings = [
 ]
 
 //
-function openModal(type, cardId) {
+function openRecentActivityModal(type, cardId) {
     const prefix = "Pieces I recently "
 
     // Update URL when opening drawings
     window.location.hash = `section=${type}`;
 
-    document.getElementById("modalTitle").innerText = prefix + type;
-    document.getElementById("modalOverlay").classList.add("show");
-    document.getElementById("modal").classList.add("show");
-
-    let card = document.getElementById(cardId)
-    card.classList.add("rc-card-active")
-    if (types.wrote == type) {
-        // if (fetchedBlog == false) {
-        fetchBlog()
-        // } else {
-        //     console.log("Already fetched blogs")
-        // }
-    } else if (types.drew == type) {
-        displayDrawings()
-    } else if (types.read == type) {
-        displayReadings()
-    }
-
+    const modalTitle = prefix + type;
+    
+    // Use generic openModal from reuseable with custom callback
+    openModal(modalTitle, () => {
+        let card = document.getElementById(cardId)
+        if (card) {
+            card.classList.add("rc-card-active")
+        }
+        
+        if (types.wrote == type) {
+            fetchBlog()
+        } else if (types.drew == type) {
+            displayDrawings()
+        } else if (types.read == type) {
+            displayReadings()
+        }
+    });
 }
 
-function closeModal() {
-    document.getElementById("modalOverlay").classList.remove("show");
-    document.getElementById("modal").classList.remove("show");
+// Custom close handler for recent activity - adds cleanup before closing
+function closeRecentActivityModal() {
+    // Remove active class from cards
     let cards = document.querySelectorAll('.rc-card')
     for (const card of cards) {
         card.classList.remove("rc-card-active")
     }
-    // Clear URL parameter when closing
-    history.replaceState(null, '', window.location.pathname + window.location.search);
-
+    
+    // Use generic closeModal from reuseable
+    closeModal();
 }
-closeBtn.addEventListener('click', closeModal)
 
-// Close modal when clicking outside of it
-document.getElementById("modalOverlay").onclick = function (event) {
-    if (event.target === this) {
-        closeModal();
+// Setup custom close handlers after DOM is ready
+function setupRecentActivityCloseHandlers() {
+    // Ensure modal elements are initialized
+    if (!modalElements.closeBtn || !modalElements.modalOverlay) {
+        initModalElements();
     }
-};
+
+    // Use the replaceCloseHandler function from reuseable
+    if (typeof replaceCloseHandler === 'function') {
+        replaceCloseHandler(closeRecentActivityModal);
+    }
+
+    // Override click outside handler
+    if (modalElements.modalOverlay) {
+        modalElements.modalOverlay.onclick = function(event) {
+            if (event.target === this) {
+                closeRecentActivityModal();
+            }
+        };
+    }
+}
+
+// Initialize after DOM is ready and reuseable script has loaded
+function initializeRecentActivityModal() {
+    // Wait for reuseable to initialize
+    if (typeof initModalElements === 'function' && typeof replaceCloseHandler === 'function') {
+        setupRecentActivityCloseHandlers();
+    } else {
+        // Retry after a short delay if reuseable hasn't loaded yet
+        setTimeout(initializeRecentActivityModal, 50);
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeRecentActivityModal);
+} else {
+    // DOM already ready, but wait for reuseable to initialize
+    setTimeout(initializeRecentActivityModal, 0);
+}
 
 
 
 function fetchBlog() {
-    contentBox.innerHTML = ''
-    contentBox.className = 'writing-container'
+    if (!modalElements.contentBox) initModalElements();
+    modalElements.contentBox.innerHTML = ''
+    modalElements.contentBox.className = 'writing-container'
     
     // Create and show loader
     const loader = document.createElement('div');
@@ -221,7 +255,7 @@ function fetchBlog() {
     }
     
     loader.appendChild(spinner);
-    contentBox.appendChild(loader);
+    modalElements.contentBox.appendChild(loader);
     
     //
     fetch(MEDIUM_BLOG_API).then((res) => {
@@ -229,7 +263,7 @@ function fetchBlog() {
     }).then((data) => {
         fetchedBlog = true
         // Remove loader and clear content box
-        contentBox.innerHTML = '';
+        modalElements.contentBox.innerHTML = '';
         
         //
         // console.log({ data })
@@ -242,12 +276,12 @@ function fetchBlog() {
             fadeTypingAnimation(contentElement,
                 itemTitle
                 , 100);
-            contentBox.appendChild(contentElement)
+            modalElements.contentBox.appendChild(contentElement)
         });
 
     }).catch((err) => {
         // Remove loader and clear content on error
-        contentBox.innerHTML = '';
+        modalElements.contentBox.innerHTML = '';
         // console.log({ err })
     }).finally(() => {
 
@@ -260,13 +294,14 @@ function fetchBlog() {
         seeMore.style.padding = '1rem';
         seeMore.style.color = 'var(--body-text-color)';
         seeMore.textContent = 'See more...';
-        contentBox.appendChild(seeMore);
+        modalElements.contentBox.appendChild(seeMore);
     })
 }
 
 function displayReadings() {
-    contentBox.innerHTML = ''
-    contentBox.className = ' '
+    if (!modalElements.contentBox) initModalElements();
+    modalElements.contentBox.innerHTML = ''
+    modalElements.contentBox.className = ' '
     //
 
     //
@@ -290,7 +325,7 @@ function displayReadings() {
         contentElementBox.appendChild(contentElement)
         contentElementBox.appendChild(contentByElement)
 
-        contentBox.appendChild(
+        modalElements.contentBox.appendChild(
             contentElementBox)
     })
 
@@ -353,8 +388,9 @@ function createFullscreenViewer(imageUrl) {
 }
 
 function displayDrawings() {
-    contentBox.innerHTML = ''
-    contentBox.className = 'drawing-container'
+    if (!modalElements.contentBox) initModalElements();
+    modalElements.contentBox.innerHTML = ''
+    modalElements.contentBox.className = 'drawing-container'
     drawings.forEach((drawing, index) => {
         //
         let drawingBox = document.createElement('div')
@@ -381,7 +417,7 @@ function displayDrawings() {
             , 100);
         drawingBox.appendChild(drawingP)
         //
-        contentBox.appendChild(drawingBox)
+        modalElements.contentBox.appendChild(drawingBox)
 
     })
 
@@ -396,20 +432,26 @@ function displayDrawings() {
     seeMore.style.padding = '1rem';
     seeMore.style.color = 'var(--body-text-color)';
     seeMore.textContent = 'See more...';
-    contentBox.appendChild(seeMore);
+    modalElements.contentBox.appendChild(seeMore);
 
 }
 
 
 // event listener
-cardDrew.addEventListener("click", (e) => {
-    openModal(types.drew, rcCardDrewId)
-})
+if (cardDrew) {
+    cardDrew.addEventListener("click", (e) => {
+        openRecentActivityModal(types.drew, rcCardDrewId)
+    })
+}
 
-cardWrote.addEventListener("click", (e) => {
-    openModal(types.wrote, rcCardWroteId)
-})
+if (cardWrote) {
+    cardWrote.addEventListener("click", (e) => {
+        openRecentActivityModal(types.wrote, rcCardWroteId)
+    })
+}
 
-cardRead.addEventListener("click", (e) => {
-    openModal(types.read, rcCardReadId)
-})
+if (cardRead) {
+    cardRead.addEventListener("click", (e) => {
+        openRecentActivityModal(types.read, rcCardReadId)
+    })
+}
