@@ -92,24 +92,27 @@
 
 
  .ex-card:last-child {
-     border-bottom:
+     /* border-bottom:
+         var(--ex-border-width) var(--ex-border-style) var(--ex-border-color); */
+
+         border:
          var(--ex-border-width) var(--ex-border-style) var(--ex-border-color);
 
+     border-right:
+         0px var(--ex-border-style) transparent;
  }
 
- .ex-card:last-child::after {
-     content: "";
-     display: block;
-     width: var(--ex-border-padding);
-     height: var(--ex-border-padding);
-     background-color: var(--ex-card-color);
-
-     border-radius: 0px var(--ex-border-radius);
-     position: absolute;
-     bottom: calc(var(--ex-border-width) * -1);
-     left: 0;
-     width: 50%;
- }
+.ex-card:last-child::before {
+    content: "";
+    display: block;
+    width: 50%;
+    height: var(--ex-border-padding);
+    background-color: var(--ex-card-color);
+    border-radius: 0px var(--ex-border-radius);
+    position: absolute;
+    top: calc(100%);
+    right:0;
+}
 
 
  .ex-vertical-line-box {
@@ -167,6 +170,9 @@
      text-decoration: none;
      color: var(--body-text-color);
      font-size: 1rem;
+     display: flex;
+     align-items: center;
+     gap: calc(var(--ex-space) * 1);
  }
 
  .join-card-company-container {
@@ -197,7 +203,7 @@
  .company-name {
      margin: 0;
      padding: 0 !important;
-     padding-left: calc(var(--ex-space) * 1) !important;
+     padding: calc(var(--ex-space) * 1) !important;
 
  }
 
