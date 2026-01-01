@@ -229,12 +229,7 @@ setupExistingSkills(frontendSkills, frontendSkillsElement);
 setupExistingSkills(backendSkills, backendSkillsElement);
 setupExistingSkills(testingSkills, testingSkillsElement);
 
-// Modal functionality for skills
-let contentBox = document.getElementById('rc-content-box');
-let modalOverlay = document.getElementById('modalOverlay');
-let modal = document.getElementById('modal');
-let modalTitle = document.getElementById('modalTitle');
-let closeBtn = document.getElementById('close-btn');
+// Modal functionality for skills - uses common modal functions from reuseable.script.js
 
 // Combine all skills for easy lookup
 let allSkills = [
@@ -270,21 +265,18 @@ function openSkillModal(skillElement, event) {
     event.stopPropagation();
   }
 
-  // Update modal title
-  modalTitle.innerText = skillData.title;
-
-  // Show modal
-  modalOverlay.classList.add('show');
-  modal.classList.add('show');
-
-  // Display skill content
-  displaySkillContent(skillData);
+  // Use generic openModal with title
+  openModal(skillData.title, () => {
+    // Display skill content after modal opens
+    displaySkillContent(skillData);
+  });
 }
 
 // Function to display skill content in modal
 function displaySkillContent(skillData) {
-  contentBox.innerHTML = '';
-  contentBox.className = 'skill-modal-content';
+  if (!modalElements.contentBox) initModalElements();
+  modalElements.contentBox.innerHTML = '';
+  modalElements.contentBox.className = 'skill-modal-content';
 
   // Create skill info container
   const skillInfoContainer = document.createElement('div');
@@ -350,7 +342,7 @@ function displaySkillContent(skillData) {
   skillHeader.appendChild(skillDescription);
 
   skillInfoContainer.appendChild(skillHeader);
-  contentBox.appendChild(skillInfoContainer);
+  modalElements.contentBox.appendChild(skillInfoContainer);
 }
 
 // Add click event listeners to all skill badges
