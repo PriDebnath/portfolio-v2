@@ -1,3 +1,4 @@
+import { directTopRightSvg } from './svg.script.js';
 
 const root = document.documentElement
 
@@ -523,6 +524,7 @@ function createProjectCard(project) {
     background: rgba(0, 0, 0, 0.2);
     transition: all 0.3s;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
@@ -549,7 +551,6 @@ function createProjectCard(project) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 1;
     min-width: 0;
   `;
   
@@ -563,8 +564,27 @@ function createProjectCard(project) {
     color: var(--body-text-color);
     font-weight: 600;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
   `;
+    // Redirect Icon - Using SVG from svg.script.js
+    const redirectIcon = document.createElement('span');
+    redirectIcon.classList.add('project-redirect-link-icon');
+    redirectIcon.innerHTML = directTopRightSvg;
+    redirectIcon.style.cssText = `
+      display: inline-flex;
+      align-items: center;
+      color: var(--body-text-color);
+      opacity: 0.7;
+    `;
+    projectName.appendChild(redirectIcon);
+
+
   leftSection.appendChild(projectName);
+
+
   
   // Project date
   const projectDate = document.createElement('div');
@@ -587,7 +607,6 @@ function createProjectCard(project) {
     gap: 0.3rem;
     align-items: center;
     justify-content: flex-end;
-    flex-shrink: 0;
   `;
   
   project.tags.forEach(tag => {
