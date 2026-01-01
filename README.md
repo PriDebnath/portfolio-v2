@@ -19,6 +19,11 @@ https://pridebnath.github.io/portfolio-v2
 
  
 ---
+## Figma
+
+https://www.figma.com/design/CWzmBTE5xHjqSblJMasHJ5/portfolio-v2?node-id=0-1&p=f&t=WdEfneNFYV4unqIT-0
+
+---
  
 
 ### Outcomes
