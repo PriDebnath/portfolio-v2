@@ -238,6 +238,9 @@ let allSkills = [
   ...testingSkills
 ];
 
+// Store selected skills for filtering projects later
+let selectedSkills = new Set();
+
 // Function to find skill data by title or link
 function findSkillData(skillElement) {
   const title = skillElement.textContent.trim();
@@ -252,97 +255,184 @@ function findSkillData(skillElement) {
 
 // Function to open skill modal
 function openSkillModal(skillElement, event) {
-  const skillData = findSkillData(skillElement);
-  
-  if (!skillData) {
-    // If skill data not found, allow default link behavior
-    return;
-  }
-
   // Prevent default link behavior
   if (event) {
     event.preventDefault();
     event.stopPropagation();
   }
 
-  // Use generic openModal with title
-  openModal(skillData.title, () => {
-    // Display skill content after modal opens
-    displaySkillContent(skillData);
+  // Use generic openModal with title for skills filter
+  openModal('Filter by Skills', () => {
+    // Display skills filter interface after modal opens
+    displaySkillsFilter();
   });
 }
 
-// Function to display skill content in modal
-function displaySkillContent(skillData) {
+// Function to create a skill badge element
+function createSkillBadge(skillData, isSelected = false) {
+  const skillBadge = document.createElement('button');
+  skillBadge.type = 'button';
+  skillBadge.classList.add('skill-filter-badge');
+  if (isSelected) {
+    skillBadge.classList.add('selected');
+  }
+  
+  skillBadge.style.cssText = `
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border: 1px solid ${skillData.color};
+    border-radius: 0.5rem;
+    background: ${isSelected ? skillData.color : 'transparent'};
+    color: ${isSelected ? 'var(--body-color)' : skillData.color};
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    font-family: inherit;
+  `;
+  
+  skillBadge.textContent = skillData.title;
+  
+  // Hover effects
+  skillBadge.addEventListener('mouseover', () => {
+    if (!isSelected) {
+      skillBadge.style.background = skillData.color;
+      skillBadge.style.color = 'var(--body-color)';
+    }
+  });
+  
+  skillBadge.addEventListener('mouseout', () => {
+    if (!isSelected) {
+      skillBadge.style.background = 'transparent';
+      skillBadge.style.color = skillData.color;
+    }
+  });
+  
+  // Click handler to toggle selection
+  skillBadge.addEventListener('click', () => {
+    toggleSkillSelection(skillData.title);
+  });
+  
+  return skillBadge;
+}
+
+// Function to toggle skill selection
+function toggleSkillSelection(skillTitle) {
+  if (selectedSkills.has(skillTitle)) {
+    selectedSkills.delete(skillTitle);
+  } else {
+    selectedSkills.add(skillTitle);
+  }
+  
+  // Refresh the display
+  displaySkillsFilter();
+}
+
+// Function to display skills filter interface in modal
+function displaySkillsFilter() {
   if (!modalElements.contentBox) initModalElements();
   modalElements.contentBox.innerHTML = '';
   modalElements.contentBox.className = 'skill-modal-content';
-
-  // Create skill info container
-  const skillInfoContainer = document.createElement('div');
-  skillInfoContainer.style.cssText = `
+  
+  modalElements.contentBox.style.cssText = `
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1rem;
+    max-height: 70vh;
+    overflow-y: auto;
   `;
 
-  // Skill icon/name display
-  const skillHeader = document.createElement('div');
-  skillHeader.style.cssText = `
+  // Selected Skills Section
+  const selectedSection = document.createElement('div');
+  selectedSection.style.cssText = `
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
   `;
-
-  // Get the icon class from the skill element if possible
-  const skillNameElement = document.createElement('div');
-  skillNameElement.style.cssText = `
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: ${skillData.color};
-    text-align: center;
-  `;
-  fadeTypingAnimation(skillNameElement, skillData.title, 50);
-  skillHeader.appendChild(skillNameElement);
-
-  // Skill description/link
-  const skillDescription = document.createElement('div');
-  skillDescription.style.cssText = `
-    text-align: center;
-    padding: 1rem;
-  `;
-
-  const learnMoreLink = document.createElement('a');
-  learnMoreLink.href = skillData.link;
-  learnMoreLink.target = '_blank';
-  learnMoreLink.style.cssText = `
+  
+  const selectedTitle = document.createElement('h4');
+  selectedTitle.textContent = 'Selected Skills';
+  selectedTitle.style.cssText = `
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
     color: var(--body-text-color);
-    text-decoration: underline;
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid ${skillData.color};
-    border-radius: 0.5rem;
-    transition: all 0.3s;
   `;
-  learnMoreLink.textContent = 'Learn more →';
-  learnMoreLink.addEventListener('mouseover', () => {
-    learnMoreLink.style.background = skillData.color;
-    learnMoreLink.style.color = 'var(--body-color)';
-  });
-  learnMoreLink.addEventListener('mouseout', () => {
-    learnMoreLink.style.background = 'transparent';
-    learnMoreLink.style.color = 'var(--body-text-color)';
-  });
+  selectedSection.appendChild(selectedTitle);
+  
+  const selectedContainer = document.createElement('div');
+  selectedContainer.id = 'selected-skills-container';
+  selectedContainer.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 1rem;
+    border: 1px dashed var(--body-text-color);
+    border-radius: 0.5rem;
+    align-items: center;
+    ${selectedSkills.size === 0 ? 'justify-content: center;' : ''}
+  `;
+  
+  if (selectedSkills.size === 0) {
+    const emptyMessage = document.createElement('span');
+    emptyMessage.textContent = 'No skills selected. Click on available skills below to select them.';
+    emptyMessage.style.cssText = `
+      color: var(--body-text-color);
+      opacity: 0.6;
+      font-style: italic;
+    `;
+    selectedContainer.appendChild(emptyMessage);
+  } else {
+    allSkills.forEach(skill => {
+      if (selectedSkills.has(skill.title)) {
+        const skillBadge = createSkillBadge(skill, true);
+        selectedContainer.appendChild(skillBadge);
+      }
+    });
+  }
+  
+  selectedSection.appendChild(selectedContainer);
+  modalElements.contentBox.appendChild(selectedSection);
 
-  skillDescription.appendChild(learnMoreLink);
-  skillHeader.appendChild(skillDescription);
-
-  skillInfoContainer.appendChild(skillHeader);
-  modalElements.contentBox.appendChild(skillInfoContainer);
+  // Available Skills Section
+  const availableSection = document.createElement('div');
+  availableSection.style.cssText = `
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  `;
+  
+  const availableTitle = document.createElement('h4');
+  availableTitle.textContent = 'Available Skills';
+  availableTitle.style.cssText = `
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    color: var(--body-text-color);
+  `;
+  availableSection.appendChild(availableTitle);
+  
+  const availableContainer = document.createElement('div');
+  availableContainer.id = 'available-skills-container';
+  availableContainer.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--body-text-color);
+    border-radius: 0.5rem;
+  `;
+  
+  allSkills.forEach(skill => {
+    if (!selectedSkills.has(skill.title)) {
+      const skillBadge = createSkillBadge(skill, false);
+      availableContainer.appendChild(skillBadge);
+    }
+  });
+  
+  availableSection.appendChild(availableContainer);
+  modalElements.contentBox.appendChild(availableSection);
 }
 
 // Add click event listeners to all skill badges
