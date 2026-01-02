@@ -86,7 +86,7 @@
      background-color: var(--ex-card-color);
      border-radius: var(--ex-border-radius) 0px;
      position: absolute;
-     top: calc(var(--ex-border-width) * -1);
+     top: calc(var(--ex-border-width) * -3);
      left: 0;
  }
 

@@ -26,6 +26,16 @@ let frontendSkills = [
   },
   { breakSkill: true },
   {
+    title: "Zustand", color: "#000000",
+    link: "https://zustand-demo.pmnd.rs/",
+    icon: null // Icon is handled by span-svg-zustand class
+  },
+  {
+    title: "Tanstack", color: "#000000",
+    link: "https://tanstack.com/",
+    icon: null // Icon is handled by span-svg-tanstack class
+  },
+  {
     title: "RxJS", color: "#B7178C",
     link: "https://rxjs.dev/",
     icon: null // Icon is handled by span-svg-rxjs class
@@ -61,10 +71,25 @@ let frontendSkills = [
     title: "JavaScript", color: "#F0DB4F",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     icon: null // Icon is handled by span-svg-js class
+  },
+  {
+    title: "Typescript", color: "#007ACC",
+    link: "https://www.typescriptlang.org/",
+    icon: null // Icon is handled by span-svg-typescript class
   }
 ];
 
 let backendSkills = [
+  {
+    title: "Bun", color: "#000000",
+    link: "https://bun.sh/",
+    icon: null // Icon is handled by span-svg-bun class
+  },
+  {
+    title: "Elysia", color: "#000000",
+    link: "https://elysiajs.com/",
+    icon: null // Icon is handled by span-svg-elysia class
+  },
   {
     title: "Node.js", color: "#83CD29",
     link: "https://nodejs.org/en/docs/",
@@ -79,6 +104,11 @@ let backendSkills = [
 
 
 let testingSkills = [
+  {
+    title: "Playwright", color: "#2D4552",
+    link: "https://playwright.dev/",
+    icon: null // Icon is handled by span-svg-playwright class
+  },
   {
     title: "Cypress", color: "#58D09E",
     link: "https://www.cypress.io/",
@@ -208,11 +238,12 @@ let setupExistingSkills = (skills, skillsElement) => {
       return;
     }
 
-    // Find the matching skill element by title or link
+    // Find the matching skill element by title attribute, text content, or link
     let skillElement = Array.from(existingSkills).find(el => {
+      const titleAttrMatch = el.getAttribute('title') === skillData.title;
       const titleMatch = el.textContent.trim().includes(skillData.title);
       const linkMatch = el.href === skillData.link || el.getAttribute('href') === skillData.link;
-      return titleMatch || linkMatch;
+      return titleAttrMatch || titleMatch || linkMatch;
     });
 
     if (skillElement) {
@@ -229,6 +260,17 @@ let setupExistingSkills = (skills, skillsElement) => {
 setupExistingSkills(frontendSkills, frontendSkillsElement);
 setupExistingSkills(backendSkills, backendSkillsElement);
 setupExistingSkills(testingSkills, testingSkillsElement);
+
+// Fallback: Ensure all skills without skill-active class are observed
+// This catches any skills that weren't matched in setupExistingSkills
+[frontendSkillsElement, backendSkillsElement, testingSkillsElement].forEach(skillsElement => {
+  if (skillsElement) {
+    const unobservedSkills = skillsElement.querySelectorAll('.skill:not(.skill-active)');
+    unobservedSkills.forEach(skill => {
+      observer.observe(skill);
+    });
+  }
+});
 
 // Modal functionality for skills - uses common modal functions from reuseable.script.js
 
