@@ -26,12 +26,12 @@ let frontendSkills = [
   },
   { breakSkill: true },
   {
-    title: "Zustand", color: "#000000",
+    title: "Zustand", color: "#0D99FF",
     link: "https://zustand-demo.pmnd.rs/",
     icon: null // Icon is handled by span-svg-zustand class
   },
   {
-    title: "Tanstack", color: "#000000",
+    title: "Tanstack", color: "#0D99FF",
     link: "https://tanstack.com/",
     icon: null // Icon is handled by span-svg-tanstack class
   },
@@ -46,6 +46,16 @@ let frontendSkills = [
     icon: null // Icon is handled by span-svg-redux class
   },
   { breakSkill: true },
+  {
+    title: "Shadcn", color: "#0D99FF",
+    link: "https://ui.shadcn.com/",
+    icon: null // Icon is handled by span-svg-shadcn class
+  },
+  {
+    title: "Framer", color: "#0D99FF",
+    link: "https://www.framer.com/",
+    icon: null // Icon is handled by span-svg-framer class
+  },
   {
     title: "Tailwind CSS", color: "#06B6D4",
     link: "https://tailwindcss.com/",
@@ -63,7 +73,7 @@ let frontendSkills = [
     icon: null // Icon is handled by span-svg-html class
   },
   {
-    title: "CSS", color: "#264DE4",
+    title: "CSS", color: "#0D99FF",
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
     icon: null // Icon is handled by span-svg-css class
   },
@@ -81,12 +91,12 @@ let frontendSkills = [
 
 let backendSkills = [
   {
-    title: "Bun", color: "#000000",
+    title: "Bun", color: "#F1B31C",
     link: "https://bun.sh/",
     icon: null // Icon is handled by span-svg-bun class
   },
   {
-    title: "Elysia", color: "#000000",
+    title: "Elysia", color: "#0D99FF",
     link: "https://elysiajs.com/",
     icon: null // Icon is handled by span-svg-elysia class
   },
@@ -323,7 +333,7 @@ const projects = [
   },
   {
     projectName: "Quotes-Keeper-2",
-    tags: ["Angular", "Django", "Python", "JavaScript", "HTML", "CSS", "SQL", "Cypress", "Jasmine"],
+    tags: ["Node.js", "Angular", "Django", "Python", "JavaScript", "HTML", "CSS", "SQL", "Cypress","Playwright", "Jasmine", "Bootstrap", "Typescript"],
     createdAt: "2024-07-18"
   },
   {
@@ -333,7 +343,7 @@ const projects = [
   },
   {
     projectName: "fylehq-clone",
-    tags: ["Angular", "TypeScript", "Ant Design", "CSS", "HTML"],
+    tags: ["Node.js", "Angular", "TypeScript", "Ant Design", "CSS", "HTML", "Typescript"],
     createdAt: "2024-05-21"
   },
   {
@@ -384,6 +394,11 @@ const projects = [
   {
     projectName: "posts-v2",
     tags: ["Django", "Angular", "Cypress"],
+    createdAt: "2023-08-14"
+  },
+  {
+    projectName: "posts",
+    tags: ["React", "Redux", "Tailwind CSS"],
     createdAt: "2023-08-14"
   },
   {
