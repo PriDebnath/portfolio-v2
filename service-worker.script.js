@@ -28,6 +28,7 @@ const FILES_TO_CACHE = [
 
   // JS files
   './scripts/reuseable.script.js',
+  './scripts/home-and-ground.script.js',
   './scripts/fonts.script.js',
   './scripts/cursor.script.js',
   './scripts/my.script.js',
@@ -87,43 +88,39 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch event: network-first for HTML, cache-first for other assets
+// Fetch event: network-first for all resources to ensure updates are reflected immediately
 self.addEventListener('fetch', event => {
   const request = event.request;
 
-  if (request.destination === 'document') {
-    // Network-first for HTML
-    event.respondWith(
-      fetch(request)
-        .then(networkResponse => {
+  // Network-first strategy for all resources (HTML, CSS, JS, images, etc.)
+  // This ensures updates are fetched immediately from the server
+  event.respondWith(
+    fetch(request)
+      .then(networkResponse => {
+        // Only cache successful GET requests
+        if (request.method === 'GET' && networkResponse.status === 200) {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(request, responseClone));
-          return networkResponse;
-        })
-        .catch(() => caches.match(request))
-    );
-  } else {
-    // Cache-first for assets (CSS, JS, images, etc.)
-    event.respondWith(
-      caches.match(request).then(cachedResponse => {
-        if (cachedResponse) return cachedResponse;
-
-        return fetch(request)
-          .then(networkResponse => {
-            if (request.method === 'GET') {
-              const responseClone = networkResponse.clone();
-              caches.open(CACHE_NAME).then(cache => cache.put(request, responseClone));
-            }
-            return networkResponse;
-          })
-          .catch(() => {
-            // Optional: fallback if offline
-            if (request.destination === 'image') {
-              return caches.match('./assets/images/pritam-6.png'); // fallback image
-            }
-          });
+        }
+        return networkResponse;
       })
-    );
-  }
+      .catch(() => {
+        // Fallback to cache if network fails (offline support)
+        return caches.match(request).then(cachedResponse => {
+          if (cachedResponse) return cachedResponse;
+          
+          // Optional: fallback image if offline
+          if (request.destination === 'image') {
+            return caches.match('./assets/images/pritam-6.png');
+          }
+          
+          // Return a basic error response if no cache available
+          return new Response('Offline - Resource not available', {
+            status: 503,
+            statusText: 'Service Unavailable',
+            headers: new Headers({ 'Content-Type': 'text/plain' })
+          });
+        });
+      })
+  );
 });
-            
