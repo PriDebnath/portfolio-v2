@@ -241,7 +241,7 @@ let setupExistingSkills = (skills, skillsElement) => {
 
   // Get all existing skill links in the container
   const existingSkills = skillsElement.querySelectorAll('.skill');
-  
+
   skills.forEach((skillData, index) => {
     if (skillData.breakSkill) {
       // Skip breakSkill items - they're already in HTML
@@ -332,8 +332,16 @@ const projects = [
     createdAt: "2024-08-05"
   },
   {
+    projectName: "Quotes-Keeper-3",
+    tags: ["Node.js", "React", "Bun", "Elysia", "Tailwind CSS",
+      "JavaScript", "HTML", "CSS",
+      "Cypress", "Playwright",
+      "Jasmine", "Shadcn", "Framer", "Zustand", "Tanstack", "Typescript"],
+    createdAt: "2026-01-01"
+  },
+  {
     projectName: "Quotes-Keeper-2",
-    tags: ["Node.js", "Angular", "Django", "Python", "JavaScript", "HTML", "CSS", "SQL", "Cypress","Playwright", "Jasmine", "Bootstrap", "Typescript"],
+    tags: ["Node.js", "Angular", "Django", "Python", "JavaScript", "HTML", "CSS", "SQL", "Cypress", "Playwright", "Jasmine", "Bootstrap", "Typescript"],
     createdAt: "2024-07-18"
   },
   {
@@ -457,7 +465,7 @@ const projects = [
 function findSkillData(skillElement) {
   const title = skillElement.textContent.trim();
   const link = skillElement.href || skillElement.getAttribute('href');
-  
+
   return allSkills.find(skill => {
     const titleMatch = title.includes(skill.title) || skill.title.includes(title);
     const linkMatch = link === skill.link || skill.link === link;
@@ -475,10 +483,10 @@ function openSkillModal(skillElement, event) {
 
   // Get skill data from the clicked element
   const skillData = findSkillData(skillElement);
-  
+
   // Clear all selected skills for fresh start
   selectedSkills.clear();
-  
+
   // Update URL hash with skill parameter if skill data found
   if (skillData) {
     // Add only the clicked skill to selected skills
@@ -503,7 +511,7 @@ function createSkillBadge(skillData, isSelected = false) {
   if (isSelected) {
     skillBadge.classList.add('selected');
   }
-  
+
   skillBadge.style.cssText = `
     padding: 0.3rem 0.6rem;
     margin: 0.15rem;
@@ -516,9 +524,9 @@ function createSkillBadge(skillData, isSelected = false) {
     font-size: 0.75rem;
     font-family: inherit;
   `;
-  
+
   skillBadge.textContent = skillData.title;
-  
+
   // Hover effects
   skillBadge.addEventListener('mouseover', () => {
     if (!isSelected) {
@@ -526,20 +534,20 @@ function createSkillBadge(skillData, isSelected = false) {
       skillBadge.style.color = 'var(--body-color)';
     }
   });
-  
+
   skillBadge.addEventListener('mouseout', () => {
     if (!isSelected) {
       skillBadge.style.background = 'transparent';
       skillBadge.style.color = skillData.color;
     }
   });
-  
+
   // Click handler to toggle selection
   skillBadge.addEventListener('click', (e) => {
     e.stopPropagation(); // Prevent event bubbling
     toggleSkillSelection(skillData.title);
   });
-  
+
   return skillBadge;
 }
 
@@ -550,7 +558,7 @@ function toggleSkillSelection(skillTitle) {
   } else {
     selectedSkills.add(skillTitle);
   }
-  
+
   // Refresh the display
   displaySkillsFilter();
 }
@@ -560,7 +568,7 @@ function filterProjects() {
   if (selectedSkills.size === 0) {
     return projects; // Return all projects if no skills selected
   }
-  
+
   // Filter projects that have at least one of the selected skills in their tags
   return projects.filter(project => {
     return project.tags.some(tag => selectedSkills.has(tag));
@@ -589,19 +597,19 @@ function createProjectCard(project) {
     color: inherit;
     cursor: pointer;
   `;
-  
+
   projectCard.addEventListener('mouseover', () => {
     projectCard.style.borderColor = 'var(--body-text-color)';
     projectCard.style.transform = 'translateY(-1px)';
     projectCard.style.background = 'rgba(0, 0, 0, 0.3)';
   });
-  
+
   projectCard.addEventListener('mouseout', () => {
     projectCard.style.borderColor = 'var(--body-text-color)';
     projectCard.style.transform = 'translateY(0)';
     projectCard.style.background = 'rgba(0, 0, 0, 0.2)';
   });
-  
+
   // Left side: Project name and date
   const leftSection = document.createElement('div');
   leftSection.style.cssText = `
@@ -610,7 +618,7 @@ function createProjectCard(project) {
     align-items: flex-start;
     min-width: 0;
   `;
-  
+
   // Project name
   const projectName = document.createElement('h4');
   projectName.textContent = project.projectName;
@@ -626,23 +634,23 @@ function createProjectCard(project) {
     gap: 0.3rem;
     flex-wrap: wrap;
   `;
-    // Redirect Icon - Using SVG from svg.script.js
-    const redirectIcon = document.createElement('span');
-    redirectIcon.classList.add('project-redirect-link-icon');
-    redirectIcon.innerHTML = directTopRightSvg;
-    redirectIcon.style.cssText = `
+  // Redirect Icon - Using SVG from svg.script.js
+  const redirectIcon = document.createElement('span');
+  redirectIcon.classList.add('project-redirect-link-icon');
+  redirectIcon.innerHTML = directTopRightSvg;
+  redirectIcon.style.cssText = `
       display: inline-flex;
       align-items: center;
       color: var(--body-text-color);
       opacity: 0.7;
     `;
-    projectName.appendChild(redirectIcon);
+  projectName.appendChild(redirectIcon);
 
 
   leftSection.appendChild(projectName);
 
 
-  
+
   // Project date
   const projectDate = document.createElement('div');
   projectDate.textContent = `Created: ${project.createdAt}`;
@@ -653,9 +661,9 @@ function createProjectCard(project) {
     opacity: 0.7;
   `;
   leftSection.appendChild(projectDate);
-  
+
   projectCard.appendChild(leftSection);
-  
+
   // Right side: Project tags
   const tagsContainer = document.createElement('div');
   tagsContainer.style.cssText = `
@@ -665,14 +673,14 @@ function createProjectCard(project) {
     align-items: center;
     justify-content: flex-end;
   `;
-  
+
   project.tags.forEach(tag => {
     const tagBadge = document.createElement('span');
     tagBadge.textContent = tag;
     const isSelected = selectedSkills.has(tag);
     const skillData = allSkills.find(s => s.title === tag);
     const tagColor = skillData ? skillData.color : 'var(--body-text-color)';
-    
+
     tagBadge.style.cssText = `
       padding: 0.15rem 0.4rem;
       border: 1px solid ${tagColor};
@@ -683,9 +691,9 @@ function createProjectCard(project) {
     `;
     tagsContainer.appendChild(tagBadge);
   });
-  
+
   projectCard.appendChild(tagsContainer);
-  
+
   return projectCard;
 }
 
@@ -694,7 +702,7 @@ function checkAndSelectSkillFromURL(forceFreshStart = false) {
   const url = window.location.hash.slice(1);
   const urlParams = new URLSearchParams(url);
   const skillParam = urlParams.get('skill');
-  
+
   if (skillParam) {
     const decodedSkill = decodeURIComponent(skillParam);
     // Check if skill exists in allSkills
@@ -717,11 +725,11 @@ function displaySkillsFilter(forceFreshStart = false) {
   if (forceFreshStart) {
     checkAndSelectSkillFromURL(true);
   }
-  
+
   if (!modalElements.contentBox) initModalElements();
   modalElements.contentBox.innerHTML = '';
   modalElements.contentBox.className = 'skill-modal-content';
-  
+
   modalElements.contentBox.style.cssText = `
     display: flex;
     flex-direction: column;
@@ -738,7 +746,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     flex-direction: column;
     gap: 0.5rem;
   `;
-  
+
   const availableTitle = document.createElement('h4');
   availableTitle.textContent = 'Available Skills';
   availableTitle.style.cssText = `
@@ -749,7 +757,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     font-weight: 600;
   `;
   availableSection.appendChild(availableTitle);
-  
+
   const availableContainer = document.createElement('div');
   availableContainer.id = 'available-skills-container';
   availableContainer.style.cssText = `
@@ -760,14 +768,14 @@ function displaySkillsFilter(forceFreshStart = false) {
     border: 1px solid var(--body-text-color);
     border-radius: 0.3rem;
   `;
-  
+
   allSkills.forEach(skill => {
     if (!selectedSkills.has(skill.title)) {
       const skillBadge = createSkillBadge(skill, false);
       availableContainer.appendChild(skillBadge);
     }
   });
-  
+
   availableSection.appendChild(availableContainer);
   modalElements.contentBox.appendChild(availableSection);
 
@@ -778,7 +786,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     flex-direction: column;
     gap: 0.5rem;
   `;
-  
+
   const selectedTitle = document.createElement('h4');
   selectedTitle.textContent = 'Selected Skills';
   selectedTitle.style.cssText = `
@@ -789,7 +797,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     font-weight: 600;
   `;
   selectedSection.appendChild(selectedTitle);
-  
+
   const selectedContainer = document.createElement('div');
   selectedContainer.id = 'selected-skills-container';
   selectedContainer.style.cssText = `
@@ -803,7 +811,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     align-items: center;
     ${selectedSkills.size === 0 ? 'justify-content: center;' : ''}
   `;
-  
+
   if (selectedSkills.size === 0) {
     const emptyMessage = document.createElement('span');
     emptyMessage.textContent = 'No skills selected. Click on available skills above to select them.';
@@ -822,23 +830,23 @@ function displaySkillsFilter(forceFreshStart = false) {
       }
     });
   }
-  
+
   selectedSection.appendChild(selectedContainer);
   modalElements.contentBox.appendChild(selectedSection);
 
   // Filtered Projects Section (Third)
   const filteredProjects = filterProjects();
-  
+
   const projectsSection = document.createElement('div');
   projectsSection.style.cssText = `
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   `;
-  
+
   const projectsTitle = document.createElement('h4');
-  projectsTitle.textContent = selectedSkills.size > 0 
-    ? `Filtered Projects (${filteredProjects.length})` 
+  projectsTitle.textContent = selectedSkills.size > 0
+    ? `Filtered Projects (${filteredProjects.length})`
     : 'All Projects';
   projectsTitle.style.cssText = `
     margin: 0;
@@ -848,7 +856,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     font-weight: 600;
   `;
   projectsSection.appendChild(projectsTitle);
-  
+
   const projectsContainer = document.createElement('div');
   projectsContainer.id = 'filtered-projects-container';
   projectsContainer.style.cssText = `
@@ -861,7 +869,7 @@ function displaySkillsFilter(forceFreshStart = false) {
     border-radius: 0.3rem;
     gap: 0.4rem;
   `;
-  
+
   if (filteredProjects.length === 0 && selectedSkills.size > 0) {
     const noProjectsMessage = document.createElement('div');
     noProjectsMessage.textContent = 'No projects found matching the selected skills.';
@@ -880,7 +888,7 @@ function displaySkillsFilter(forceFreshStart = false) {
       projectsContainer.appendChild(projectCard);
     });
   }
-  
+
   projectsSection.appendChild(projectsContainer);
   modalElements.contentBox.appendChild(projectsSection);
 }
@@ -889,7 +897,7 @@ function displaySkillsFilter(forceFreshStart = false) {
 function addSkillModalListeners() {
   // Get all skill elements from all skill containers
   const allSkillElements = document.querySelectorAll('.skill');
-  
+
   allSkillElements.forEach(skillElement => {
     skillElement.addEventListener('click', (e) => {
       // Check if it's a left click (not right click or middle click)
@@ -913,7 +921,7 @@ window.addEventListener('load', () => {
   const url = window.location.hash.slice(1);
   const urlParams = new URLSearchParams(url);
   const skillParam = urlParams.get('skill');
-  
+
   if (skillParam) {
     const decodedSkill = decodeURIComponent(skillParam);
     // Check if skill exists in allSkills
