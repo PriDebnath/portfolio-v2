@@ -27,7 +27,7 @@
 }
 
 .testimonial-card-feedback {
-  border: 1px solid var(--t-card-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   background-color: var(--t-card-border-color);
   border-radius: 0.5rem;
   padding: 1rem;
@@ -50,17 +50,35 @@
   align-items: center;
   justify-content: center;
   justify-content: space-around;
+  position: relative;
 }
 
 .testimonial-card-and-client-connector {
-  height: 2rem;
-  width: 25%;
+  height: calc(2rem - 2px);
+  width: calc(25% - 2px);
   background-color: var(--t-card-border-color);
   clip-path: polygon(21% 34%, 21% 16%, 15% 0, 69% 0, 68% 10%, 64% 20%, 60% 31%, 53% 43%, 42% 54%, 29% 61%, 12% 65%, 19% 49%);
   /* clip-path: polygon(12% 56%, 13% 33%, 0 0, 100% 0, 99% 27%, 96% 48%, 89% 64%, 75% 79%, 54% 91%, 17% 97%, 0 100%, 7% 80%); */
   animation: slide-client-feedback calc(var(--slide-client-duration) * 2) calc(var(--slide-client-duration) * 1) forwards;
   transform-origin: bottom;
   transform: rotateX(90deg);
+  position: relative;
+  margin: 1px;
+}
+
+.testimonial-card-and-client-connector::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-color: rgba(255, 255, 255, 0.9);
+  clip-path: polygon(21% 34%, 21% 16%, 15% 0, 69% 0, 68% 10%, 64% 20%, 60% 31%, 53% 43%, 42% 54%, 29% 61%, 12% 65%, 19% 49%);
+  animation: slide-client-feedback calc(var(--slide-client-duration) * 2) calc(var(--slide-client-duration) * 1) forwards;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+  pointer-events: none;
 }
 
 
