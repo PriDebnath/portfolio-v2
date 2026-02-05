@@ -31,8 +31,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-   will-change: transform;
-  transform: translateY(100vh); /* initial state */
+  will-change: transform;
+  transform: translateY(100vh);
+  /* initial state */
 }
 
 .you-go {
@@ -84,15 +85,33 @@
 
 .show-aura {
   /* animation: show-aura calc(var(--animation-time)*3) var(--animation-time) forwards; */
-  animation: show-aura calc(var(--animation-time)*2)
-    ease-out
-    calc(var(--animation-time) + 0.2s)
-    forwards;
+  animation: show-aura calc(var(--animation-time)*2) ease-out calc(var(--animation-time) + 0.5s) forwards;
 }
 
 @keyframes show-aura {
+
+  0% {
+    border: calc(var(--your-aura-height)/6) solid var(--your-aura-color-1);
+    outline: calc(var(--your-aura-height)/8) solid var(--your-aura-color-2);
+
+  }
+
+  12% {
+    border: calc(var(--your-aura-height)/4) solid var(--your-aura-color-1);
+    outline: calc(var(--your-aura-height)/6) solid var(--your-aura-color-2);
+
+  }
+
+  25% {
+    border: calc(var(--your-aura-height)/2) solid var(--your-aura-color-1);
+    outline: calc(var(--your-aura-height)/4) solid var(--your-aura-color-2);
+
+  }
+
   50% {
     border: var(--your-aura-height) solid var(--your-aura-color-1);
+    outline: calc(var(--your-aura-height)/2) solid var(--your-aura-color-2);
+
   }
 
   75% {
@@ -160,8 +179,10 @@
 
 @media (min-width:480px) {
   :root {
-    --your-height: calc(8vh * 1.75); /* your height was 8vh */
-    --your-aura-height: calc(6vh * 2.5); /* your aura height was 6vh */
+    --your-height: calc(8vh * 1.75);
+    /* your height was 8vh */
+    --your-aura-height: calc(6vh * 2.5);
+    /* your aura height was 6vh */
   }
 
   .your-aura {
@@ -172,8 +193,10 @@
 
 @media (min-width:700px) {
   :root {
-    --your-height: calc(8vh * 2); /* your height was 8vh */
-    --your-aura-height: calc(6vh * 3); /* your aura height was 6vh */
+    --your-height: calc(8vh * 2);
+    /* your height was 8vh */
+    --your-aura-height: calc(6vh * 3);
+    /* your aura height was 6vh */
   }
 
   .your-aura {

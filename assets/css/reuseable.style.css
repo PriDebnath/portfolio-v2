@@ -552,6 +552,8 @@
   background-color: inherit;
 }
 
+/* image skeleton */
+
 .show-img-skeleton {
   object-fit: cover;
   opacity: 0;
@@ -565,6 +567,7 @@
       #f3f4f6 37%,
       #e5e7eb 63%);
   background-size: 400% 100%;
+  border-radius: 0.2;
   animation: shimmer 1.4s ease infinite;
 }
 

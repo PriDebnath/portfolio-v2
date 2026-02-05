@@ -112,6 +112,7 @@
 .drawing-box {
     padding-bottom: 0.5rem;
     scroll-snap-align: center;
+    /* overflow: hidden; */
 }
 
 @media (max-width: 580px) {
