@@ -31,6 +31,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+   will-change: transform;
+  transform: translateY(100vh); /* initial state */
 }
 
 .you-go {
@@ -76,11 +78,16 @@
   z-index: 3;
   position: relative;
   box-sizing: content-box;
+  transform: translateZ(0);
   /* border: calc(var(--your-aura-height)) solid var(--body-color); */
 }
 
 .show-aura {
-  animation: show-aura calc(var(--animation-time)*3) var(--animation-time) forwards;
+  /* animation: show-aura calc(var(--animation-time)*3) var(--animation-time) forwards; */
+  animation: show-aura calc(var(--animation-time)*2)
+    ease-out
+    calc(var(--animation-time) + 0.2s)
+    forwards;
 }
 
 @keyframes show-aura {
