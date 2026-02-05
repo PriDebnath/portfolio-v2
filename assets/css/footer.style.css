@@ -75,7 +75,7 @@ footer .text-box {
     display: flex;
     align-items: center;
     font-size: 1rem;
-  font-family: "Gabriela", serif;
+    font-family: "Gabriela", serif;
 
 }
 
@@ -135,10 +135,23 @@ i {
     }
 }
 
+
 .social-icon-box {
     color: var(--footer-text-color);
+    padding: var(--skill-padding-y) var(--skill-padding-y);
+    border-radius: 0.5rem;
+    border: 1px solid var(--skill-border-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--skill-padding-y);
 }
 
+
+.social-icon-box:hover {
+    border: 1px solid var(--body-text-color);
+
+}
 
 .border-svg {
     position: absolute;
