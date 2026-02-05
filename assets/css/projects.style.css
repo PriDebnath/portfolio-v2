@@ -81,9 +81,9 @@
 .project-desc {
 
     width: 100%;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
     position: relative;
     overflow: hidden;
     transition: 0.2s;
