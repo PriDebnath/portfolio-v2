@@ -406,54 +406,69 @@ function createFullscreenViewer(imageUrl) {
 }
 
 function displayDrawings() {
-    if (!modalElements.contentBox) initModalElements();
-    modalElements.contentBox.innerHTML = ''
-    modalElements.contentBox.className = 'drawing-container'
-    drawings.forEach((drawing, index) => {
-        //
-        let drawingBox = document.createElement('div')
-        drawingBox.classList.add('drawing-box')
-        //
-        let drawingImg = document.createElement('img')
-        drawingImg.loading = "lazy"
-        drawingImg.src = drawing
-        drawingImg.classList.add('drawing-img')
-        drawingImg.style.cursor = 'pointer'
-        drawingImg.addEventListener('click', () => createFullscreenViewer(drawing))
-        drawingBox.appendChild(drawingImg)
-        //
-        let drawingP = document.createElement('p')
-        drawingP.classList.add('drawing-p')
-        const fileNameChunk = drawing.split('/')
-        const fileNameWithEx = fileNameChunk.pop()
-        const indexOfDot = fileNameWithEx.indexOf(".")
-        const fileNameWithHypen = fileNameWithEx.substring(0, indexOfDot)
-        const fileName = fileNameWithHypen.replaceAll("-", " ").replaceAll("framed", "")
+  if (!modalElements.contentBox) initModalElements();
 
-        fadeTypingAnimation(drawingP,
-            fileName
-            , 100);
-        drawingBox.appendChild(drawingP)
-        //
-        modalElements.contentBox.appendChild(drawingBox)
+  modalElements.contentBox.innerHTML = '';
+  modalElements.contentBox.className = 'drawing-container';
 
-    })
+  drawings.forEach((drawing) => {
 
+    // BOX
+    const drawingBox = document.createElement('div');
+    drawingBox.classList.add('drawing-box', 'img-box-skeleton');
 
+    // IMAGE
+    const drawingImg = document.createElement('img');
+    drawingImg.loading = 'lazy';
+    drawingImg.src = drawing;
+    drawingImg.classList.add('drawing-img', 'show-img-skeleton');
+    drawingImg.style.cursor = 'pointer';
 
-    // Add see more link
-    const seeMore = document.createElement('a');
-    seeMore.href = 'https://in.pinterest.com/PriDebnath/';
-    seeMore.target = '_blank';
-    seeMore.style.textAlign = 'center';
-    seeMore.style.marginTop = 'auto';
-    seeMore.style.padding = '1rem';
-    seeMore.style.color = 'var(--body-text-color)';
-    seeMore.textContent = 'See more...';
-    modalElements.contentBox.appendChild(seeMore);
+    drawingImg.addEventListener('click', () =>
+      createFullscreenViewer(drawing)
+    );
 
+    // 🔑 Skeleton removal on load
+    drawingImg.addEventListener('load', () => {
+      drawingImg.classList.add('img-loaded');
+
+      setTimeout(() => {
+        drawingBox.classList.remove('img-box-skeleton');
+      }, 100);
+    });
+
+    drawingBox.appendChild(drawingImg);
+
+    // TEXT
+    const drawingP = document.createElement('p');
+    drawingP.classList.add('drawing-p');
+
+    const fileNameChunk = drawing.split('/');
+    const fileNameWithEx = fileNameChunk.pop();
+    const indexOfDot = fileNameWithEx.indexOf('.');
+    const fileNameWithHypen = fileNameWithEx.substring(0, indexOfDot);
+    const fileName = fileNameWithHypen
+      .replaceAll('-', ' ')
+      .replaceAll('framed', '');
+
+    fadeTypingAnimation(drawingP, fileName, 100);
+    drawingBox.appendChild(drawingP);
+
+    modalElements.contentBox.appendChild(drawingBox);
+  });
+
+  // SEE MORE
+  const seeMore = document.createElement('a');
+  seeMore.href = 'https://in.pinterest.com/PriDebnath/';
+  seeMore.target = '_blank';
+  seeMore.style.textAlign = 'center';
+  seeMore.style.marginTop = 'auto';
+  seeMore.style.padding = '1rem';
+  seeMore.style.color = 'var(--body-text-color)';
+  seeMore.textContent = 'See more...';
+
+  modalElements.contentBox.appendChild(seeMore);
 }
-
 
 // event listener
 if (cardDrew) {
