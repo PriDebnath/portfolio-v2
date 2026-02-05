@@ -44,6 +44,7 @@
         opacity 0.6s ease-out,
         transform 0.6s ease-out;
     will-change: opacity, transform;
+    overflow: hidden;
 }
 
 .project-card.in-view {
@@ -57,6 +58,7 @@
     width: 100%;
     overflow: hidden;
     padding: calc(var(--project-space)*1.2);
+  aspect-ratio: 16 / 9;   /* keeps space */
 
 }
 

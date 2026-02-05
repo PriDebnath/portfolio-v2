@@ -4,6 +4,19 @@ let getRandomNumber = (start, end) => {
 }
 
 
+////
+const img = ".show-img-skeleton"
+document.querySelectorAll(img)
+  .forEach(img => {
+    img.addEventListener("load", () => {
+      img.classList.add("img-loaded");
+      setTimeout(() => {
+        img.parentElement.classList.remove("img-box-skeleton");
+      }, 0);
+    });
+  });
+
+
 // function fadeTypingAnimation(element, text, speed = 150) {
 //   element.innerHTML = ''; // Clear previous content
 //   let i = 0;
@@ -149,7 +162,7 @@ function setupModalListeners() {
 
   // Click outside to close
   if (modalElements.modalOverlay) {
-    modalElements.modalOverlay.onclick = function(event) {
+    modalElements.modalOverlay.onclick = function (event) {
       if (event.target === this) {
         closeModal();
       }
@@ -162,7 +175,7 @@ function replaceCloseHandler(customHandler) {
   if (!modalElements.closeBtn) {
     initModalElements();
   }
-  
+
   if (modalElements.closeBtn && defaultCloseHandler) {
     modalElements.closeBtn.removeEventListener('click', defaultCloseHandler);
     modalElements.closeBtn.addEventListener('click', customHandler);
