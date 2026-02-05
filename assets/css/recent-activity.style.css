@@ -128,3 +128,31 @@
     border-radius: 0.5rem;
 
 }
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.08) 25%,
+    rgba(255,255,255,0.18) 37%,
+    rgba(255,255,255,0.08) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 100% 0 }
+  100% { background-position: 0 0 }
+}
+
+.skeleton-line {
+  height: 16px;
+  margin: 12px 0;
+  width: 100%;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}

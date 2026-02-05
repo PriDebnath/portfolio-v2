@@ -214,6 +214,57 @@ if (document.readyState === 'loading') {
     setTimeout(initializeRecentActivityModal, 0);
 }
 
+function showSpinner(){
+        // // Create and show loader
+    // const loader = document.createElement('div');
+    // loader.id = 'medium-loader';
+    // loader.style.cssText = `
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     height: 200px;
+    //     width: 100%;
+    // `;
+    
+    // const spinner = document.createElement('div');
+    // spinner.style.cssText = `
+    //     width: 40px;
+    //     height: 40px;
+    //     border: 4px solid rgba(255, 255, 255, 0.3);
+    //     border-top-color: var(--body-text-color);
+    //     border-radius: 50%;
+    //     animation: spin 1s linear infinite;
+    // `;
+    
+    // // Add spinner animation if not already in style
+    // if (!document.getElementById('loader-style')) {
+    //     const style = document.createElement('style');
+    //     style.id = 'loader-style';
+    //     style.textContent = `
+    //         @keyframes spin {
+    //             to { transform: rotate(360deg); }
+    //         }
+    //     `;
+    //     document.head.appendChild(style);
+    // }
+    
+    // loader.appendChild(spinner);
+    // modalElements.contentBox.appendChild(loader);
+}
+
+function showBlogSkeleton() {
+    const wrapper = document.createElement('div');
+    wrapper.id = 'blog-skeleton';
+
+    for (let i = 0; i < 8; i++) {
+        const line = document.createElement('div');
+        line.className = 'skeleton skeleton-line';
+        if (i % 2 === 0) line.classList.add('short');
+        wrapper.appendChild(line);
+    }
+
+    modalElements.contentBox.appendChild(wrapper);
+}
 
 
 function fetchBlog() {
@@ -221,52 +272,19 @@ function fetchBlog() {
     modalElements.contentBox.innerHTML = ''
     modalElements.contentBox.className = 'writing-container'
     
-    // Create and show loader
-    const loader = document.createElement('div');
-    loader.id = 'medium-loader';
-    loader.style.cssText = `
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 200px;
-        width: 100%;
-    `;
-    
-    const spinner = document.createElement('div');
-    spinner.style.cssText = `
-        width: 40px;
-        height: 40px;
-        border: 4px solid rgba(255, 255, 255, 0.3);
-        border-top-color: var(--body-text-color);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    `;
-    
-    // Add spinner animation if not already in style
-    if (!document.getElementById('loader-style')) {
-        const style = document.createElement('style');
-        style.id = 'loader-style';
-        style.textContent = `
-            @keyframes spin {
-                to { transform: rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    loader.appendChild(spinner);
-    modalElements.contentBox.appendChild(loader);
-    
+
+        showBlogSkeleton();
+
     //
     fetch(MEDIUM_BLOG_API).then((res) => {
         return res.json()
     }).then((data) => {
         fetchedBlog = true
-        // Remove loader and clear content box
+        //// Remove loader and clear content box
         modalElements.contentBox.innerHTML = '';
         
-        //
-        // console.log({ data })
+        
+        //// console.log({ data })
         let items = data.items
         items.forEach((item, index) => {
             let contentElement = document.createElement('a')
