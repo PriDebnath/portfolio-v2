@@ -12,7 +12,7 @@ const observer = new IntersectionObserver(entries => {
             observer.unobserve(entry.target); // Stop observing once animated
         }
     });
-}, { threshold: 0.2, rootMargin: "50px 0px" }); // Slight margin for smoother triggering
+}, { threshold: 0.01, rootMargin: "0px 0px" }); // Slight margin for smoother triggering
 
 const projectCards = document.querySelectorAll(".project-card");
 projectCards.forEach(action => observer.observe(action));
