@@ -19,6 +19,7 @@ if (main) {
     star.style.height = getRandomNumber(1, 8) + "px"
     star.style.top = getRandomNumber(0, 100) + "vh"
     star.style.left = getRandomNumber(0, 100) + "vw"
+star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
 
     main.appendChild(star)
   }
@@ -37,24 +38,27 @@ if (main) {
     star.style.height = getRandomNumber(1, 8) + "px"
     star.style.top = getRandomNumber(0, 100) + "vh"
     star.style.left = getRandomNumber(0, 100) + "vw"
+star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
 
     main.appendChild(star)
   }
 
   let createCircle = () => {
     let circle = document.createElement('div')
-    circle.classList.add("circle")
+    circle.classList.add("star-circle")
 
     circle.style.height = getRandomNumber(1, 8) + "px"
     circle.style.top = getRandomNumber(0, 100) + "vh"
     circle.style.left = getRandomNumber(0, 100) + "vw"
+    circle.style.animationDelay = getRandomNumber(0, 2000) + "ms"
+
     main.appendChild(circle)
   }
 
   for (let p = 0; p <= 4; p++) {
     setTimeout(() => {
       createType1Star()
-    }, 0)
+    }, 10)
   }
 
   for (let p = 0; p <= 4; p++) {

@@ -291,6 +291,8 @@ function fetchBlog() {
             contentElement.href = item.link
             contentElement.classList.add('rc-text-element')
             let itemTitle = (index + 1) + ". " + item.title
+            // console.log({itemTitle});
+            
             fadeTypingAnimation(contentElement,
                 itemTitle
                 , 100);

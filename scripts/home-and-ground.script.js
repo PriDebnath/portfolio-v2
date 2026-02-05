@@ -1,7 +1,7 @@
 
 
 function handleBlinkAnimation(element) {
-    console.log('blink animation');
+    // console.log('blink animation');
 
     let oldAnimation = element.style.animation;
     element.style.animation = 'blink 0.2s infinite';

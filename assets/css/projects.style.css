@@ -39,7 +39,7 @@
     /* padding: var(--project-space) calc(var(--project-space)*1.2); */
     /* transform: scale(0.5); */
     opacity: 0.2;
-    transform: translateY(24px);
+    transform: translateY(var(--project-footer-height));
     transition:
         opacity 0.6s ease-out,
         transform 0.6s ease-out;

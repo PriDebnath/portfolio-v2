@@ -48,6 +48,8 @@ document.querySelectorAll(img)
 
 
 function fadeTypingAnimation(element, text, speed = 150) {
+  // console.log({text});
+  
   element.innerHTML = ''; // Clear previous content
   let words = text.split(' '); // Split text into words
   let i = 0;

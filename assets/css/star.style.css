@@ -7,6 +7,7 @@
   transition: all 1s ease 0s;
   clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
   z-index: var(--start-z-index);
+  animation: starfade 6s ease infinite;
 
 }
 
@@ -20,6 +21,8 @@
       0% 50%, 40% 40%);
   background: snow;
   z-index: var(--start-z-index);
+  animation: starfade 2s ease infinite;
+
 }
 
 
@@ -33,6 +36,15 @@
 }
 
 
+.star-circle {
+  aspect-ratio: 1;
+  position: absolute;
+  background: snow;
+  border-radius: var(--pritam);
+  z-index: var(--start-z-index);
+  animation: starfade 6s ease infinite;
+}
+
 @keyframes starglow {
   0% {
     box-shadow: 0rem 0rem 0rem white;
@@ -40,5 +52,20 @@
 
   100% {
     box-shadow: 0rem 0rem 2rem white;
+  }
+}
+
+@keyframes starfade {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+    100% {
+    opacity: 0;
+    transform: scale(0.95);
   }
 }
