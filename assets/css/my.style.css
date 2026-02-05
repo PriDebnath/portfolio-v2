@@ -1,6 +1,7 @@
 :root {
     --me-height: 20vh;
     --message-popup-animation-duration: 3000;
+    --message-popup-animation-stay: 8000;
 }
 
 .me {
@@ -32,6 +33,7 @@
     height: calc(var(--me-height));
     z-index: 60;
     aspect-ratio: 1;
+    cursor: help;
 }
 
 .message {

@@ -1,5 +1,6 @@
 let root = document.documentElement;
-let messagePopupAnimationDuration = getComputedStyle(root).getPropertyValue('--message-popup-animation-duration');
+let messagePopupAnimationDuration = getComputedStyle(root)
+  .getPropertyValue('--message-popup-animation-stay');
 
 
 let message = document.getElementById("message")
@@ -11,8 +12,8 @@ if (message) {
     messagePopupAnimationDuration)
 }
 
-  let getRandomNumber = (start, end) => {
-    let randomNumber = Math.random() * (end - start) + start;
-    return Math.round(randomNumber)
+let getRandomNumber = (start, end) => {
+  let randomNumber = Math.random() * (end - start) + start;
+  return Math.round(randomNumber)
 
-  }
+}
