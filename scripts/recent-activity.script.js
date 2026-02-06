@@ -416,8 +416,9 @@ function displayDrawings() {
   drawings.forEach((drawing) => {
 
     // BOX
+    const drawingContainer = document.createElement('div');
     const drawingBox = document.createElement('div');
-    drawingBox.classList.add('drawing-box', 'img-box-skeleton');
+    drawingBox.classList.add('drawing-box', 'skeleton');
 
     // IMAGE
     const drawingImg = document.createElement('img');
@@ -435,8 +436,8 @@ function displayDrawings() {
       drawingImg.classList.add('img-loaded');
 
       setTimeout(() => {
-        drawingBox.classList.remove('img-box-skeleton');
-      }, 100);
+        drawingBox.classList.remove('skeleton');
+      }, 0);
     });
 
     drawingBox.appendChild(drawingImg);
@@ -454,9 +455,9 @@ function displayDrawings() {
       .replaceAll('framed', '');
 
     fadeTypingAnimation(drawingP, fileName, 100);
-    drawingBox.appendChild(drawingP);
-
-    modalElements.contentBox.appendChild(drawingBox);
+    drawingContainer.appendChild(drawingBox);
+drawingContainer.appendChild(drawingP)
+    modalElements.contentBox.appendChild(drawingContainer);
   });
 
   // SEE MORE

@@ -134,13 +134,14 @@
 .skeleton {
   background: linear-gradient(
     90deg,
-    rgba(255,255,255,0.08) 25%,
-    rgba(255,255,255,0.18) 37%,
-    rgba(255,255,255,0.08) 63%
+    rgb(133, 133, 133, 1) 25%,
+    rgba(255,255,255,0.8) 37%,
+    rgba(133, 133, 133,1) 63%
   );
   background-size: 400% 100%;
   animation: skeleton-loading 1.4s ease infinite;
-  border-radius: 4px;
+  border-radius: 0.2rem;
+  aspect-ratio: 16 / 9;   /* keeps space */
 }
 
 @keyframes skeleton-loading {

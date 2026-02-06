@@ -11,40 +11,12 @@ document.querySelectorAll(img)
     img.addEventListener("load", () => {
       img.classList.add("img-loaded");
       setTimeout(() => {
-        img.parentElement.classList.remove("img-box-skeleton");
+        img.parentElement.classList.remove("skeleton");
       }, 0);
     });
   });
 
-
-// function fadeTypingAnimation(element, text, speed = 150) {
-//   element.innerHTML = ''; // Clear previous content
-//   let i = 0;
-
-//   function type() {
-//     if (i < text.length) {
-//       let span = document.createElement('span');
-
-//       // Preserve spaces correctly
-//       span.innerHTML = text[i] === ' ' ? '&nbsp;' : text[i];
-
-//       span.classList.add('fade-letter');
-//       element.appendChild(span);
-
-//       // Add fade effect
-//       setTimeout(() => {
-//         span.style.opacity = 1;
-//       }, 50);
-
-//       i++;
-//       setTimeout(type, speed);
-//     } else {
-//       element.style.borderRight = "none"; // Remove cursor effect
-//     }
-//   }
-
-//   type();
-// }
+ 
 
 
 function fadeTypingAnimation(element, text, speed = 150) {
