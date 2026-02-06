@@ -18,7 +18,7 @@
     display: flex;
     align-items: end;
     left: calc(var(--home-1-window-size) + var(--home-2-width));
-
+cursor: pointer;
 }
 
 .branches {
@@ -82,6 +82,7 @@ left is half of its width
     top: 10%;
     position: absolute;
     animation: fall 8s 1s forwards;
+    opacity: 1;
 }
 
 @keyframes fall {

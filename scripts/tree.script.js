@@ -1,3 +1,30 @@
+try {
+  let tree = document.querySelector(".tree")
+  tree.addEventListener('click', () => {
+    let leaves = document.querySelectorAll(".leaf")
+    leaves.forEach((leaf) => {
+      leaf.style.opacity = "0"
+    })
+    let delay = 500
+    setTimeout(() => {
+      leaves.forEach((leaf) => {
+        leaf.classList.remove('leaf')
+      })
+    }, delay  )
+    setTimeout(() => {
+      leaves.forEach((leaf) => {
+        leaf.classList.add('leaf')
+      leaf.style.opacity = "1"
+
+      })
+    }, delay * 2 )
+
+  })
+} catch (error) {
+  console.warn('Tree has bugs')
+}
+
+try {
 let leaves = document.getElementById("leaf-box")
 if (!leaves) {
   // Exit early if element doesn't exist
@@ -84,4 +111,7 @@ if (leaves) {
       left: getRandomNumber(20, 80)
     })
   }
+}
+} catch (error) {
+  console.warn('Tree has bugs')
 }

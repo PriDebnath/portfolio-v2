@@ -20,6 +20,7 @@
     } = param
     // Create main container
     const cloud = document.createElement('div');
+    cloud.title = "Your thought"
     cloud.classList.add(className);
 
     if (window.innerWidth > 700) {
