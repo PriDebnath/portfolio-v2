@@ -19,7 +19,7 @@ if (main) {
     star.style.height = getRandomNumber(1, 8) + "px"
     star.style.top = getRandomNumber(0, 100) + "vh"
     star.style.left = getRandomNumber(0, 100) + "vw"
-star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
+    star.style.animationDelay = getRandomNumber(0, 10000) + "ms"
 
     main.appendChild(star)
   }
@@ -38,7 +38,7 @@ star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
     star.style.height = getRandomNumber(1, 8) + "px"
     star.style.top = getRandomNumber(0, 100) + "vh"
     star.style.left = getRandomNumber(0, 100) + "vw"
-star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
+    star.style.animationDelay = getRandomNumber(0, 10000) + "ms"
 
     main.appendChild(star)
   }
@@ -50,7 +50,7 @@ star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
     circle.style.height = getRandomNumber(1, 8) + "px"
     circle.style.top = getRandomNumber(0, 100) + "vh"
     circle.style.left = getRandomNumber(0, 100) + "vw"
-    circle.style.animationDelay = getRandomNumber(0, 2000) + "ms"
+    circle.style.animationDelay = getRandomNumber(0, 10000) + "ms"
 
     main.appendChild(circle)
   }
@@ -64,12 +64,12 @@ star.style.animationDelay = getRandomNumber(0, 2000) + "ms"
   for (let p = 0; p <= 4; p++) {
     setTimeout(() => {
       createType2Star()
-    }, 0)
+    }, 10)
   }
 
   for (let p = 0; p <= 15; p++) {
     setTimeout(() => {
       createCircle()
-    }, 0)
+    }, 10)
   }
 }
