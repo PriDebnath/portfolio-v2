@@ -295,7 +295,7 @@ function fetchBlog() {
             
             fadeTypingAnimation(contentElement,
                 itemTitle
-                , 100);
+                , 50);
             modalElements.contentBox.appendChild(contentElement)
         });
 
@@ -332,7 +332,7 @@ function displayReadings() {
         contentElement.style.padding = '0.125rem 0'
         fadeTypingAnimation(contentElement,
             item.name
-            , 100);
+            , 50);
 
         //   
         let contentByElement = document.createElement('span')
@@ -340,7 +340,7 @@ function displayReadings() {
         contentByElement.style.padding = '0 0 1.125rem 0'
         fadeTypingAnimation(contentByElement,
             "by " + item.by
-            , 100);
+            , 50);
         //
         contentElementBox.appendChild(contentElement)
         contentElementBox.appendChild(contentByElement)
@@ -454,7 +454,7 @@ function displayDrawings() {
       .replaceAll('-', ' ')
       .replaceAll('framed', '');
 
-    fadeTypingAnimation(drawingP, fileName, 100);
+    fadeTypingAnimation(drawingP, fileName, 50);
     drawingContainer.appendChild(drawingBox);
 drawingContainer.appendChild(drawingP)
     modalElements.contentBox.appendChild(drawingContainer);

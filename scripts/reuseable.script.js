@@ -19,7 +19,7 @@ document.querySelectorAll(img)
  
 
 
-function fadeTypingAnimation(element, text, speed = 150) {
+function fadeTypingAnimation(element, text, speed = 50) {
   // console.log({text});
   
   element.innerHTML = ''; // Clear previous content
@@ -43,7 +43,7 @@ function fadeTypingAnimation(element, text, speed = 150) {
 
           setTimeout(() => {
             letterSpan.style.opacity = '1'; // Fade in
-          }, 50);
+          }, speed/2);
 
           j++;
           setTimeout(typeLetter, speed);

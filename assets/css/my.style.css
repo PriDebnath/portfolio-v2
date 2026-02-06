@@ -1,7 +1,8 @@
 :root {
     --me-height: 20vh;
-    --message-popup-animation-duration: 3000;
-    --message-popup-animation-stay: 9000;
+    --message-popup-animation-duration: 3000; 
+    --message-popup-animation-stay: 15000; /* based on: animation-duration: calc(var(--message-popup-animation-duration) * 5ms); */
+
 }
 
 .me {
@@ -48,7 +49,7 @@
     transform-origin: bottom;
     transform: rotateX(90deg);
     animation: message-popup forwards;
-    animation-duration: calc(var(--message-popup-animation-duration) * 3ms);
+    animation-duration: calc(var(--message-popup-animation-duration) * 5ms);
     transition: calc(var(--message-popup-animation-duration) * 0.1ms);
     border: 1px solid var(--cloud-color-1);
     /*   border-bottom: none */
@@ -77,7 +78,7 @@
 }
 
 @keyframes message-popup {
-    10% {
+    5% {
         transform: rotateX(0deg);
     }
 

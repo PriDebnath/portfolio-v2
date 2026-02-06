@@ -11,7 +11,7 @@ if (aboutMeSection) {
               // Get the text content from HTML
               const aboutMeText = aboutMeSection.textContent.trim();
               // Clear and animate
-              fadeTypingAnimation(aboutMeSection, aboutMeText, 100);
+              fadeTypingAnimation(aboutMeSection, aboutMeText, 50);
               observer.unobserve(entry.target); // Stop observing once animated
           }
       });
