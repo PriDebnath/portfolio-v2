@@ -460,60 +460,61 @@ export const badgeSvg = `
 </svg>
 
 `
+
 export const mailSvg = `
-  <svg xmlns="http://www.w3.org/2000/svg"
-       width="24"
-       height="24"
-       viewBox="0 0 24 24">
-    <g fill="none"
-       stroke="currentColor"
-       stroke-linecap="round"
-       stroke-linejoin="round"
-       stroke-width="2">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24">
 
-      <!-- Outer Envelope Outline -->
-      <rect x="3"
-            y="5"
-            width="16"
-            height="14"
-            rx="2"
-            stroke-dasharray="72"
-            stroke-dashoffset="72">
-        <animate attributeName="stroke-dashoffset"
-                 from="72"
-                 to="0"
-                 dur="0.7s"
-                 fill="freeze" />
-      </rect>
+  <g fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="2">
 
-      <!-- Envelope Flap -->
-      <path stroke-dasharray="32"
-            stroke-dashoffset="32"
-            d="M3 6l7 7l8-8">
-        <animate attributeName="stroke-dashoffset"
-                 from="32"
-                 to="0"
-                 dur="0.7s"
-                 begin="0.3s"
-                 fill="freeze" />
-      </path>
+    <!-- Envelope Body -->
+    <rect x="3"
+          y="5"
+          width="18"
+          height="14"
+          rx="2"
+          stroke-dasharray="80"
+          stroke-dashoffset="80">
+      <animate attributeName="stroke-dashoffset"
+               from="80"
+               to="0"
+               dur="0.6s"
+               fill="freeze"/>
+    </rect>
 
-      <!-- Letter Bottom -->
-      <path stroke-dasharray="36"
-            stroke-dashoffset="36"
-            d="M3 19l6-6m4 0l4 4">
-        <animate attributeName="stroke-dashoffset"
-                 from="36"
-                 to="0"
-                 dur="0.7s"
-                 begin="0.5s"
-                 fill="freeze" />
-      </path>
+    <!-- Top Flap -->
+    <path d="M3 7l9 7l9-7"
+          stroke-dasharray="36"
+          stroke-dashoffset="36">
+      <animate attributeName="stroke-dashoffset"
+               from="36"
+               to="0"
+               dur="0.7s"
+               begin="0.25s"
+               fill="freeze"/>
+    </path>
 
-    </g>
-  </svg>
-`
+    <!-- Bottom Folds -->
+    <path d="M3 19l7-6m4 0l7 6"
+          stroke-dasharray="40"
+          stroke-dashoffset="40">
+      <animate attributeName="stroke-dashoffset"
+               from="40"
+               to="0"
+               dur="0.7s"
+               begin="0.45s"
+               fill="freeze"/>
+    </path>
 
+  </g>
+</svg>
+`;
 
 export const mediumSvg = `
    <svg xmlns="http://www.w3.org/2000/svg"
@@ -704,6 +705,48 @@ export const pinterestSvg = `
     </g>
   </svg>
 `
+
+export const gumroadSvg = `
+<svg id="gumroad"
+     xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24">
+
+  <g fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Outer Square Border -->
+    <path stroke-width="2"
+          stroke-dasharray="72"
+          stroke-dashoffset="72"
+          d="M16 3c2.76 0 5 2.24 5 5v8c0 2.76-2.24 5-5 5h-8c-2.76 0-5-2.24-5-5v-8c0-2.76 2.24-5 5-5h8Z">
+      <animate fill="freeze"
+               attributeName="stroke-dashoffset"
+               dur="0.6s"
+               values="72;0"/>
+    </path>
+
+    <!-- Better Centered Gumroad "G" -->
+    <path stroke-width="1.6"
+          stroke-dasharray="60"
+          stroke-dashoffset="60"
+          d="M16 12
+             a4 4 0 1 1 -1.2 -2.8
+             M12.8 12
+             h2.5">
+      <animate attributeName="stroke-dashoffset"
+               from="60"
+               to="0"
+               dur="2s"
+               fill="freeze"/>
+    </path>
+
+  </g>
+</svg>
+`;
 
 export const mailSvg2 = ` 
 
@@ -1104,6 +1147,7 @@ let spanSvgMedium = document.querySelectorAll('.span-svg-medium')
 let spanSvgLinkedin = document.querySelectorAll('.span-svg-linkedin')
 let spanSvgGithub = document.querySelectorAll('.span-svg-github')
 let spanSvgpainterest = document.querySelectorAll('.span-svg-painterest')
+let spanSvggumroad = document.querySelectorAll('.span-svg-gumroad')
 let spanSvgBadge = document.querySelectorAll('.span-svg-badge')
 let spanSvgFiverr = document.querySelectorAll('.span-svg-fiverr')
 let spanSvgFiverrClient = document.querySelectorAll('.span-svg-fiverr-client')
@@ -1149,6 +1193,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSvg(spanSvgLinkedin, linkedinSvg)
     renderSvg(spanSvgGithub, githubSvg)
     renderSvg(spanSvgpainterest, pinterestSvg)
+    renderSvg(spanSvggumroad, gumroadSvg)
     renderSvg(spanSvgFiverr, fiverrSvg)
     renderSvg(spanSvgFiverrClient, fiverrClientSvg)
     renderSvg(spanSvgUpworkClient, upworkClientSvg)
