@@ -16,12 +16,12 @@ document.querySelectorAll(img)
     });
   });
 
- 
+
 
 
 function fadeTypingAnimation(element, text, speed = 50) {
   // console.log({text});
-  
+
   element.innerHTML = ''; // Clear previous content
   let words = text.split(' '); // Split text into words
   let i = 0;
@@ -43,7 +43,7 @@ function fadeTypingAnimation(element, text, speed = 50) {
 
           setTimeout(() => {
             letterSpan.style.opacity = '1'; // Fade in
-          }, speed/2);
+          }, speed / 2);
 
           j++;
           setTimeout(typeLetter, speed);
@@ -167,3 +167,19 @@ if (document.readyState === 'loading') {
   initModalElements();
   setupModalListeners();
 }
+
+/// socials
+setTimeout(() => {
+  const svgs = document.querySelectorAll(".animate-svg")
+  svgs.forEach(svg => {
+    const play = () => {
+      const animations = svg.querySelectorAll("animate")
+      animations.forEach(anim => {
+        anim.beginElement()
+      })
+    }
+
+    svg.addEventListener("mouseenter", play)
+    svg.addEventListener("focus", play)
+  })
+}, 0);
