@@ -50,6 +50,15 @@ const FILES_TO_CACHE = [
   './assets/images/company-go-plus-logo.jpeg',
   './assets/images/testimonial/sagar-n.webp',
 
+  /// cute avatar (Images)
+  './assets/images/cute-avatar/cute-avatar.png',
+  './assets/images/cute-avatar/head-decorator-1-heart-leaves.png',
+  './assets/images/cute-avatar/head-decorator-2-aki-hair.png',
+  './assets/images/cute-avatar/head-decorator-3-pony-hair.png',
+  './assets/images/cute-avatar/head-decorator-4-headphone.png',
+  './assets/images/cute-avatar/head-decorator-5-blue-cap.png',
+
+
   // Favicon
   './assets/fav-icon.ico'
 ];

@@ -41,7 +41,6 @@ const handleHeadDecoratorsBox = (event) => {
     } else if (ariaLabel.includes("cap")) {
       headDecoratorsImg.classList.add("anim-rotate");
     } else if (ariaLabel.includes("hair") || ariaLabel.includes("pony")) {
-      console.log("hair");
       headDecoratorsImg.classList.add("anim-hair");
     }
 

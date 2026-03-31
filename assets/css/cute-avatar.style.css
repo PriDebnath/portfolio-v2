@@ -1,30 +1,27 @@
-
-
-#cute-avatar-section {
- 
-}
+/* #cute-avatar-section {} */
 
 
 .cute-avatar-box {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1; /* This gives height */
-  /* background: rgba(155, 5, 5, 0.5); */
-  /* border: 2px solid darkred; */
-  border-radius: 0.5rem;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    /* This gives height */
+    /* background: rgba(155, 5, 5, 0.5); */
+    /* border: 2px solid darkred; */
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
 
 .cute-avatar-box img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* object-fit: contain; */
-  /* or cover */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* object-fit: contain; */
+    /* or cover */
 }
 
 img[aria-label="cute-avatar"] {
-  z-index: 2;
+    z-index: 2;
 }
 
 
@@ -35,7 +32,7 @@ div[aria-label="head-decorators-button-container"] {
     gap: 1rem;
 }
 
-div[aria-label="head-decorators-button-container"] button{
+.change-decorator-button {
     color: var(--footer-text-color);
     background: transparent;
     padding: var(--skill-padding-y) var(--skill-padding-y);
@@ -49,96 +46,127 @@ div[aria-label="head-decorators-button-container"] button{
     cursor: pointer;
 }
 
-div[aria-label="head-decorators-button-container"] button:hover, div[aria-label="head-decorators-button-container"] button.active{
+.change-decorator-button:hover,
+.change-decorator-button.active {
     border: 1px solid var(--body-text-color);
 }
 
 .decorator {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .animate-out {
-  opacity: 0;
-  transform: scale(0.8) rotate(-10deg);
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
 }
 
 .animate-in {
-  opacity: 1;
-  transform: scale(1) rotate(0);
+    opacity: 1;
+    transform: scale(1) rotate(0);
 }
 
 /* cute / nature */
 .anim-bounce {
-  animation: bounceIn 0.4s ease;
+    animation: bounceIn 0.4s ease;
 }
 
 @keyframes bounceIn {
-  0% {
-    transform: scale(0.5);
-  }
+    0% {
+        transform: scale(0.5);
+    }
 
-  60% {
-    transform: scale(1.2);
-  }
+    60% {
+        transform: scale(1.2);
+    }
 
-  100% {
-    transform: scale(1);
-  }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* tech / headphones */
 .anim-slide {
-  animation: slideDown 0.4s ease;
+    animation: slideDown 0.4s ease;
 }
 
 @keyframes slideDown {
-  0% {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
 
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* hats / caps */
 .anim-rotate {
-  animation: rotateIn 0.4s ease;
+    animation: rotateIn 0.4s ease;
 }
 
 @keyframes rotateIn {
-  0% {
-    transform: rotate(-180deg) scale(0.5);
-  }
+    0% {
+        transform: rotate(-180deg) scale(0.5);
+    }
 
-  100% {
-    transform: rotate(0) scale(1);
-  }
+    100% {
+        transform: rotate(0) scale(1);
+    }
 }
 
 .anim-hair {
-  transform-origin: bottom center;
-  animation: hairGrow 0.45s ease-out;
+    transform-origin: bottom center;
+    animation: hairGrow 0.45s ease-out;
 }
 
 @keyframes hairGrow {
-  0% {
-    transform: scaleY(0.2) scaleX(0.8);
-    opacity: 0;
-  }
+    0% {
+        transform: scaleY(0.2) scaleX(0.8);
+        opacity: 0;
+    }
 
-  60% {
-    opacity: 0;
+    60% {
+        opacity: 0;
 
-    /*
+        /*
     transform: scaleY(1.1) scaleX(1);
     opacity: 1;
     */
-  }
+    }
 
-  100% {
-    transform: scaleY(1) scaleX(1);
-  }
+    100% {
+        transform: scaleY(1) scaleX(1);
+    }
+}
+
+.cute-avatar-section {
+    border: 8px solid black;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.cute-avatar-controller-section {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 1rem;
+    gap: 1rem;
+    border: 8px solid black;
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+
+}
+
+@media (min-width:900px) {
+    .cute-avatar-section {
+        border-radius: 1rem 0 0 1rem;
+    }
+
+    .cute-avatar-controller-section {
+        border: 8px solid black;
+        border-left: none;
+        border-radius: 0 1rem 1rem 0;
+    }
+
 }
