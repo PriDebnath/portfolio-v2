@@ -137,6 +137,8 @@
 
   <link rel="stylesheet" href="./assets/css/footer.style.css" />
   <link rel="stylesheet" href="./assets/css/cute-avatar.style.css" />
+  <link rel="stylesheet" href="./assets/css/cute-avatar.style.css" />
+  <link rel="stylesheet" href="./assets/css/moveable-box.style.css" />
   <!-- link to css file end-->
 
 
@@ -1365,7 +1367,50 @@
     </div>
     <!-- About me section ends -->
 
-    <!-- Socials section starts -->
+
+ 
+    
+    <!-- Fun zone section starts -->
+    <div class="min-width-400px-width-50per" 
+    style="display: flex;flex-direction: column;">
+
+      <h2 class="section-h2" id="fun-zone">Fun zone</h2>
+      <div class="grid-col1-md-col2 card" id=" ">
+
+
+    <!-- Cute avatar starts -->
+     <section id="cute-avatar-section">
+        <div class="cute-avatar-box">
+          <img aria-label="cute-avatar" loading="lazy" src="./assets/images/cute-avatar/cute-avatar.png" />
+          <img aria-label="head-decorator-img" loading="lazy"
+            src="./assets/images/cute-avatar/head-decorator-1-heart-leaves.png" />
+          <img aria-label="decorator-img" loading="lazy" src="./assets/images/cute-avatar/decorator-1-leaves-pot.png" />
+        </div>
+      </section>
+    <!-- Cute avatar ends -->
+
+    <!-- <section id="moveable-box-container"> -->
+    <section class="flex " style="align-items: end; overflow: auto;padding-bottom: 0.5rem;">
+    <div class="" aria-label="head-decorators">
+          <h3>Head decorators</h3>
+          <div class="" aria-label="head-decorators-button-container">
+            <button aria-label="head-decorator-3-pony-hair">Pony hair</button>
+            <button aria-label="head-decorator-2-aki-hair">Aki hair</button>
+            <button aria-label="head-decorator-1-heart-leaves" class="active">Heart leaves</button>
+            <button aria-label="head-decorator-4-headphone">    Headphone </button>
+            <button aria-label="head-decorator-5-blue-cap">
+              Cap
+              <!-- Crown 👑, Wizard hat 🧙, Horns (demon, dragon), Elf ears, Fire aura 🔥, Ice crown ❄️, Cat ears 🐱, Banana hat, Baseball cap, Headband, Sunglass -->
+            </button>
+          </div>
+        </div>
+</section>
+
+      </div>
+    </div>
+    <!-- Fun zone section ends -->
+
+       <!-- Socials section starts -->
     <div class="min-width-400px-width-50per" style="display: flex; align-items: stretch;flex-direction: column;">
 
       <h2 class="section-h2" id="Socials">Socials</h2>
@@ -1429,6 +1474,9 @@
       </div>
     </div>
     <!-- Socials section ends -->
+
+
+
     <canvas id="confettiCanvas"></canvas>
 
     <!-- Footer section starts -->
@@ -1463,63 +1511,8 @@
     </footer>
     <!-- Footer section ends -->
 
-    <!--  Cute avatar starts -->
-    <!-- <div class=""> -->
-    <div class="grid-col1-md-col2" style="gap: 1.5rem;" id="cute-avatar">
-      <div class="movable-boxes-container">
-        yo
-      </div>
-
-      <!-- <h2 class="section-h2">About me </h2> -->
-      <section id="cute-avatar-section">
-
-        <div class="cute-avatar-box">
-
-          <img aria-label="cute-avatar" loading="lazy" src="./assets/images/cute-avatar/cute-avatar.png" />
-          <img aria-label="head-decorator-img" loading="lazy"
-            src="./assets/images/cute-avatar/head-decorator-1-heart-leaves.png" />
-          <img aria-label="decorator-img" loading="lazy" src="./assets/images/cute-avatar/decorator-1-leaves-pot.png" />
-        </div>
 
 
-        <div class="" aria-label="head-decorators">
-          <h4>Head decorators</h4>
-          <div class="" aria-label="head-decorators-button-container">
-
-            <button aria-label="head-decorator-3-pony-hair">Pony hair</button>
-            <button aria-label="head-decorator-2-aki-hair">Aki hair</button>
-            <button aria-label="head-decorator-1-heart-leaves" class="active">Heart leaves</button>
-            <button aria-label="head-decorator-4-headphone">    Headphone </button>
-            <button aria-label="head-decorator-5-blue-cap">
-              Cap
-              <!--
-Crown 👑
-Wizard hat 🧙
-Horns (demon, dragon)
-Elf ears
-Fire aura 🔥
-Ice crown ❄️
-Cat ears 🐱
-Banana hat
-Baseball cap
-Headband
-Sunglass
--->
-            </button>
-
-          </div>
-        </div>
-
-
-      </section>
-
-
-
-    </div>
-
-
-
-    <!-- Cute avatar ends -->
   </div>
   <!-- Body content ends -->
 
@@ -1593,6 +1586,7 @@ Sunglass
 
 
   <script src="./scripts/cute-avatar.script.js" type="module"></script>
+  <script src="./scripts/moveable-box.script.js" type="module"></script>
 
   <!-- <script src="./scripts/social-icons.script.js"
         type="module"></script> -->

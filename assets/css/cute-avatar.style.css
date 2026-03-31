@@ -1,14 +1,7 @@
 
 
 #cute-avatar-section {
-    background: var(--project-bg-color);
-    border: 1px solid var(--project-border-color);
-    border-radius: 0.5rem;
-    /* height: 150px; */
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+ 
 }
 
 
@@ -52,6 +45,8 @@ div[aria-label="head-decorators-button-container"] button{
     display: flex;
     align-items: center;
     gap: var(--skill-padding-y);
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 div[aria-label="head-decorators-button-container"] button:hover, div[aria-label="head-decorators-button-container"] button.active{
@@ -135,6 +130,8 @@ div[aria-label="head-decorators-button-container"] button:hover, div[aria-label=
   }
 
   60% {
+    opacity: 0;
+
     /*
     transform: scaleY(1.1) scaleX(1);
     opacity: 1;
