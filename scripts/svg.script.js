@@ -1115,6 +1115,46 @@ export const playwrightSvg = `
   </svg>
 `
 
+export const youtubeSvg = `
+  <svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24">
+
+  <g fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Rounded Rectangle (YouTube Frame) -->
+    <rect x="3" y="6"
+          width="18"
+          height="12"
+          rx="4"
+          stroke-width="2"
+          stroke-dasharray="60"
+          stroke-dashoffset="60">
+      <animate attributeName="stroke-dashoffset"
+               values="60;0"
+               dur="0.6s"
+               fill="freeze"/>
+    </rect>
+
+    <!-- Play Triangle -->
+    <path d="M10 9 L15 12 L10 15 Z"
+          stroke-width="1.8"
+          stroke-dasharray="20"
+          stroke-dashoffset="20">
+      <animate attributeName="stroke-dashoffset"
+               values="20;0"
+               dur="1s"
+               fill="freeze"/>
+    </path>
+
+  </g>
+</svg>
+`
+
 
 const renderSvg = (spanTags, svg) => {
   spanTags.forEach((span) => {
@@ -1147,6 +1187,7 @@ let spanSvgMedium = document.querySelectorAll('.span-svg-medium')
 let spanSvgLinkedin = document.querySelectorAll('.span-svg-linkedin')
 let spanSvgGithub = document.querySelectorAll('.span-svg-github')
 let spanSvgpainterest = document.querySelectorAll('.span-svg-painterest')
+let spanSvgyoutube = document.querySelectorAll('.span-svg-youtube')
 let spanSvggumroad = document.querySelectorAll('.span-svg-gumroad')
 let spanSvgBadge = document.querySelectorAll('.span-svg-badge')
 let spanSvgFiverr = document.querySelectorAll('.span-svg-fiverr')
@@ -1193,6 +1234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSvg(spanSvgLinkedin, linkedinSvg)
     renderSvg(spanSvgGithub, githubSvg)
     renderSvg(spanSvgpainterest, pinterestSvg)
+    renderSvg(spanSvgyoutube, youtubeSvg)
     renderSvg(spanSvggumroad, gumroadSvg)
     renderSvg(spanSvgFiverr, fiverrSvg)
     renderSvg(spanSvgFiverrClient, fiverrClientSvg)
