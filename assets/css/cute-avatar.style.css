@@ -25,7 +25,7 @@ img[aria-label="cute-avatar"] {
 }
 
 
-div[aria-label="head-decorators-button-container"] {
+div[aria-label="head-decorators-button-container"], div[aria-label="decorators-button-container"] {
     display: flex;
     align-items: center;
     overflow: auto;
