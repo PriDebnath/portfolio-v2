@@ -17,18 +17,23 @@ const inactiveAllDecoratorButtons = () => {
   })
 }
 
-const handleHeadDecoratorsBox = (event) => {
-  headDecoratorsImg.classList.add("decorator");
+const handleAllDecoratorsBox = (event, img, type) => {
+  img.classList.add("decorator");
 
   const btn = event.target;
   const ariaLabel = btn.getAttribute("aria-label");
 
   if (!ariaLabel || !/decorator-\d+/.test(ariaLabel)) return;
 
-  inactiveAllHeadDecoratorButtons()
+  if (type == "decorators") {
+    inactiveAllDecoratorButtons()
+  } else if (type == "head-decorators") {
+    inactiveAllHeadDecoratorButtons()
+  }
+
   btn.classList.add('active')
   // remove previous animation classes
-  headDecoratorsImg.classList.remove(
+  img.classList.remove(
     "anim-bounce",
     "anim-slide",
     "anim-rotate",
@@ -36,73 +41,35 @@ const handleHeadDecoratorsBox = (event) => {
   );
 
   // animate out
-  headDecoratorsImg.classList.add("animate-out");
+  img.classList.add("animate-out");
 
   setTimeout(() => {
     // change image
-    headDecoratorsImg.src = "assets/images/cute-avatar/" + ariaLabel + ".png";
+    img.src = "assets/images/cute-avatar/" + ariaLabel + ".png";
 
     // choose animation type
     if (ariaLabel.includes("heart") || ariaLabel.includes("flower")) {
-      headDecoratorsImg.classList.add("anim-bounce");
+      img.classList.add("anim-bounce");
     } else if (ariaLabel.includes("headphone")) {
-      headDecoratorsImg.classList.add("anim-slide");
+      img.classList.add("anim-slide");
     } else if (ariaLabel.includes("cap")) {
-      headDecoratorsImg.classList.add("anim-rotate");
+      img.classList.add("anim-rotate");
     } else if (ariaLabel.includes("hair") || ariaLabel.includes("pony")) {
-      headDecoratorsImg.classList.add("anim-hair");
+      img.classList.add("anim-hair");
     }
 
     // animate in
-    headDecoratorsImg.classList.remove("animate-out");
-    headDecoratorsImg.classList.add("animate-in");
+    img.classList.remove("animate-out");
+    img.classList.add("animate-in");
   }, 200);
 };
 
-const handleDecoratorsBox = (event) => {
-  decoratorsImg.classList.add("decorator");
-
-  const btn = event.target;
-  const ariaLabel = btn.getAttribute("aria-label");
-
-  if (!ariaLabel || !/decorator-\d+/.test(ariaLabel)) return;
-
-  inactiveAllDecoratorButtons()
-  btn.classList.add('active')
-  // remove previous animation classes
-  decoratorsImg.classList.remove(
-    "anim-bounce",
-    "anim-slide",
-    "anim-rotate",
-    "anim-hair"
-  );
-
-  // animate out
-  decoratorsImg.classList.add("animate-out");
-
-  setTimeout(() => {
-    // change image
-    decoratorsImg.src = "assets/images/cute-avatar/" + ariaLabel + ".png";
-
-    // choose animation type
-    if (ariaLabel.includes("heart") || ariaLabel.includes("flower")) {
-      decoratorsImg.classList.add("anim-bounce");
-    } else if (ariaLabel.includes("headphone")) {
-      decoratorsImg.classList.add("anim-slide");
-    } else if (ariaLabel.includes("cap")) {
-      decoratorsImg.classList.add("anim-rotate");
-    } else if (ariaLabel.includes("hair") || ariaLabel.includes("pony")) {
-      decoratorsImg.classList.add("anim-hair");
-    }
-
-    // animate in
-    decoratorsImg.classList.remove("animate-out");
-    decoratorsImg.classList.add("animate-in");
-  }, 200);
-};
-
-buttonContainerDecorator.addEventListener("click", handleDecoratorsBox);
-buttonContainerHeadDecorator.addEventListener("click", handleHeadDecoratorsBox);
+buttonContainerDecorator.addEventListener("click", (event) => {
+  handleAllDecoratorsBox(event, decoratorsImg, "decorators")
+});
+buttonContainerHeadDecorator.addEventListener("click", (event) => {
+  handleAllDecoratorsBox(event, headDecoratorsImg, "head-decorators")
+});
 
 const charector = document.querySelector('[aria-label="charector"]');
 
