@@ -8,10 +8,10 @@
 
 ### 🔴 🎥 Video
 
-https://github.com/user-attachments/assets/a072f59b-f487-4375-840a-6ec3dd64c952
+https://github.com/user-attachments/assets/b909d68d-ddbb-4da2-81de-916d2fd5aec9
 
 
-⬇️[Demo Video Download](assets/videos/portfolio-v2-mobile-demo.mp4)
+⬇️[Demo Video Download](assets/videos/portfolio-v2.2-mobile-demo.mp4)
 
 
 ### 🔴 ↗️ Link
