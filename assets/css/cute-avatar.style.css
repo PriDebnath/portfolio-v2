@@ -1,4 +1,8 @@
-/* #cute-avatar-section {} */
+#cute-avatar-section {
+    width: 20rem;
+    aspect-ratio: 1;
+    max-width: 25rem;
+}
 
 
 .cute-avatar-box {
@@ -142,7 +146,7 @@ div[aria-label="head-decorators-button-container"], div[aria-label="decorators-b
 }
 
 .cute-avatar-section {
-    border: 8px solid black;
+    border: 0.35rem solid black;
     border-radius: 1rem 1rem 0 0;
 }
 
@@ -152,19 +156,23 @@ div[aria-label="head-decorators-button-container"], div[aria-label="decorators-b
     overflow: auto;
     padding: 1rem;
     gap: 1rem;
-    border: 8px solid black;
+    border: 0.35rem solid black;
     border-top: none;
     border-radius: 0 0 1rem 1rem;
 
 }
 
-@media (min-width:900px) {
+@media (min-width:400px) {
+    .cute-avatar-container{
+        flex-wrap: nowrap;
+    }
+ 
     .cute-avatar-section {
         border-radius: 1rem 0 0 1rem;
     }
 
     .cute-avatar-controller-section {
-        border: 8px solid black;
+        border: 0.35rem solid black;
         border-left: none;
         border-radius: 0 1rem 1rem 0;
     }
