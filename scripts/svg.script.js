@@ -1155,6 +1155,52 @@ export const youtubeSvg = `
 </svg>
 `
 
+export const upworkSvg = `
+<svg id="upwork"
+     xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24">
+
+  <g fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Outer Rounded Square -->
+    <path stroke-width="2"
+          stroke-dasharray="72"
+          stroke-dashoffset="72"
+          d="M16 3c2.76 0 5 2.24 5 5v8c0 2.76-2.24 5-5 5h-8c-2.76 0-5-2.24-5-5v-8c0-2.76 2.24-5 5-5h8Z">
+      <animate attributeName="stroke-dashoffset"
+               dur="0.6s"
+               values="72;0"
+               fill="freeze"/>
+    </path>
+
+    <!-- Refined "Up" inspired by Upwork wordmark -->
+    <path stroke-width="1.7"
+          stroke-dasharray="95"
+          stroke-dashoffset="95"
+          d="M6.8 10.5
+             v2.5
+             a2.7 2.7 0 0 0 5.4 0
+             v-2.5
+             M12.2 12
+             q1.8 4 4.8 2.2
+             a2.6 2.6 0 1 0 -2.2 -4.4
+             v8">
+      <animate attributeName="stroke-dashoffset"
+               from="95"
+               to="0"
+               dur="2s"
+               fill="freeze"/>
+    </path>
+
+  </g>
+</svg>
+`;
+
 
 const renderSvg = (spanTags, svg) => {
   spanTags.forEach((span) => {
@@ -1191,6 +1237,7 @@ let spanSvgyoutube = document.querySelectorAll('.span-svg-youtube')
 let spanSvggumroad = document.querySelectorAll('.span-svg-gumroad')
 let spanSvgBadge = document.querySelectorAll('.span-svg-badge')
 let spanSvgFiverr = document.querySelectorAll('.span-svg-fiverr')
+let spanSvgUpwork = document.querySelectorAll('.span-svg-upwork')
 let spanSvgFiverrClient = document.querySelectorAll('.span-svg-fiverr-client')
 let spanSvgUpworkClient = document.querySelectorAll('.span-svg-upwork-client')
 let spanSvgVerifiedClient = document.querySelectorAll('.span-svg-verified-client')
@@ -1237,6 +1284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSvg(spanSvgyoutube, youtubeSvg)
     renderSvg(spanSvggumroad, gumroadSvg)
     renderSvg(spanSvgFiverr, fiverrSvg)
+    renderSvg(spanSvgUpwork, upworkSvg)
     renderSvg(spanSvgFiverrClient, fiverrClientSvg)
     renderSvg(spanSvgUpworkClient, upworkClientSvg)
     renderSvg(spanSvgVerifiedClient, verifiedClientSvg)
