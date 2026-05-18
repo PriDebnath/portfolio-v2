@@ -32,13 +32,19 @@ function fadeTypingAnimation(element, text, speed = 50) {
       let wordSpan = document.createElement('span'); // Wrap each word
       wordSpan.classList.add('fade-word');
       element.appendChild(wordSpan);
-
       function typeLetter() {
         if (j < words[i].length) {
           let letterSpan = document.createElement('span');
           letterSpan.classList.add('fade-letter');
           letterSpan.style.opacity = '0'; // Start hidden
-          letterSpan.innerText = words[i][j]; // Add letter
+          const word = words[i][j]
+          if (word == "/") {
+            const br = document.createElement('div')
+            br.classList = 'break'
+            element.append(br);
+          } else {
+            letterSpan.innerText = word; // Add letter
+          }
           wordSpan.appendChild(letterSpan);
 
           setTimeout(() => {
