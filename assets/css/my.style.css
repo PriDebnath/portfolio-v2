@@ -1,7 +1,8 @@
 :root {
     --me-height: 20vh;
-    --message-popup-animation-duration: 3000; 
-    --message-popup-animation-stay: 15000; /* based on: animation-duration: calc(var(--message-popup-animation-duration) * 5ms); */
+    --message-popup-animation-duration: 300;
+    --message-popup-animation-stay: 150;
+    /* based on: animation-duration: calc(var(--message-popup-animation-duration) * 5ms); */
 
 }
 
@@ -43,11 +44,12 @@
     padding: 0.4rem 0.8rem;
     border-radius: 0.4rem;
     z-index: 40;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 500;
     background: var(--cloud-color-2);
     transform-origin: bottom;
-    transform: rotateX(90deg);
+    /* transform: rotateX(90deg); */
+    transform: rotateX(0deg);
     animation: message-popup forwards;
     animation-duration: calc(var(--message-popup-animation-duration) * 5ms);
     transition: calc(var(--message-popup-animation-duration) * 0.1ms);
@@ -55,11 +57,15 @@
     /*   border-bottom: none */
 }
 
-.me:hover .message {
+.message-rotateX-90{
+    transform: rotateX(90deg) !important;
+}
+
+/* .me:hover .message {
     transform: rotateX(0deg);
     transition: calc(var(--message-popup-animation-duration) * 0.1ms);
 
-}
+} */
 
 .message:after {
     position: absolute;
@@ -77,19 +83,48 @@
 
 }
 
+
+
+.message-cross {
+    position: absolute;
+    /* content: "x"; */
+    /* content: "&#10006"; */
+    height: 20%;
+    line-height: 0;
+    aspect-ratio: 1;
+    background: var(--cloud-color-2);
+    border: 1px solid var(--cloud-color-1);
+    right: 4%;
+    top: -11%;
+    z-index: 50;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem;
+    aspect-ratio: 1;
+    /* transform: rotate(133deg); */
+    backdrop-filter: blur(90px);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.message-cross:hover {
+    color: red;
+}
+
 @keyframes message-popup {
-    5% {
+    /* 5% {
         transform: rotateX(0deg);
     }
 
     90% {
         transform: rotateX(0deg);
         opacity: 1;
-    }
+    } */
 
     100% {
         transform: rotateX(0deg);
-        opacity: 0;
+        /* opacity: 0; */
     }
 }
 
