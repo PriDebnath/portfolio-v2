@@ -52,7 +52,7 @@ const handleAllDecoratorsBox = (event, img, type) => {
       img.classList.add("anim-bounce");
     } else if (ariaLabel.includes("headphone")) {
       img.classList.add("anim-slide");
-    } else if (ariaLabel.includes("cap")) {
+    } else if (ariaLabel.includes("cap") || ariaLabel.includes("hat")) {
       img.classList.add("anim-rotate");
     } else if (ariaLabel.includes("hair") || ariaLabel.includes("pony")) {
       img.classList.add("anim-hair");
