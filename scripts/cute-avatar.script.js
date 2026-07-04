@@ -50,9 +50,9 @@ const handleAllDecoratorsBox = (event, img, type) => {
     // choose animation type
     if (ariaLabel.includes("heart") || ariaLabel.includes("flower")) {
       img.classList.add("anim-bounce");
-    } else if (ariaLabel.includes("headphone")) {
+    } else if (ariaLabel.includes("headphone") || ariaLabel.includes("hat")) {
       img.classList.add("anim-slide");
-    } else if (ariaLabel.includes("cap") || ariaLabel.includes("hat")) {
+    } else if (ariaLabel.includes("cap")) {
       img.classList.add("anim-rotate");
     } else if (ariaLabel.includes("hair") || ariaLabel.includes("pony")) {
       img.classList.add("anim-hair");
