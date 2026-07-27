@@ -460,7 +460,7 @@
   font-size: 1.8rem;
   font-weight: 600;
   font-family: "Delius", serif;
-  padding-top: 5rem;
+  /* padding-top: 8rem; */
 }
 
 
@@ -471,10 +471,29 @@
 }
 
 
+.join {
+  height: 20dvh;
+  /* backdrop-filter: blur(5px); */
+}
+
+
 @media (min-width:900px) {
   .grid-col1-md-col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-col1-md-col2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--body-text-color);
+    transform: translateX(-50%);
+    opacity: 0.35;
+
   }
 }
 
@@ -576,20 +595,20 @@
   opacity: 1;
 }
 
- h3 {
-    font-size: 1.5rem;
-    padding: 0.5rem 0;
-    margin: 0;
-    font-weight: 600;
-    font-family: "Delius", serif;
+h3 {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-weight: 600;
+  font-family: "Delius", serif;
 
 }
 
 
-.card{ 
-    background: var(--project-bg-color);
-    border: 1px solid var(--project-border-color);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
+.card {
+  background: var(--project-bg-color);
+  border: 1px solid var(--project-border-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
 
 }

@@ -62,6 +62,10 @@ const rcCardReadId = "rc-card-read"
 const cardRead = document.getElementById(rcCardReadId)
 const readings = [
     {
+name: "The Metamorphosis",
+by: "Franz Kafka"
+    },
+    {
         name: "Show Your Work",
         by: "Austin Kleon"
     },
