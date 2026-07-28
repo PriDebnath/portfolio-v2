@@ -90,26 +90,47 @@ let frontendSkills = [
 ];
 
 let backendSkills = [
+    {
+    title: "Express.js", color: "#bdcd29",
+    link: "https://expressjs.com/",
+    icon: null // Icon is handled by span-svg-node class
+  },
+    {
+    title: "Node.js", color: "#83CD29",
+    link: "https://nodejs.org/en/docs/",
+    icon: null // Icon is handled by span-svg-node class
+  },
+    {
+    title: "Elysia", color: "#0D99FF",
+    link: "https://elysiajs.com/",
+    icon: null // Icon is handled by span-svg-elysia class
+  },
   {
     title: "Bun", color: "#F1B31C",
     link: "https://bun.sh/",
     icon: null // Icon is handled by span-svg-bun class
   },
   {
-    title: "Elysia", color: "#0D99FF",
-    link: "https://elysiajs.com/",
-    icon: null // Icon is handled by span-svg-elysia class
-  },
-  {
-    title: "Node.js", color: "#83CD29",
-    link: "https://nodejs.org/en/docs/",
-    icon: null // Icon is handled by span-svg-node class
-  },
-  {
     title: "Django", color: "#092E20",
     link: "https://docs.djangoproject.com/en/4.0/",
     icon: null // Icon is handled by span-svg-django class
-  }
+  },
+  
+  {
+    title: "PostgreSQL", color: "#0D99FF",
+    link: "https://www.postgresql.org/",
+    icon: null // Icon is handled by span-svg-elysia class
+  },
+  {
+    title: "MongoDB", color: "#0D99FF",
+    link: "https://www.mongodb.com/",
+    icon: null // Icon is handled by span-svg-elysia class
+  },
+  {
+    title: "Docker", color: "#0D99FF",
+    link: "https://www.docker.com/",
+    icon: null // Icon is handled by span-svg-elysia class
+  },
 ];
 
 
