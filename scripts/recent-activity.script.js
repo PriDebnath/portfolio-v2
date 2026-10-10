@@ -32,6 +32,10 @@ let MEDIUM_BLOG_API = 'https://api.rss2json.com/v1/api.json?rss_url=https://medi
 const rcCardDrewId = "rc-card-drew"
 const cardDrew = document.getElementById(rcCardDrewId)
 const drawings = [
+    'assets/images/drawings/Cozy-duo-summer.png',
+    'assets/images/drawings/Cozy-duo-fall.png',
+    'assets/images/drawings/Cozy-duo-spring.png',
+    
     'assets/images/drawings/in-promise.png',
     'assets/images/drawings/in-pain.png',
     'assets/images/drawings/in-winter.png',
