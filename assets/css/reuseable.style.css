@@ -612,3 +612,12 @@ h3 {
   padding: 1.5rem;
 
 }
+
+.letter{
+  /* margin: 0 2rem 0 2rem; */
+  border-radius: 0.25rem;
+  /* padding: 0.2rem 0.4rem; */
+  /* color: var(); */
+  font-size: 0.75rem !important;
+  /* border: 2px solid var(--body-text-color); */
+}
