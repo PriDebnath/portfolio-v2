@@ -182,4 +182,41 @@ window.addEventListener("resize", () => {
   canvas.width = W;
   canvas.height = H;
 });
+let heart = document.getElementById("heart");
 
+let current = "october";
+let year = 2026;
+
+let now = new Date();
+
+let currentMonth = now.toLocaleString("en-US", {
+  month: "long",
+}).toLowerCase();
+
+let currentYear = now.getFullYear();
+
+let positive = "pumping blood";
+let negative = "not pumping blood anymore";
+let mainText = heart.innerText??"❤️";
+let fontSize = heart.style.fontSize
+let currentText = '';
+
+if (currentMonth === current && currentYear === year) {
+  heart.style.animation = "heartbeat 1s infinite";
+  heart.title = positive;
+currentText=positive
+
+} else {
+  heart.style.animation = "none";
+  heart.title = negative;
+currentText=negative
+}
+
+  setInterval(() => {
+    heart.innerText = currentText;
+    heart.style.fontSize='0.5rem'
+    setTimeout(() => {
+      heart.innerText = mainText;
+    heart.style.fontSize=fontSize
+    }, 1000);
+  }, 10000);
