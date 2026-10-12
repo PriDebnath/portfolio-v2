@@ -99,6 +99,7 @@ footer .text-box {
 
 .heart {
     display: inline-block;
+    /* font-size: 0.5rem; */
     /* animation: heartbeat 1s infinite ease-in-out; */
 }
 
