@@ -183,3 +183,18 @@ window.addEventListener("resize", () => {
   canvas.height = H;
 });
 
+let heart = document.getElementById("heart");
+let current = "october";
+
+let currentMonth = new Date().toLocaleString("en-US", {
+  month: "long",
+}).toLowerCase();
+let positive  ="pumping blood";
+let negative  ="not pumping blood anymore";
+
+if (currentMonth === current) {
+  heart.style.animation = "heartbeat 1s infinite";
+  heart.title =positive
+}else{
+  heart.title = negative
+}
