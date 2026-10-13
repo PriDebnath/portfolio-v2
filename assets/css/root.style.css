@@ -72,12 +72,12 @@ button {
 .modal {
   background: rgba(45, 40, 0, 0.6);
   background: var(--project-bg-color);
-  padding: 20px;
+  padding: 0.5rem;
   border-radius: 10px;
   border: 1px solid var(--project-border-color);
   border-radius: 0.5rem;
   width: 95%;
-  aspect-ratio: 1/1.25;
+  aspect-ratio: 1/1.4;
   text-align: center;
   transform: scale(0.8);
   transition: transform 0.3s;
