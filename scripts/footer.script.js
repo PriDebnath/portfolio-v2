@@ -184,7 +184,7 @@ window.addEventListener("resize", () => {
 });
 let heart = document.getElementById("heart");
 
-let current = "october";
+let current = "november";
 let year = 2026;
 
 let now = new Date();
