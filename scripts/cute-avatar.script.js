@@ -36,8 +36,10 @@ const handleAllDecoratorsBox = (event, img, type) => {
   img.classList.remove(
     "anim-bounce",
     "anim-slide",
+    "anim-slide-up",
     "anim-rotate",
-    "anim-hair"
+    "anim-hair",
+    "autumn-leaf",
   );
 
   // animate out
@@ -48,10 +50,21 @@ const handleAllDecoratorsBox = (event, img, type) => {
     img.src = "assets/images/cute-avatar/" + ariaLabel + ".png";
 
     // choose animation type
-    if (ariaLabel.includes("heart") || ariaLabel.includes("flower")) {
+    if (ariaLabel.includes("heart") 
+      || ariaLabel.includes("flower")
+   ) {
       img.classList.add("anim-bounce");
-    } else if (ariaLabel.includes("headphone") || ariaLabel.includes("hat")) {
+    } else if (ariaLabel.includes("headphone")
+       || ariaLabel.includes("hat")
+       || ariaLabel.includes("stones")
+         || ariaLabel.includes("duck")
+    || ariaLabel.includes("snowman")
+      ) {
       img.classList.add("anim-slide");
+    }  else if ( ariaLabel.includes("pot")) {
+      img.classList.add("anim-slide-up");
+    }  else if ( ariaLabel.includes("leaf")) {
+      img.classList.add("autumn-leaf");
     } else if (ariaLabel.includes("cap")) {
       img.classList.add("anim-rotate");
     } else if (ariaLabel.includes("hair") || ariaLabel.includes("pony")) {
